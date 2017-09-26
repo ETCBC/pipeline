@@ -2,7 +2,9 @@
 
 ![text-fabric](https://raw.github.com/ETCBC/text-fabric/master/docs/tf.png)
 
-![ETCBC](etcbc.pnng)
+**from**
+![ETCBC](etcbc.png)
+**to**
 ![shebanq](shebanq.png)
 
 # About
