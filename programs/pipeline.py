@@ -1,12 +1,64 @@
 import os
+from shutil import copy
 import nbformat
 from nbconvert import PythonExporter
 
 py = PythonExporter()
 
 githubBase = os.path.expanduser('~/github/etcbc')
+pipelineRepo = 'pipeline'
+utilsScript = 'programs/utils.py'
+
 programDir = 'programs'
 standardParams = 'CORE_NAME VERSION CORE_MODULE'
+
+def caption(level, heading, good=None):
+    prefix = '' if good == None else 'SUCCES ' if good else 'FAILURE '
+    reportHeading = '{}{}'.format(prefix, heading)
+    if level == 1:
+        print('''
+##{}##
+# {} #
+# {} #
+# {} #
+##{}##
+
+'''.format(
+            '#' * 80,
+            ' ' * 80,
+            '{:<80}'.format(reportHeading),
+            ' ' * 80,
+            '#' * 80,
+        ))
+    elif level == 2:
+        print('''
+=={}==
+= {} =
+= {} =
+= {} =
+=={}==
+
+'''.format(
+            '=' * 40,
+            ' ' * 40,
+            '{:<40}'.format(reportHeading),
+            ' ' * 40,
+            '=' * 40,
+        ))
+    elif level == 3:
+        print('''
+--{}--
+- {} -
+--{}--
+
+'''.format(
+            '-' * 40,
+            '{:<40}'.format(reportHeading),
+            '-' * 40,
+        ))
+
+def report(level, heading, good):
+    caption(level, reportHeading)
 
 def mustRun(force):
     def _mustRun(fileIn, fileOut):
@@ -49,6 +101,7 @@ def mustRun(force):
     return _mustRun
 
 def runNb(repo, dirName, nb, force=False, **parameters):
+    caption(3, 'Run notebook [{}/{}]'.format(repo, nb))
     location = '{}/{}/{}'.format(githubBase, repo, dirName)
     nbFile = '{}/{}.ipynb'.format(location, nb)
     pyFile = '{}/{}.py'.format(location, nb)
@@ -72,6 +125,7 @@ def runNb(repo, dirName, nb, force=False, **parameters):
             good = inst.args[0] == 0
         print('{} {}'.format('SUCCESS' if good else 'FAILURE', nb))
 
+    caption(3, '[{}/{}]'.format(repo, nb), good=good)
     return good
 
 def checkRepo(repo, repoConfig, force=False, **parameters):
@@ -92,16 +146,27 @@ def checkRepo(repo, repoConfig, force=False, **parameters):
     return good
 
 def runRepo(repo, repoConfig, force=False, **parameters):
-    good = True
+    caption(2, 'Make repo [{}]'.format(repo))
+    # copy the utils.py from the pipeline repo to the target repo
+    copy(
+        '{}/{}/{}'.format(githubBase, pipelineRepo, utilsScript),
+        '{}/{}/{}'.format(githubBase, repo, utilsScript),
+    )
     for item in repoConfig:
         task = item['task']
+        omit = item.get('omit', set())
         paramNames = (standardParams + ' ' + item.get('params', '')).strip().split() 
         paramValues = dict()
         for param in paramNames:
             paramValues[param] = parameters[param]
+        version = paramValues.get('VERSION', 'UNKNOWN')
+        if version in omit:
+            caption(3, '[{}/{}] skipped in version [{}]'.format(repo, task, version))
+            return True
 
         good = runNb(repo, programDir, task, force=force, **paramValues)
         if not good: break
+    caption(2, '[{}]'.format(repo), good=good)
     return good
 
 def runRepos(repoOrder, repoConfig, force=False, **parameters):
@@ -120,6 +185,8 @@ def runRepos(repoOrder, repoConfig, force=False, **parameters):
     return good
 
 def runPipeline(pipeline, version=None, force=False):
+    caption(1, 'Make version [{}]'.format(version))
+    
     good = True
     for key in ('defaults', 'versions', 'repoOrder', 'repoConfig'):
         if key not in pipeline:
@@ -166,8 +233,7 @@ def runPipeline(pipeline, version=None, force=False):
     if not good:
         return False
 
-    print('Going to run pipeline for version {}'.format(version))
-    
-    return runRepos(repoOrder, repoConfig, force=force, **paramValues)
-
+    good = runRepos(repoOrder, repoConfig, force=force, **paramValues)
+    caption(1, '[{}]'.format(version), good=good)
+    return good
 
