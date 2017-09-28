@@ -66,6 +66,7 @@ def runRepo(repo, repoConfig, force=False, **parameters):
         '{}/{}/{}'.format(githubBase, pipelineRepo, utilsScript),
         '{}/{}/{}'.format(githubBase, repo, utilsScript),
     )
+    good = True
     for item in repoConfig:
         task = item['task']
         omit = item.get('omit', set())
