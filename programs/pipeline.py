@@ -12,7 +12,7 @@ pipelineRepo = 'pipeline'
 utilsScript = 'programs/utils.py'
 
 programDir = 'programs'
-standardParams = 'CORE_NAME VERSION CORE_MODULE'
+standardParams = 'CORE_NAME VERSION CORE_MODULE'.strip().split()
 
 def runNb(repo, dirName, nb, force=False, **parameters):
     caption(3, 'Run notebook [{}/{}]'.format(repo, nb))
@@ -50,8 +50,7 @@ def checkRepo(repo, repoConfig, force=False, **parameters):
             caption(0, 'ERROR: missing task name in item {}'.format(item))
             good = False
 
-        paramNames = (standardParams + ' ' + item.get('params', '')).strip().split() 
-        for param in paramNames:
+        for param in standardParams:
             if param not in parameters:
                 caption(0, 'ERROR: {} needs parameter {} which is not supplied'.format(
                     task, param,
@@ -70,10 +69,11 @@ def runRepo(repo, repoConfig, force=False, **parameters):
     for item in repoConfig:
         task = item['task']
         omit = item.get('omit', set())
-        paramNames = (standardParams + ' ' + item.get('params', '')).strip().split() 
         paramValues = dict()
-        for param in paramNames:
+        for param in standardParams:
             paramValues[param] = parameters[param]
+        if 'params' in item:
+            paramValues.update(item['params'])
         version = paramValues.get('VERSION', 'UNKNOWN')
         if version in omit:
             caption(3, '[{}/{}] skipped in version [{}]'.format(repo, task, version))
@@ -135,7 +135,7 @@ def runPipeline(pipeline, version=None, force=False):
 
     versionInfo = pipeline['versions'][version]
     paramValues = dict()
-    for param in standardParams.strip().split():
+    for param in standardParams:
         if param == 'VERSION':
             value = version
         else:
