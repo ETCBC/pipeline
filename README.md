@@ -1,13 +1,6 @@
 # Pipeline
 
-![text-fabric](https://raw.github.com/ETCBC/text-fabric/master/docs/tf.png)
-
-**from**
-![ETCBC](etcbc.png)
-**to**
-![text-fabric](https://raw.github.com/ETCBC/text-fabric/master/docs/tf.png)
-**to**
-![shebanq](shebanq.png)
+![pipeline](docs/pictures/pictures.001.png)
 
 # About
 This is the connection between the Amsterdam Hebrew data of the 
