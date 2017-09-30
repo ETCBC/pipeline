@@ -2,6 +2,7 @@ import os
 from shutil import copy
 import nbformat
 from nbconvert import PythonExporter
+from tf.fabric import Fabric
 
 from utils import *
 
@@ -13,6 +14,7 @@ utilsScript = 'programs/utils.py'
 
 programDir = 'programs'
 standardParams = 'CORE_NAME VERSION CORE_MODULE'.strip().split()
+
 
 def runNb(repo, dirName, nb, force=False, **parameters):
     caption(3, 'Run notebook [{}/{}]'.format(repo, nb))
@@ -151,4 +153,75 @@ def runPipeline(pipeline, version=None, force=False):
     good = runRepos(repoOrder, repoConfig, force=force, **paramValues)
     caption(1, '[{}]'.format(version), good=good)
     return good
+
+def webPipeline(pipeline, version, force=False):
+    caption(1, 'Aggregate MLQ for version {}'.format(version))
+    good = True
+    for key in ('repoOrder', 'coreModule'):
+        if key not in pipeline:
+            caption(0, '\tERROR: no {} declared in the pipeline'.format(key))
+            good = False
+    if not good:
+        return False
+
+    repoOrder = pipeline['repoOrder'].strip().split()
+    coreModule = pipeline['coreModule']
+
+    resultRepo = repoOrder[0]
+    addedRepos = repoOrder[1:]
+
+    tempDir = '{}/{}/_temp/{}'.format(githubBase, resultRepo, version)
+    shebanqDir = '{}/{}/shebanq/{}'.format(githubBase, resultRepo, version)
+
+    dbName = '{}_xx'.format(resultRepo)
+
+    mqlUFile = '{}/{}.mql'.format(tempDir, dbName)
+    mqlZFile = '{}/{}.mql.bz2'.format(shebanqDir, dbName)
+
+    xmU = os.path.exists(mqlUFile)
+    xmZ = os.path.exists(mqlZFile)
+
+    uptodate = True
+
+    referenceFile = mqlUFile if xmU else mqlZfile
+
+    if not os.path.exists(referenceFile):
+        uptodate = False
+        caption(0, '\tWork to do because {} does not exist'.format(referenceFile))
+    else:
+        tmR = os.path.getmtime(referenceFile)
+        for (i, repo) in enumerate(repoOrder):
+            module = repo if i else coreModule
+            tfxDir = '{}/{}/tf/{}/{}/.tf'.format(githubBase, repo, version, module)
+            if not os.path.exists(tfxDir):
+                uptodate = False
+                caption(0, '\tWork to do because the tf in {} is fresh'.format(repo))
+                caption(0, '\t\t{}'.format(tfxDir))
+                break
+            if os.path.getmtime(tfxDir) > tmR:
+                uptodate = False
+                caption(0, '\tWork to do because the tf in {} is recently compiled'.format(repo))
+                caption(0, '\t\t{}'.format(tfxDir))
+                break
+
+    if uptodate and force:
+        caption(0, '\tWork to do because you forced me to!')
+        uptodate = False
+    if not uptodate:
+        caption(1, 'Using TF to make an MQL export')
+        locations = []
+        modules = []
+        for (i, repo) in enumerate(repoOrder):
+            module = repo if i else coreModule
+            locations.append('{}/{}/tf/{}'.format(githubBase, repo, version))
+            modules.append(module)
+
+        TF = Fabric(locations=locations, modules=modules) 
+        TF.exportMQL(dbName, tempDir)
+    else:
+        caption(0, '\tAlready up to date')
+
+    caption(0, '\tbzipping {}'.format(mqlUFile))
+    caption(0, '\tand delivering as {}'.format(mqlZFile))
+    bzip(mqlUFile, mqlZFile)
 
