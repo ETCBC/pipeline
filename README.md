@@ -6,7 +6,7 @@
 This is the connection between the Amsterdam Hebrew data of the 
 [ETCBC](http://www.godgeleerdheid.vu.nl/en/research/institutes-and-centres/eep-talstra-centre-for-bible-and-computer/index.aspx)
 and the website
-[SHEBANQ](https://shebanq.ancient-data.org/sources).
+[SHEBANQ](https://shebanq.ancient-data.org/sources)
 of
 [DANS](https://dans.knaw.nl/en/front-page?set_language=en).
 
@@ -26,7 +26,7 @@ provided the pipeline is executed frequently.
 This repo contains a pipeline in software by which the ETCBC can update its public data sources.
 The pipeline has two main pipes:
 * [ETCBC to TF](https://github.com/ETCBC/pipeline/blob/master/programs/tfFromEtcbc.ipynb)
-* [TF to SHEBANQ](https://github.com/ETCBC/pipeline/blob/master/programs/shebanqFromTF.ipynb).
+* [TF to SHEBANQ](https://github.com/ETCBC/pipeline/blob/master/programs/shebanqFromTf.ipynb).
 
 Between the two pipes there is a set of open Github repositories that contain the data
 in a compact, text-based format,
