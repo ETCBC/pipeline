@@ -158,7 +158,7 @@ def runPipeline(pipeline, version=None, force=False):
 def webPipeline(pipeline, version, force=False):
     caption(1, 'Aggregate MLQ for version {}'.format(version))
     good = True
-    for key in ('repoOrder', 'coreModule'):
+    for key in (['repoOrder']):
         if key not in pipeline:
             caption(0, '\tERROR: no {} declared in the pipeline'.format(key))
             good = False
@@ -166,17 +166,19 @@ def webPipeline(pipeline, version, force=False):
         return False
 
     repoOrder = pipeline['repoOrder'].strip().split()
-    coreModule = pipeline['coreModule']
 
     resultRepo = repoOrder[0]
     addedRepos = repoOrder[1:]
 
-    tempDir = '{}/{}/_temp/{}'.format(githubBase, resultRepo, version)
-    shebanqDir = '{}/{}/shebanq/{}'.format(githubBase, resultRepo, version)
+    resultRepoDir = '{}/{}'.format(githubBase, resultRepo)
+
+    thisTempDir = '{}/_temp/{}'.format(resultRepoDir, version)
+    tempShebanqDir = '{}/shebanq'.format(thisTempDir)
+    shebanqDir = '{}/shebanq/{}'.format(resultRepoDir, version)
 
     dbName = '{}_xx'.format(resultRepo)
 
-    mqlUFile = '{}/{}.mql'.format(tempDir, dbName)
+    mqlUFile = '{}/{}.mql'.format(tempShebanqDir, dbName)
     mqlZFile = '{}/{}.mql.bz2'.format(shebanqDir, dbName)
 
     xmU = os.path.exists(mqlUFile)
@@ -192,8 +194,7 @@ def webPipeline(pipeline, version, force=False):
     else:
         tmR = os.path.getmtime(referenceFile)
         for (i, repo) in enumerate(repoOrder):
-            module = repo if i else coreModule
-            tfxDir = '{}/{}/tf/{}/{}/.tf'.format(githubBase, repo, version, module)
+            tfxDir = '{}/{}/tf/{}/.tf'.format(githubBase, repo, version)
             if not os.path.exists(tfxDir):
                 uptodate = False
                 caption(0, '\tWork to do because the tf in {} is fresh'.format(repo))
@@ -211,18 +212,16 @@ def webPipeline(pipeline, version, force=False):
     if not uptodate:
         caption(1, 'Using TF to make an MQL export')
         locations = []
-        modules = []
         for (i, repo) in enumerate(repoOrder):
-            module = repo if i else coreModule
             locations.append('{}/{}/tf/{}'.format(githubBase, repo, version))
-            modules.append(module)
 
-        TF = Fabric(locations=locations, modules=modules) 
-        TF.exportMQL(dbName, tempDir)
+        TF = Fabric(locations=locations, modules=['']) 
+        TF.exportMQL(dbName, tempShebanqDir)
     else:
         caption(0, '\tAlready up to date')
 
     caption(0, '\tbzipping {}'.format(mqlUFile))
-    caption(0, '\tand delivering as {}'.format(mqlZFile))
+    caption(0, '\tand delivering as {} ...'.format(mqlZFile))
     bzip(mqlUFile, mqlZFile)
+    caption(0, '\tDone')
 
