@@ -13,7 +13,7 @@ pipelineRepo = 'pipeline'
 utilsScript = 'programs/utils.py'
 
 programDir = 'programs'
-standardParams = 'CORE_NAME VERSION CORE_MODULE'.strip().split()
+standardParams = 'CORE_NAME VERSION'.strip().split()
 
 
 def runNb(repo, dirName, nb, force=False, **parameters):
@@ -29,6 +29,7 @@ def runNb(repo, dirName, nb, force=False, **parameters):
     with open(pyFile) as s:
         locals()['SCRIPT'] = True
         locals()['FORCE'] = force
+        locals()['NAME'] = repo
         for (param, value) in parameters.items():
             locals()[param] = value
         caption(0, 'START {} ({})'.format(
