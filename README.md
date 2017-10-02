@@ -30,7 +30,7 @@ The pipeline has two main pipes:
 
 Between the two pipes there is a set of open Github repositories that contain the data
 in a compact, text-based format,
-[text-fabric](https://github.com/ETCBC/text-fabric/wiki),
+[text-fabric](https://github.com/Dans-labs/text-fabric/wiki),
 which is uniquely suited to frictionless data processing.
 
 Only the first pipe has been fully developed so far,
