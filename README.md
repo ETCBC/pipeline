@@ -4,7 +4,7 @@
 
 # About
 This is the connection between the Amsterdam Hebrew data of the 
-[ETCBC](http://www.godgeleerdheid.vu.nl/en/research/institutes-and-centres/eep-talstra-centre-for-bible-and-computer/index.aspx)
+[ETCBC](http://etcbc.nl)
 and the website
 [SHEBANQ](https://shebanq.ancient-data.org/sources)
 of
