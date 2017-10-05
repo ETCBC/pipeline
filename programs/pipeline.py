@@ -17,7 +17,10 @@ standardParams = 'CORE_NAME VERSION'.strip().split()
 
 
 def runNb(repo, dirName, nb, force=False, **parameters):
-    caption(3, 'Run notebook [{}/{}]'.format(repo, nb))
+    caption(3, 'Run notebook [{}/{}] with parameters:'.format(repo, nb))
+    for (param, value) in sorted(parameters.items()):
+        caption(0, '\t{:<20} = {}'.format(param, value))
+
     location = '{}/{}/{}'.format(githubBase, repo, dirName)
     nbFile = '{}/{}.ipynb'.format(location, nb)
     pyFile = '{}/{}.py'.format(location, nb)
@@ -32,10 +35,7 @@ def runNb(repo, dirName, nb, force=False, **parameters):
         locals()['NAME'] = repo
         for (param, value) in parameters.items():
             locals()[param] = value
-        caption(0, 'START {} ({})'.format(
-            nb,
-            ', '.join('{}={}'.format(*p) for p in sorted(parameters.items())),
-        ))
+
         try:
             exec(s.read(), locals())
         except SystemExit as inst:
@@ -73,8 +73,9 @@ def runRepo(repo, repoConfig, force=False, **parameters):
         task = item['task']
         omit = item.get('omit', set())
         paramValues = dict()
-        for param in standardParams:
+        for (param, values) in parameters.items():
             paramValues[param] = parameters[param]
+
         if 'params' in item:
             paramValues.update(item['params'])
         version = paramValues.get('VERSION', 'UNKNOWN')
@@ -102,7 +103,7 @@ def runRepos(repoOrder, repoConfig, force=False, **parameters):
         if not good: break
     return good
 
-def runPipeline(pipeline, version=None, force=False):
+def runVersion(pipeline, version=None, force=False):
     caption(1, 'Make version [{}]'.format(version))
     
     good = True
@@ -148,11 +149,25 @@ def runPipeline(pipeline, version=None, force=False):
             good = False
         else:
             paramValues[param] = value
+    for (param, value) in defaults.items():
+        if param in standardParams: continue
+        paramValues[param] = value
+    for (param, value) in versionInfo.items():
+        if param in standardParams: continue
+        paramValues[param] = value
     if not good:
         return False
 
     good = runRepos(repoOrder, repoConfig, force=force, **paramValues)
     caption(1, '[{}]'.format(version), good=good)
+    return good
+
+def runPipeline(pipeline, versions=None, force=False):
+    good = True
+    chosenVersions = [] if versions == None else [versions] if type(versions) is str else versions 
+    for version in chosenVersions:
+        thisGood = runVersion(pipeline, version=version, force=force)
+        if not thisGood: good = False
     return good
 
 def webPipeline(pipeline, version, force=False):
