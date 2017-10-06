@@ -1,5 +1,5 @@
 import os
-from shutil import copy
+from shutil import copy, copytree, rmtree
 import nbformat
 from nbconvert import PythonExporter
 from tf.fabric import Fabric
@@ -169,6 +169,37 @@ def runPipeline(pipeline, versions=None, force=False):
         thisGood = runVersion(pipeline, version=version, force=force)
         if not thisGood: good = False
     return good
+
+def copyVersion(pipeline, fromVersion, toVersion):
+    caption(1, 'Copy version {} ==> {}'.format(fromVersion, toVersion))
+    
+    good = True
+    for key in ('repoOrder', 'repoDataDirs'):
+        if key not in pipeline:
+            caption(0, 'ERROR: no {} declared in the pipeline'.format(key))
+            good = False
+    if not good:
+        return False
+    for repo in pipeline['repoOrder'].strip().split():
+        caption(2, 'Repo {}'.format(repo))
+        if repo not in pipeline['repoDataDirs']:
+            caption(0, 'Not specified which data directories I should copy over')
+            continue
+        dataDirs = pipeline['repoDataDirs'][repo].strip().split()
+        for dataDir in dataDirs:
+            fromDir = '{}/{}/{}/{}'.format(githubBase, repo, dataDir, fromVersion)
+            toDir = '{}/{}/{}/{}'.format(githubBase, repo, dataDir, toVersion)
+            caption(0, '\tCopy {}/{} ==> {}/{}'.format(dataDir, fromVersion, dataDir, toVersion))
+            if os.path.exists(toDir):
+                caption(0, '\t\tremoving existing {}/{}'.format(dataDir, toVersion))
+                rmtree(toDir)
+            else:
+                caption(0, '\t\tno existing {}/{}'.format(dataDir, toVersion))
+            if os.path.exists(fromDir):
+                caption(0, '\t\tputting data in place from {}/{}'.format(dataDir, fromVersion))
+                copytree(fromDir, toDir)
+            else:
+                caption(0, '\t\tNo data found in {}/{}'.format(dataDir, fromVersion))
 
 def webPipeline(pipeline, version, force=False):
     caption(1, 'Aggregate MLQ for version {}'.format(version))
