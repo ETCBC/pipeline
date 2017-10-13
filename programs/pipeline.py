@@ -1,4 +1,5 @@
 import os
+from subprocess import Popen, PIPE
 from shutil import copy, copytree, rmtree
 import nbformat
 from nbconvert import PythonExporter
@@ -14,7 +15,6 @@ utilsScript = 'programs/utils.py'
 
 programDir = 'programs'
 standardParams = 'CORE_NAME VERSION'.strip().split()
-
 
 def runNb(repo, dirName, nb, force=False, **parameters):
     caption(3, 'Run notebook [{}/{}] with parameters:'.format(repo, nb))
@@ -201,8 +201,21 @@ def copyVersion(pipeline, fromVersion, toVersion):
             else:
                 caption(0, '\t\tNo data found in {}/{}'.format(dataDir, fromVersion))
 
-def webPipeline(pipeline, version, force=False):
-    caption(1, 'Aggregate MLQ for version {}'.format(version))
+def run(cmd):
+    p = Popen([cmd], stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True, universal_newlines=True)
+    for line in p.stdout:
+        caption(0, line)
+    for line in p.stderr:
+        caption(0, line)
+    p.wait()
+    return p.returncode == 0
+
+def webPipeline(pipeline, version=None, force=False):
+    if version == None:
+        caption(0, 'ERROR: no version specified')
+        return False
+
+    caption(1, 'Aggregate MQL for version {}'.format(version))
     good = True
     for key in (['repoOrder']):
         if key not in pipeline:
@@ -221,8 +234,10 @@ def webPipeline(pipeline, version, force=False):
     thisTempDir = '{}/_temp/{}'.format(resultRepoDir, version)
     tempShebanqDir = '{}/shebanq'.format(thisTempDir)
     shebanqDir = '{}/shebanq/{}'.format(resultRepoDir, version)
+    if not os.path.exists(shebanqDir):
+        os.makedirs(shebanqDir)
 
-    dbName = '{}_xx'.format(resultRepo)
+    dbName = 'shebanq_etcbc{}'.format(version)
 
     mqlUFile = '{}/{}.mql'.format(tempShebanqDir, dbName)
     mqlZFile = '{}/{}.mql.bz2'.format(shebanqDir, dbName)
@@ -232,7 +247,7 @@ def webPipeline(pipeline, version, force=False):
 
     uptodate = True
 
-    referenceFile = mqlUFile if xmU else mqlZfile
+    referenceFile = mqlUFile if xmU else mqlZFile
 
     if not os.path.exists(referenceFile):
         uptodate = False
@@ -270,4 +285,62 @@ def webPipeline(pipeline, version, force=False):
     caption(0, '\tand delivering as {} ...'.format(mqlZFile))
     bzip(mqlUFile, mqlZFile)
     caption(0, '\tDone')
+
+    caption(1, 'Create Mysql passage db for version {}'.format(version))
+    runNb(pipelineRepo, programDir, 'passageFromTf', force=force, VERSION=version)
+    caption(0, '\tDone')
+
+    return True
+
+
+def importLocal(pipeline, version=None):
+    if version == None:
+        caption(0, 'ERROR: no version specified')
+        return False
+
+    caption(1, 'Importing MQL and passage databases for version {} locally'.format(version))
+
+    repoOrder = pipeline['repoOrder'].strip().split()
+    resultRepo = repoOrder[0]
+
+    dbName = 'shebanq_etcbc{}'.format(version)
+    dbDir = '{}/{}/shebanq/{}'.format(githubBase, resultRepo, version)
+
+    good = True
+
+    caption(1, 'Import MQL db for version {}'.format(version))
+    dbDir = '{}/{}/_temp/{}/shebanq'.format(githubBase, resultRepo, version)
+    dbName = 'shebanq_etcbc{}'.format(version)
+    pdbName = 'shebanq_passage{}'.format(version)
+    if not run('mysql -u root -e "drop database if exists {};"'.format(dbName)): return False
+    if not run('mql -n -b m -u root -e UTF8 < {}/{}.mql'.format(dbDir, dbName)): return False
+
+    caption(1, 'Import passage db for version {}'.format(version))
+    if not run('mysql -u root < {}/{}.sql'.format(dbDir, pdbName)): return False
+
+    return good
+
+def copyServer(pipeline, user, server, remoteDir, version=None):
+    if version == None:
+        caption(0, 'ERROR: no version specified')
+        return False
+
+    caption(1, 'Sending MQL and passage databases for version {} to server'.format(version))
+
+    repoOrder = pipeline['repoOrder'].strip().split()
+    resultRepo = repoOrder[0]
+
+    dbDir = '{}/{}/shebanq/{}'.format(githubBase, resultRepo, version)
+    dbFile = 'shebanq_etcbc{}.mql.bz2'.format(version)
+    pdbFile = 'shebanq_passage{}.sql.gz'.format(version)
+    address = '{}@{}:{}'.format(user, server, remoteDir)
+
+    good = True
+    for theFile in (dbFile, pdbFile):
+        caption(0, '\t{}'.format(theFile))
+        caption(0, '\tscp {}/{} {}/{}'.format(dbDir, theFile, address, theFile))
+        if not run('scp {}/{} {}/{}'.format(dbDir, theFile, address, theFile)): good = False
+        caption(0, '\tdone')
+    return good
+
 
