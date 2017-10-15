@@ -187,7 +187,7 @@ hasLex = 'lex' in set(F.otype.all)
 # A ``lexicon`` record contains the various lexical fields, such as identifiers, entry representations,
 # additional lexical properties, and a gloss.
 # 
-# We make sure that we translate lexical feature values into values used for the etcbc4.
+# We make sure that we translate lexical feature values into values used for the bhsa.
 # We need the following information per entry:
 # 
 # * **id** a fresh id (see below), to be used in applications, unique over **entryid** and **lan**
