@@ -6,7 +6,7 @@
 This is the connection between the Amsterdam Hebrew data of the 
 [ETCBC](http://etcbc.nl)
 and the website
-[SHEBANQ](https://SHEBANQ.ancient-data.org/sources)
+[SHEBANQ](https://github.com/ETCBC/shebanq/wiki/Sources)
 of
 [DANS](https://dans.knaw.nl/en/front-page?set_language=en).
 
