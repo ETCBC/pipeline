@@ -1,12 +1,15 @@
 
 # coding: utf-8
 
+# <img align="right" src="images/dans-small.png"/>
 # <img align="right" src="images/tf-small.png"/>
+# <img align="right" src="images/etcbc.png"/>
+# 
 # 
 # #  Passage from Tf
 # 
 # This creates passage databases for SHEBANQ.
-# These are MySQL tables, populated with data that SHEBANQ needs to show its pages.
+# These are MYSQL tables, populated with data that SHEBANQ needs to show its pages.
 # Most data comes from the BHSA repository, but we also need a few features from PHONO.
 # 
 # We do not need material from PARALLELS and VALENCE, because they deliver their results for SHEBANQ
@@ -147,9 +150,9 @@ hasLex = 'lex' in set(F.otype.all)
 # 
 # A ``verse``-record contains an identifier, the number of the verse, and a foreign key to the record in the ``chapter`` table to which the verse belongs. More over, it contains the text of the whole verse in two formats:
 # 
-# In field ``text``: the plain unicode text string of the complete verse.
+# In field ``text``: the plain Unicode text string of the complete verse.
 # 
-# In field ``xml``: a sequence of ``<w>`` elements, one for each word in the verse, containing the plain unicode text string of that word as element content.
+# In field ``xml``: a sequence of ``<w>`` elements, one for each word in the verse, containing the plain Unicode text string of that word as element content.
 # The monad number of that word is stored in an attribute value. 
 # The monad number is a globally unique sequence number of a word occurrence in the Hebrew Bible, going from 1 to precisely 426,555.
 # There is also a lexical identifier stored in an attribute value.
@@ -164,9 +167,9 @@ hasLex = 'lex' in set(F.otype.all)
 # and the verse is specified in the field ``verse_id`` as foreign key.
 # The field ``lexicon_id`` is a foreign key into the ``lexicon`` table.
 # 
-# There is also a ``word`` table, meant to store all the information to generate a rich representation of the hebrew text,
+# There is also a ``word`` table, meant to store all the information to generate a rich representation of the Hebrew text,
 # its syntactic structure, and some linguistic properties.
-# See that notebook for a description and an example of the rich hebrew text representation.
+# See that notebook for a description and an example of the rich Hebrew text representation.
 # 
 # The rich data is added per word, but the data has a dependency on the verses the words are contained in.
 # In general, information about sentences, clauses and phrases will be displayed on the first words of those objects,
@@ -180,24 +183,24 @@ hasLex = 'lex' in set(F.otype.all)
 # A ``clause_atom`` record contains an identifier, and the book to which it belongs, and its sequence number within 
 # that book.
 # In SHEBANQ, manual annotations are linked to the clause atom, so we need this information to easily fetch comments to
-# passages and to compose charts and csv files.
+# passages and to compose charts and CSV files.
 # 
 # ## Lexicon
 # 
 # A ``lexicon`` record contains the various lexical fields, such as identifiers, entry representations,
 # additional lexical properties, and a gloss.
 # 
-# We make sure that we translate lexical feature values into values used for the bhsa.
+# We make sure that we translate lexical feature values into values used for the BHSA.
 # We need the following information per entry:
 # 
 # * **id** a fresh id (see below), to be used in applications, unique over **entryid** and **lan**
 # * **lan** the language of the entry, in ISO 639-3 abbreviation
 # * **entryid** the string used as entry in the lexicon and as value of the ``lex`` feature in the text
-# * **g_entryid** the Hebrew untransliteration of entryid, with the disambiguation marks unchanged, corresponds to the ``lex_utf8`` feature
+# * **g_entryid** the Hebrew un-transliteration of entryid, with the disambiguation marks unchanged, corresponds to the ``lex_utf8`` feature
 # * **entry** the unpointed transliteration (= **entryid** without disambiguation marks)
-# * **entry_heb** the unpointed hebrew representation, obtained by untransliterating **entry**
+# * **entry_heb** the unpointed hebrew representation, obtained by un-transliterating **entry**
 # * **g_entry** the pointed transliteration, without disambiguation marks, obtained from ``vc``
-# * **g_entry_heb** the pointed hebrew representation, obtained by untransliterating **g_entry**
+# * **g_entry_heb** the pointed hebrew representation, obtained by un-transliterating **g_entry**
 # * **root** the root, obtained from ``rt``
 # * **pos** the part of speech, obtained from ``sp``
 # * **nametype** the type of named entity, obtained from ``sm``
@@ -210,9 +213,9 @@ hasLex = 'lex' in set(F.otype.all)
 # * the > is an alef, we translate it to A
 # * the < is an ayin, we translate it to O
 # * the / denotes a noun, we translate it to n
-# * the [ denotes a verb, we translate it to v
+# * the \[ denotes a verb, we translate it to v
 # * the = is for disambiguation, we translate it to i
-# * we prepend a language identifier, 1 for Hebrew, 2 for aramaic.
+# * we prepend a language identifier, 1 for Hebrew, 2 for Aramaic.
 # 
 # This is sound, see the scheck in the extradata/lexicon notebook
 
@@ -244,7 +247,7 @@ hasLex = 'lex' in set(F.otype.all)
 #     * ``lan``: take the language of this entry
 # * a function taking one argument
 #     * *strip_id*: strip the non-lexeme characters at the end of the entry (the ``/ [ =`` characters)
-#     * *toHeb*: transform the transliteration into real unicode Hebrew
+#     * *toHeb*: transform the transliteration into real Unicode Hebrew
 #     * feature lookup functions such as ``F.lex.v``
 # 
 # ## name
@@ -494,9 +497,9 @@ firstOnly = dict(('{}_{}'.format(f[2], f[1]), f[6]) for f in wordFields)
 
 
 # # Sanity
-# The texts and xml representations of verses are stored in ``varchar`` fields.
+# The texts and XML representations of verses are stored in ``varchar`` fields.
 # We have to make sure that the values fit within the declared sizes of these fields.
-# The code measures the maximum lengths of these fields, and it turns out that the text is maximally 434 chars and the xml 2186 chars.
+# The code measures the maximum lengths of these fields, and it turns out that the text is maximally 434 chars and the XML 2186 chars.
 
 # In[11]:
 
@@ -994,10 +997,4 @@ utils.caption(0, 'Done')
 
 
 utils.gzip(mysqlFile, mysqlZFile)
-
-
-# In[ ]:
-
-
-
 

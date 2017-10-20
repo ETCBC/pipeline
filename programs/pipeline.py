@@ -210,123 +210,136 @@ def run(cmd):
     p.wait()
     return p.returncode == 0
 
-def webPipeline(pipeline, version=None, force=False):
-    if version == None:
-        caption(0, 'ERROR: no version specified')
-        return False
-
-    caption(1, 'Aggregate MQL for version {}'.format(version))
+def webPipeline(pipeline, versions=None, force=False, kinds={'mql', 'mysql'}):
     good = True
-    for key in (['repoOrder']):
-        if key not in pipeline:
-            caption(0, '\tERROR: no {} declared in the pipeline'.format(key))
-            good = False
-    if not good:
-        return False
+    chosenVersions = [] if versions == None else [versions] if type(versions) is str else versions 
+    for version in chosenVersions:
+        thisGood = webPipelineSingle(pipeline, version, force=force, kinds=kinds)
+        if not thisGood: good = False
+    return good
 
-    repoOrder = pipeline['repoOrder'].strip().split()
+def webPipelineSingle(pipeline, version, force=False, kinds={'mql', 'mysql'}):
+    good = True
 
-    resultRepo = repoOrder[0]
-    addedRepos = repoOrder[1:]
+    if 'mql' in kinds:
+        caption(1, 'Aggregate MQL for version {}'.format(version))
+        for key in (['repoOrder']):
+            if key not in pipeline:
+                caption(0, '\tERROR: no {} declared in the pipeline'.format(key))
+                good = False
+        if not good:
+            return False
 
-    resultRepoDir = '{}/{}'.format(githubBase, resultRepo)
+        repoOrder = pipeline['repoOrder'].strip().split()
 
-    thisTempDir = '{}/_temp/{}'.format(resultRepoDir, version)
-    tempShebanqDir = '{}/shebanq'.format(thisTempDir)
-    shebanqDir = '{}/shebanq/{}'.format(resultRepoDir, version)
-    if not os.path.exists(shebanqDir):
-        os.makedirs(shebanqDir)
+        resultRepo = repoOrder[0]
+        addedRepos = repoOrder[1:]
 
-    dbName = 'shebanq_etcbc{}'.format(version)
+        resultRepoDir = '{}/{}'.format(githubBase, resultRepo)
 
-    mqlUFile = '{}/{}.mql'.format(tempShebanqDir, dbName)
-    mqlZFile = '{}/{}.mql.bz2'.format(shebanqDir, dbName)
+        thisTempDir = '{}/_temp/{}'.format(resultRepoDir, version)
+        tempShebanqDir = '{}/shebanq'.format(thisTempDir)
+        shebanqDir = '{}/shebanq/{}'.format(resultRepoDir, version)
+        if not os.path.exists(shebanqDir):
+            os.makedirs(shebanqDir)
 
-    xmU = os.path.exists(mqlUFile)
-    xmZ = os.path.exists(mqlZFile)
+        dbName = 'shebanq_etcbc{}'.format(version)
 
-    uptodate = True
+        mqlUFile = '{}/{}.mql'.format(tempShebanqDir, dbName)
+        mqlZFile = '{}/{}.mql.bz2'.format(shebanqDir, dbName)
 
-    referenceFile = mqlUFile if xmU else mqlZFile
+        xmU = os.path.exists(mqlUFile)
+        xmZ = os.path.exists(mqlZFile)
 
-    if not os.path.exists(referenceFile):
-        uptodate = False
-        caption(0, '\tWork to do because {} does not exist'.format(referenceFile))
-    else:
-        tmR = os.path.getmtime(referenceFile)
-        for (i, repo) in enumerate(repoOrder):
-            tfxDir = '{}/{}/tf/{}/.tf'.format(githubBase, repo, version)
-            if not os.path.exists(tfxDir):
-                uptodate = False
-                caption(0, '\tWork to do because the tf in {} is fresh'.format(repo))
-                caption(0, '\t\t{}'.format(tfxDir))
-                break
-            if os.path.getmtime(tfxDir) > tmR:
-                uptodate = False
-                caption(0, '\tWork to do because the tf in {} is recently compiled'.format(repo))
-                caption(0, '\t\t{}'.format(tfxDir))
-                break
+        uptodate = True
 
-    if uptodate and force:
-        caption(0, '\tWork to do because you forced me to!')
-        uptodate = False
-    if not uptodate:
-        caption(1, 'Using TF to make an MQL export')
-        locations = []
-        for (i, repo) in enumerate(repoOrder):
-            locations.append('{}/{}/tf/{}'.format(githubBase, repo, version))
+        referenceFile = mqlUFile if xmU else mqlZFile
 
-        TF = Fabric(locations=locations, modules=['']) 
-        TF.exportMQL(dbName, tempShebanqDir)
-    else:
-        caption(0, '\tAlready up to date')
+        if not os.path.exists(referenceFile):
+            uptodate = False
+            caption(0, '\tWork to do because {} does not exist'.format(referenceFile))
+        else:
+            tmR = os.path.getmtime(referenceFile)
+            for (i, repo) in enumerate(repoOrder):
+                tfxDir = '{}/{}/tf/{}/.tf'.format(githubBase, repo, version)
+                if not os.path.exists(tfxDir):
+                    uptodate = False
+                    caption(0, '\tWork to do because the tf in {} is fresh'.format(repo))
+                    caption(0, '\t\t{}'.format(tfxDir))
+                    break
+                if os.path.getmtime(tfxDir) > tmR:
+                    uptodate = False
+                    caption(0, '\tWork to do because the tf in {} is recently compiled'.format(repo))
+                    caption(0, '\t\t{}'.format(tfxDir))
+                    break
 
-    caption(0, '\tbzipping {}'.format(mqlUFile))
-    caption(0, '\tand delivering as {} ...'.format(mqlZFile))
-    bzip(mqlUFile, mqlZFile)
-    caption(0, '\tDone')
+        if uptodate and force:
+            caption(0, '\tWork to do because you forced me to!')
+            uptodate = False
+        if not uptodate:
+            caption(1, 'Using TF to make an MQL export')
+            locations = []
+            for (i, repo) in enumerate(repoOrder):
+                locations.append('{}/{}/tf/{}'.format(githubBase, repo, version))
 
-    caption(1, 'Create Mysql passage db for version {}'.format(version))
-    runNb(pipelineRepo, programDir, 'passageFromTf', force=force, VERSION=version)
-    caption(0, '\tDone')
+            TF = Fabric(locations=locations, modules=['']) 
+            TF.exportMQL(dbName, tempShebanqDir)
+        else:
+            caption(0, '\tAlready up to date')
+
+        caption(0, '\tbzipping {}'.format(mqlUFile))
+        caption(0, '\tand delivering as {} ...'.format(mqlZFile))
+        bzip(mqlUFile, mqlZFile)
+        caption(0, '\tDone')
+
+    if 'mysql' in kinds:
+        caption(1, 'Create Mysql passage db for version {}'.format(version))
+        runNb(pipelineRepo, programDir, 'passageFromTf', force=force, VERSION=version)
+        caption(0, '\tDone')
 
     return True
 
 
-def importLocal(pipeline, version=None):
-    if version == None:
-        caption(0, 'ERROR: no version specified')
-        return False
+def importLocal(pipeline, versions=None, kinds={'mql', 'mysql'}):
+    good = True
+    chosenVersions = [] if versions == None else [versions] if type(versions) is str else versions 
+    for version in chosenVersions:
+        thisGood = importLocalSingle(pipeline, version, kinds=kinds)
+        if not thisGood: good = False
+    return good
 
-    caption(1, 'Importing MQL and passage databases for version {} locally'.format(version))
-
-    repoOrder = pipeline['repoOrder'].strip().split()
-    resultRepo = repoOrder[0]
-
-    dbName = 'shebanq_etcbc{}'.format(version)
-    dbDir = '{}/{}/shebanq/{}'.format(githubBase, resultRepo, version)
-
+def importLocalSingle(pipeline, version, kinds={'mql', 'mysql'}):
     good = True
 
-    caption(1, 'Import MQL db for version {}'.format(version))
-    dbDir = '{}/{}/_temp/{}/shebanq'.format(githubBase, resultRepo, version)
-    dbName = 'shebanq_etcbc{}'.format(version)
-    pdbName = 'shebanq_passage{}'.format(version)
-    if not run('mysql -u root -e "drop database if exists {};"'.format(dbName)): return False
-    if not run('mql -n -b m -u root -e UTF8 < {}/{}.mql'.format(dbDir, dbName)): return False
+    if 'mql' in kinds:
+        repoOrder = pipeline['repoOrder'].strip().split()
+        resultRepo = repoOrder[0]
 
-    caption(1, 'Import passage db for version {}'.format(version))
-    if not run('mysql -u root < {}/{}.sql'.format(dbDir, pdbName)): return False
+        dbName = 'shebanq_etcbc{}'.format(version)
+        dbDir = '{}/{}/shebanq/{}'.format(githubBase, resultRepo, version)
+
+        caption(1, 'Import MQL db for version {} locally'.format(version))
+        dbDir = '{}/{}/_temp/{}/shebanq'.format(githubBase, resultRepo, version)
+        dbName = 'shebanq_etcbc{}'.format(version)
+        if not run('mysql -u root -e "drop database if exists {};"'.format(dbName)): return False
+        if not run('mql -n -b m -u root -e UTF8 < {}/{}.mql'.format(dbDir, dbName)): return False
+
+    if 'mysql' in kinds:
+        caption(1, 'Import passage db for version {}'.format(version))
+        pdbName = 'shebanq_passage{}'.format(version)
+        if not run('mysql -u root < {}/{}.sql'.format(dbDir, pdbName)): return False
 
     return good
 
-def copyServer(pipeline, user, server, remoteDir, version=None):
-    if version == None:
-        caption(0, 'ERROR: no version specified')
-        return False
+def copyServer(pipeline, user, server, remoteDir, versions=None, kinds={'mql', 'mysql'}):
+    good = True
+    chosenVersions = [] if versions == None else [versions] if type(versions) is str else versions 
+    for version in chosenVersions:
+        thisGood = copyServerSingle(pipeline, user, server, remoteDir, version, kinds=kinds)
+        if not thisGood: good = False
+    return good
 
-    caption(1, 'Sending MQL and passage databases for version {} to server'.format(version))
-
+def copyServerSingle(pipeline, user, server, remoteDir, version, kinds={'mql', 'mysql'}):
     repoOrder = pipeline['repoOrder'].strip().split()
     resultRepo = repoOrder[0]
 
@@ -337,6 +350,12 @@ def copyServer(pipeline, user, server, remoteDir, version=None):
 
     good = True
     for theFile in (dbFile, pdbFile):
+        if theFile == dbFile and 'mql' not in kinds: continue
+        if theFile == pdbFile and 'mysql' not in kinds: continue
+        if theFile == dbFile:
+            caption(1, 'Sending MQL database for version {} to server'.format(version))
+        else:
+            caption(1, 'Sending passage database for version {} to server'.format(version))
         caption(0, '\t{}'.format(theFile))
         caption(0, '\tscp {}/{} {}/{}'.format(dbDir, theFile, address, theFile))
         if not run('scp {}/{} {}/{}'.format(dbDir, theFile, address, theFile)): good = False
