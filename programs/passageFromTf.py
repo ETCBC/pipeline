@@ -36,7 +36,7 @@ from tf.fabric import Fabric
 if 'SCRIPT' not in locals():
     SCRIPT = False
     FORCE = True
-    VERSION= 'c'
+    VERSION= '2017'
 
 def stop(good=False):
     if SCRIPT: sys.exit(0 if good else 1)
@@ -116,7 +116,7 @@ TF = Fabric(locations=[thisRepo, phonoRepo], modules=[tfDir])
 api = TF.load(f'''
         g_cons g_cons_utf8 g_word g_word_utf8 trailer_utf8
         {QERE} {QERE_TRAILER}
-        language lex g_lex lex_utf8 sp pdp ls
+        languageISO lex g_lex lex_utf8 sp pdp ls
         {ENTRY} {ENTRY_HEB}
         vt vs gn nu ps st
         nme pfm prs uvf vbe vbs
@@ -273,7 +273,7 @@ hasLex = 'lex' in set(F.otype.all)
 lexEntries = {}
 
 for w in F.otype.s('word'):
-    lan = F.language.v(w)
+    lan = F.languageISO.v(w)
     lex = F.lex.v(w)
     lex_utf8 = F.lex_utf8.v(w)
     if lan in lexEntries and lex in lexEntries[lan]: continue
@@ -401,7 +401,7 @@ def ktv(n):
 def para(n): return paras.get(n, '')
 
 def lang(n):
-    return F.language.v(n)
+    return F.languageISO.v(n)
 
 def df(f):
     def g(n): 
@@ -640,7 +640,7 @@ Fotypev = F.otype.v
 Ftextv = F.g_word_utf8.v
 Foccv = F.g_cons.v
 Flexv = F.lex.v
-Flanguagev = F.language.v
+Flanguagev = F.languageISO.v
 Ftrailerv = F.trailer_utf8.v
 Fnumberv = F.number.v
 
@@ -993,7 +993,7 @@ utils.caption(0, 'Done')
 
 # # Deliver
 
-# In[4]:
+# In[17]:
 
 
 utils.gzip(mysqlFile, mysqlZFile)
