@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/104837219.svg)](https://doi.org/10.5281/zenodo.1153961)
+
 # Pipeline
 
 ![pipeline](programs/pictures/pictures.001.png)
