@@ -1,0 +1,2941 @@
+##############################################################################################
+#                                                                                            #
+#       0.00s Make version [_temp]                                                           #
+#                                                                                            #
+##############################################################################################
+
+
+**********************************************************************************************
+*                                                                                            *
+*       0.00s Make repo [bhsa]                                                               *
+*                                                                                            *
+**********************************************************************************************
+
+
+----------------------------------------------------------------------------------------------
+-       0.00s Run notebook [bhsa/coreData] with parameters:                                  -
+----------------------------------------------------------------------------------------------
+
+|       0.00s 	CORE_NAME            = bhsa
+|       0.00s 	DO_VOCALIZED_LEXEME  = True
+|       0.00s 	EXTRA_OVERLAP        = 
+|       0.00s 	LANG_FEATURE         = languageISO
+|       0.00s 	LEX_FEATURE          = lex
+|       0.00s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|       0.00s 	OCC_FEATURE          = g_cons
+|       0.00s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|       0.00s 	TEXT_FEATURE         = g_word_utf8
+|       0.00s 	TRAILER_FEATURE      = trailer_utf8
+|       0.00s 	VERSION              = _temp
+|       0.22s 	Source /Users/cody/github/etcbc/bhsa/source/_temp/bhsa.mql.bz2 exists
+|       0.22s 	Destination /Users/cody/github/etcbc/bhsa/tf/_temp/.tf/otype.tfx does not exist
+|       0.22s INFO: otext feature information found
+|       0.22s 	fmt:lex-orig-full    = "{g_lex_utf8} "
+|       0.22s 	fmt:lex-orig-plain   = "{lex_utf8} "
+|       0.22s 	fmt:lex-trans-full   = "{g_lex} "
+|       0.22s 	fmt:lex-trans-plain  = "{lex} "
+|       0.22s 	fmt:text-orig-full   = "{g_word_utf8}{trailer_utf8}"
+|       0.22s 	fmt:text-orig-plain  = "{g_cons_utf8}{trailer_utf8}"
+|       0.22s 	fmt:text-trans-full  = "{g_word}{trailer}"
+|       0.22s 	fmt:text-trans-plain = "{g_cons}{trailer}"
+|       0.22s 	sectionFeatures      = "book,chapter,verse"
+|       0.22s 	sectionTypes         = "book,chapter,verse"
+|       0.22s bunzipping /Users/cody/github/etcbc/bhsa/source/_temp/bhsa.mql.bz2 ...
+|         15s Done
+  0.00s Parsing mql source ...
+  0.00s 		enum boolean_t
+  0.00s 		enum phrase_determination_t
+  0.00s 		enum language_t
+  0.00s 		enum book_name_t
+  0.00s 		enum lexical_set_t
+  0.00s 		enum verbal_stem_t
+  0.00s 		enum verbal_tense_t
+  0.00s 		enum person_t
+  0.01s 		enum number_t
+  0.01s 		enum gender_t
+  0.01s 		enum state_t
+  0.01s 		enum part_of_speech_t
+  0.01s 		enum phrase_type_t
+  0.01s 		enum phrase_atom_relation_t
+  0.01s 		enum phrase_relation_t
+  0.01s 		enum phrase_atom_unit_distance_to_mother_t
+  0.01s 		enum subphrase_relation_t
+  0.01s 		enum subphrase_mother_object_type_t
+  0.01s 		enum phrase_function_t
+  0.01s 		enum clause_atom_type_t
+  0.01s 		enum clause_type_t
+  0.01s 		enum clause_kind_t
+  0.01s 		enum clause_constituent_relation_t
+  0.01s 		enum clause_constituent_mother_object_type_t
+  0.01s 		enum clause_constituent_unit_distance_to_mother_t
+  0.02s 		otype word
+  0.02s 			feature number (int) =def= 0 : node
+  0.02s 			feature lexeme_count (int) =def= 0 : node
+  0.02s 			feature kq_hybrid (str) =def=  : node
+  0.02s 			feature qere_utf8 (str) =def=  : node
+  0.02s 			feature qere (str) =def=  : node
+  0.02s 			feature kq_hybrid_utf8 (str) =def=  : node
+  0.02s 			feature g_word (str) =def=  : node
+  0.02s 			feature g_word_utf8 (str) =def=  : node
+  0.02s 			feature g_cons_utf8 (str) =def=  : node
+  0.02s 			feature g_cons (str) =def=  : node
+  0.02s 			feature g_suffix (str) =def=  : node
+  0.02s 			feature g_suffix_utf8 (str) =def=  : node
+  0.03s 			feature g_pfm (str) =def=  : node
+  0.03s 			feature g_pfm_utf8 (str) =def=  : node
+  0.03s 			feature g_vbs (str) =def=  : node
+  0.03s 			feature g_vbs_utf8 (str) =def=  : node
+  0.03s 			feature lex (str) =def=  : node
+  0.03s 			feature lex_utf8 (str) =def=  : node
+  0.03s 			feature g_lex (str) =def=  : node
+  0.03s 			feature g_lex_utf8 (str) =def=  : node
+  0.03s 			feature g_voc_lex (str) =def=  : node
+  0.03s 			feature g_voc_lex_utf8 (str) =def=  : node
+  0.03s 			feature g_prs_utf8 (str) =def=  : node
+  0.03s 			feature g_prs (str) =def=  : node
+  0.03s 			feature g_vbe (str) =def=  : node
+  0.04s 			feature g_uvf_utf8 (str) =def=  : node
+  0.04s 			feature g_uvf (str) =def=  : node
+  0.04s 			feature g_vbe_utf8 (str) =def=  : node
+  0.04s 			feature g_nme (str) =def=  : node
+  0.04s 			feature g_nme_utf8 (str) =def=  : node
+  0.04s 			feature nme (str) =def=  : node
+  0.04s 			feature distributional_parent (str) =def= 0 : edge
+  0.04s 			feature functional_parent (str) =def= 0 : edge
+  0.04s 			feature prs (str) =def=  : node
+  0.04s 			feature vbe (str) =def=  : node
+  0.04s 			feature vbs (str) =def=  : node
+  0.05s 			feature pfm (str) =def=  : node
+  0.05s 			feature uvf (str) =def=  : node
+  0.05s 			feature language (str) =def= Hebrew : node
+  0.05s 			feature ls (str) =def= none : node
+  0.05s 			feature vs (str) =def= NA : node
+  0.05s 			feature vt (str) =def= NA : node
+  0.05s 			feature prs_ps (str) =def= NA : node
+  0.05s 			feature ps (str) =def= NA : node
+  0.05s 			feature suffix_person (str) =def= NA : node
+  0.05s 			feature prs_nu (str) =def= NA : node
+  0.05s 			feature nu (str) =def= NA : node
+  0.05s 			feature suffix_number (str) =def= NA : node
+  0.05s 			feature gn (str) =def= NA : node
+  0.05s 			feature suffix_gender (str) =def= NA : node
+  0.05s 			feature prs_gn (str) =def= NA : node
+  0.05s 			feature st (str) =def= NA : node
+  0.06s 			feature sp (str) =def= art : node
+  0.06s 			feature pdp (str) =def= art : node
+  0.06s 		otype clause_atom
+  0.06s 			feature tab (int) =def= 0 : node
+  0.06s 			feature code (int) =def= 0 : node
+  0.06s 			feature dist (int) =def= 0 : node
+  0.06s 			feature number (int) =def= 0 : node
+  0.06s 			feature distributional_parent (str) =def= 0 : edge
+  0.06s 			feature mother (str) =def= 0 : edge
+  0.06s 			feature functional_parent (str) =def= 0 : edge
+  0.06s 			feature is_root (str) =def= false : node
+  0.06s 			feature typ (str) =def= Unkn : node
+  0.07s 		otype sentence_atom
+  0.07s 			feature number (int) =def= 0 : node
+  0.07s 			feature functional_parent (str) =def= 0 : edge
+  0.07s 		otype subphrase
+  0.07s 			feature dist (int) =def= 0 : node
+  0.07s 			feature mother (str) =def= 0 : edge
+  0.07s 			feature rela (str) =def= NA : node
+  0.07s 			feature mother_object_type (str) =def= NA : node
+  0.07s 		otype phrase
+  0.07s 			feature dist (int) =def= 0 : node
+  0.07s 			feature number (int) =def= 0 : node
+  0.07s 			feature functional_parent (str) =def= 0 : edge
+  0.07s 			feature mother (str) =def= 0 : edge
+  0.07s 			feature det (str) =def= NA : node
+  0.07s 			feature typ (str) =def= VP : node
+  0.07s 			feature rela (str) =def= NA : node
+  0.07s 			feature dist_unit (str) =def= clause_atoms : node
+  0.08s 			feature function (str) =def= Unkn : node
+  0.08s 		otype sentence
+  0.08s 			feature number (int) =def= 0 : node
+  0.08s 		otype chapter
+  0.08s 			feature chapter (int) =def= 0 : node
+  0.08s 			feature book (str) =def= Genesis : node
+  0.08s 		otype book
+  0.08s 			feature book (str) =def= Genesis : node
+  0.08s 		otype clause
+  0.08s 			feature dist (int) =def= 0 : node
+  0.08s 			feature number (int) =def= 0 : node
+  0.08s 			feature domain (str) =def=  : node
+  0.08s 			feature mother (str) =def= 0 : edge
+  0.08s 			feature functional_parent (str) =def= 0 : edge
+  0.08s 			feature txt (str) =def=  : node
+  0.09s 			feature typ (str) =def= Unkn : node
+  0.09s 			feature kind (str) =def= unknown : node
+  0.09s 			feature rela (str) =def= NA : node
+  0.09s 			feature mother_object_type (str) =def= clause : node
+  0.09s 			feature dist_unit (str) =def= clause_atoms : node
+  0.09s 		otype half_verse
+  0.09s 			feature label (str) =def=  : node
+  0.09s 		otype verse
+  0.09s 			feature verse (int) =def= 0 : node
+  0.09s 			feature chapter (int) =def= 0 : node
+  0.09s 			feature label (str) =def=  : node
+  0.09s 			feature book (str) =def= Genesis : node
+  0.09s 		otype phrase_atom
+  0.09s 			feature number (int) =def= 0 : node
+  0.10s 			feature dist (int) =def= 0 : node
+  0.10s 			feature distributional_parent (str) =def= 0 : edge
+  0.10s 			feature mother (str) =def= 0 : edge
+  0.10s 			feature functional_parent (str) =def= 0 : edge
+  0.10s 			feature det (str) =def= NA : node
+  0.10s 			feature typ (str) =def= VP : node
+  0.10s 			feature rela (str) =def= NA : node
+  0.10s 			feature dist_unit (str) =def= clause_atoms : node
+  0.10s 		objects in word
+  4.15s 	line   1000000
+  8.25s 	line   2000000
+    12s 		objects in word
+    12s 	line   3000000
+    16s 	line   4000000
+    19s 	line   5000000
+    22s 		objects in word
+    23s 	line   6000000
+    27s 	line   7000000
+    31s 	line   8000000
+    33s 		objects in word
+    34s 	line   9000000
+    38s 	line  10000000
+    42s 	line  11000000
+    45s 		objects in word
+    46s 	line  12000000
+    50s 	line  13000000
+    54s 	line  14000000
+    56s 		objects in word
+    58s 	line  15000000
+ 1m 02s 	line  16000000
+ 1m 06s 	line  17000000
+ 1m 08s 		objects in word
+ 1m 10s 	line  18000000
+ 1m 14s 	line  19000000
+ 1m 18s 	line  20000000
+ 1m 19s 		objects in word
+ 1m 22s 	line  21000000
+ 1m 27s 	line  22000000
+ 1m 30s 	line  23000000
+ 1m 31s 		objects in word
+ 1m 34s 	line  24000000
+ 1m 37s 		objects in clause_atom
+ 1m 38s 	line  25000000
+ 1m 39s 		objects in clause_atom
+ 1m 40s 		objects in sentence_atom
+ 1m 40s 	line  26000000
+ 1m 41s 		objects in sentence_atom
+ 1m 41s 		objects in subphrase
+ 1m 42s 		objects in subphrase
+ 1m 43s 	line  27000000
+ 1m 43s 		objects in subphrase
+ 1m 44s 		objects in phrase
+ 1m 45s 		objects in phrase
+ 1m 46s 	line  28000000
+ 1m 47s 		objects in phrase
+ 1m 49s 	line  29000000
+ 1m 49s 		objects in phrase
+ 1m 50s 		objects in phrase
+ 1m 51s 	line  30000000
+ 1m 52s 		objects in phrase
+ 1m 52s 		objects in sentence
+ 1m 53s 		objects in sentence
+ 1m 53s 		objects in chapter
+ 1m 54s 		objects in book
+ 1m 54s 		objects in clause
+ 1m 54s 	line  31000000
+ 1m 56s 		objects in clause
+ 1m 57s 	line  32000000
+ 1m 57s 		objects in half_verse
+ 1m 58s 		objects in verse
+ 1m 58s 		objects in phrase_atom
+ 1m 59s 	line  33000000
+ 2m 01s 		objects in phrase_atom
+ 2m 02s 		objects in phrase_atom
+ 2m 02s 	line  34000000
+ 2m 04s 		objects in phrase_atom
+ 2m 05s 	line  35000000
+ 2m 05s 		objects in phrase_atom
+ 2m 07s 		objects in phrase_atom
+ 2m 07s 	line  36000000
+ 2m 07s 36047111 lines parsed
+ 2m 07s 426584 objects of type word
+ 2m 07s 90690 objects of type clause_atom
+ 2m 07s 64532 objects of type sentence_atom
+ 2m 07s 113812 objects of type subphrase
+ 2m 07s 253210 objects of type phrase
+ 2m 07s 63734 objects of type sentence
+ 2m 07s 929 objects of type chapter
+ 2m 07s 39 objects of type book
+ 2m 07s 88123 objects of type clause
+ 2m 07s 45180 objects of type half_verse
+ 2m 07s 23213 objects of type verse
+ 2m 07s 267541 objects of type phrase_atom
+ 2m 07s Making TF data ...
+ 2m 07s Monad - idd mapping ...
+ 2m 08s Removing holes in the monad sequence
+ 2m 08s maxSlot=426584
+ 2m 08s Node mapping and otype ...
+ 2m 09s oslots ...
+ 2m 12s metadata ...
+ 2m 12s features ...
+ 2m 12s 	features from words
+ 2m 16s 	   100000 words
+ 2m 21s 	   200000 words
+ 2m 23s 	   300000 words
+ 2m 27s 	   400000 words
+ 2m 27s 	   426584 words
+ 2m 27s 	features from books
+ 2m 27s 	       39 books
+ 2m 27s 	features from chapters
+ 2m 27s 	      929 chapters
+ 2m 27s 	features from clauses
+ 2m 29s 	    88123 clauses
+ 2m 29s 	features from clause_atoms
+ 2m 30s 	    90690 clause_atoms
+ 2m 30s 	features from half_verses
+ 2m 30s 	    45180 half_verses
+ 2m 30s 	features from phrases
+ 2m 31s 	   100000 phrases
+ 2m 31s 	   200000 phrases
+ 2m 32s 	   253210 phrases
+ 2m 32s 	features from phrase_atoms
+ 2m 33s 	   100000 phrase_atoms
+ 2m 34s 	   200000 phrase_atoms
+ 2m 34s 	   267541 phrase_atoms
+ 2m 34s 	features from sentences
+ 2m 34s 	    63734 sentences
+ 2m 34s 	features from sentence_atoms
+ 2m 34s 	    64532 sentence_atoms
+ 2m 34s 	features from subphrases
+ 2m 35s 	   100000 subphrases
+ 2m 35s 	   113812 subphrases
+ 2m 35s 	features from verses
+ 2m 35s 	    23213 verses
+   |     0.03s T book                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.03s T chapter              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.12s T code                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.66s T det                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.95s T dist                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.73s T dist_unit            to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.11s T domain               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.30s T function             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.51s T g_cons               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.55s T g_cons_utf8          to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.55s T g_lex                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.56s T g_lex_utf8           to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.48s T g_nme                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.52s T g_nme_utf8           to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.47s T g_pfm                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.48s T g_pfm_utf8           to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.47s T g_prs                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.48s T g_prs_utf8           to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.46s T g_suffix             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.47s T g_suffix_utf8        to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.44s T g_uvf                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.45s T g_uvf_utf8           to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.46s T g_vbe                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.46s T g_vbe_utf8           to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.44s T g_vbs                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.45s T g_vbs_utf8           to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.52s T g_voc_lex            to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.55s T g_voc_lex_utf8       to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T g_word               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.58s T g_word_utf8          to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.54s T gn                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.13s T is_root              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.13s T kind                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.46s T kq_hybrid            to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.47s T kq_hybrid_utf8       to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.09s T label                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T language             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T lex                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.56s T lex_utf8             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.50s T lexeme_count         to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T ls                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.26s T mother_object_type   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T nme                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.52s T nu                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     1.52s T number               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.44s T otype                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T pdp                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.50s T pfm                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.54s T prs                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T prs_gn               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.55s T prs_nu               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.58s T prs_ps               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.52s T ps                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.45s T qere                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.46s T qere_utf8            to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.88s T rela                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.52s T sp                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.50s T st                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.51s T suffix_gender        to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.55s T suffix_number        to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T suffix_person        to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.11s T tab                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.11s T txt                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.84s T typ                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.52s T uvf                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T vbe                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.51s T vbs                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.03s T verse                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.53s T vs                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.55s T vt                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     1.68s T distributional_parent to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     2.44s T functional_parent    to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.39s T mother               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     2.41s T oslots               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s M otext                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+..............................................................................................
+.      3m 36s Renaming 2 features in /Users/cody/github/etcbc/bhsa/_temp/_temp/tf            .
+..............................................................................................
+|      3m 36s 	renamed g_suffix to trailer
+|      3m 36s 	renamed g_suffix_utf8 to trailer_utf8
+..............................................................................................
+.      3m 36s Check differences with previous version                                        .
+..............................................................................................
+|      3m 36s 	75 features to add
+|      3m 36s 		book
+|      3m 36s 		chapter
+|      3m 36s 		code
+|      3m 36s 		det
+|      3m 36s 		dist
+|      3m 36s 		dist_unit
+|      3m 36s 		distributional_parent
+|      3m 36s 		domain
+|      3m 36s 		function
+|      3m 36s 		functional_parent
+|      3m 36s 		g_cons
+|      3m 36s 		g_cons_utf8
+|      3m 36s 		g_lex
+|      3m 36s 		g_lex_utf8
+|      3m 36s 		g_nme
+|      3m 36s 		g_nme_utf8
+|      3m 36s 		g_pfm
+|      3m 36s 		g_pfm_utf8
+|      3m 36s 		g_prs
+|      3m 36s 		g_prs_utf8
+|      3m 36s 		g_uvf
+|      3m 36s 		g_uvf_utf8
+|      3m 36s 		g_vbe
+|      3m 36s 		g_vbe_utf8
+|      3m 36s 		g_vbs
+|      3m 36s 		g_vbs_utf8
+|      3m 36s 		g_voc_lex
+|      3m 36s 		g_voc_lex_utf8
+|      3m 36s 		g_word
+|      3m 36s 		g_word_utf8
+|      3m 36s 		gn
+|      3m 36s 		is_root
+|      3m 36s 		kind
+|      3m 36s 		kq_hybrid
+|      3m 36s 		kq_hybrid_utf8
+|      3m 36s 		label
+|      3m 36s 		language
+|      3m 36s 		lex
+|      3m 36s 		lex_utf8
+|      3m 36s 		lexeme_count
+|      3m 36s 		ls
+|      3m 36s 		mother
+|      3m 36s 		mother_object_type
+|      3m 36s 		nme
+|      3m 36s 		nu
+|      3m 36s 		number
+|      3m 36s 		oslots
+|      3m 36s 		otext
+|      3m 36s 		otype
+|      3m 36s 		pdp
+|      3m 36s 		pfm
+|      3m 36s 		prs
+|      3m 36s 		prs_gn
+|      3m 36s 		prs_nu
+|      3m 36s 		prs_ps
+|      3m 36s 		ps
+|      3m 36s 		qere
+|      3m 36s 		qere_utf8
+|      3m 36s 		rela
+|      3m 36s 		sp
+|      3m 36s 		st
+|      3m 36s 		suffix_gender
+|      3m 36s 		suffix_number
+|      3m 36s 		suffix_person
+|      3m 36s 		tab
+|      3m 36s 		trailer
+|      3m 36s 		trailer_utf8
+|      3m 36s 		txt
+|      3m 36s 		typ
+|      3m 36s 		uvf
+|      3m 36s 		vbe
+|      3m 36s 		vbs
+|      3m 36s 		verse
+|      3m 36s 		vs
+|      3m 36s 		vt
+|      3m 36s 	no features to delete
+|      3m 36s 	0 features in common
+|      3m 36s Done
+..............................................................................................
+.      3m 36s Deliver data set to /Users/cody/github/etcbc/bhsa/tf/_temp                     .
+..............................................................................................
+..............................................................................................
+.      3m 36s Load and compile standard TF features                                          .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+75 features found and 0 ignored
+  0.00s loading features ...
+   |     0.66s T otype                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     8.04s T oslots               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.06s T book                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.04s T chapter              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.04s T verse                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.95s T g_cons               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.13s T g_cons_utf8          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.01s T g_lex                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.08s T g_lex_utf8           from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.04s T g_word               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.18s T g_word_utf8          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.01s T lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.17s T lex_utf8             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.79s T trailer              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.79s T trailer_utf8         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s M otext                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |      |     0.85s C __levels__           from otype, oslots, otext
+   |      |       12s C __order__            from otype, oslots, __levels__
+   |      |     0.75s C __rank__             from otype, __order__
+   |      |       11s C __levUp__            from otype, oslots, __rank__
+   |      |     8.22s C __levDown__          from otype, __levUp__, __rank__
+   |      |     2.63s C __boundary__         from otype, oslots, __rank__
+   |     0.00s M otext                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |      |     0.08s C __sections__         from otype, oslots, otext, __levUp__, __levels__, book, chapter, verse
+   |     0.00s Feature overview: 70 for nodes; 4 for edges; 1 configs; 7 computed
+    54s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      4m 30s Load and compile all other TF features                                         .
+..............................................................................................
+   |     0.00s Feature overview: 70 for nodes; 4 for edges; 1 configs; 7 computed
+  0.00s loading features ...
+   |     0.13s T code                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.15s T det                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.99s T dist                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.35s T dist_unit            from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     2.94s T distributional_parent from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.18s T domain               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.56s T function             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     4.60s T functional_parent    from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.64s T g_nme                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.70s T g_nme_utf8           from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.49s T g_pfm                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.49s T g_pfm_utf8           from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.50s T g_prs                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.50s T g_prs_utf8           from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.45s T g_uvf                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.44s T g_uvf_utf8           from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.52s T g_vbe                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.47s T g_vbe_utf8           from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.45s T g_vbs                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.45s T g_vbs_utf8           from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.02s T g_voc_lex            from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.11s T g_voc_lex_utf8       from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.90s T gn                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.19s T is_root              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.19s T kind                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.44s T kq_hybrid            from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.43s T kq_hybrid_utf8       from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.14s T label                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.94s T language             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.51s T lexeme_count         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.95s T ls                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.60s T mother               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.45s T mother_object_type   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.81s T nme                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.97s T nu                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.63s T number               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.96s T pdp                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.94s T pfm                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.96s T prs                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.96s T prs_gn               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.96s T prs_nu               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.97s T prs_ps               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.96s T ps                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.45s T qere                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.44s T qere_utf8            from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.66s T rela                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.95s T sp                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.91s T st                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.96s T suffix_gender        from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.96s T suffix_number        from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.97s T suffix_person        from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.12s T tab                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.19s T txt                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.63s T typ                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.94s T uvf                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.89s T vbe                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.95s T vbs                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.95s T vs                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.95s T vt                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 70 for nodes; 4 for edges; 1 configs; 7 computed
+    52s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      5m 22s Basic test                                                                     .
+..............................................................................................
+..............................................................................................
+.      5m 22s First verse in all formats                                                     .
+..............................................................................................
+lex-trans-full
+	B.:- R;>CIJT B.@R@> >:ELOH >;T HA- C.@MAJ W:- >;T H@- >@REY 
+text-trans-full
+	B.:-R;>CI73JT B.@R@74> >:ELOHI92JM >;71T HA-C.@MA73JIM W:->;71T H@->@75REY00 
+text-orig-full
+	בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ 
+lex-orig-plain
+	ב ראשׁית֜ ברא אלהים֜ את ה שׁמים֜ ו את ה ארץ֜ 
+lex-trans-plain
+	B R>CJT/ BR>[ >LHJM/ >T H CMJM/ W >T H >RY/ 
+text-orig-plain
+	בראשׁית ברא אלהים את השׁמים ואת הארץ׃ 
+lex-orig-full
+	בְּ רֵאשִׁית בָּרָא אֱלֹה אֵת הַ שָּׁמַי וְ אֵת הָ אָרֶץ 
+text-trans-plain
+	BR>CJT BR> >LHJM >T HCMJM W>T H>RY00 
+|      5m 22s SUCCESS coreData
+
+----------------------------------------------------------------------------------------------
+-      5m 22s SUCCES [bhsa/coreData]                                                         -
+----------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------
+-      5m 22s Run notebook [bhsa/bookNames] with parameters:                                 -
+----------------------------------------------------------------------------------------------
+
+|      5m 22s 	CORE_NAME            = bhsa
+|      5m 22s 	DO_VOCALIZED_LEXEME  = True
+|      5m 22s 	EXTRA_OVERLAP        = 
+|      5m 22s 	LANG_FEATURE         = languageISO
+|      5m 22s 	LEX_FEATURE          = lex
+|      5m 22s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|      5m 22s 	OCC_FEATURE          = g_cons
+|      5m 22s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|      5m 22s 	TEXT_FEATURE         = g_word_utf8
+|      5m 22s 	TRAILER_FEATURE      = trailer_utf8
+|      5m 22s 	VERSION              = _temp
+..............................................................................................
+.      5m 22s Book names                                                                     .
+..............................................................................................
+|      5m 22s 26 languages ...
+|      5m 22s 	Destination /Users/cody/github/etcbc/bhsa/tf/_temp/.tf/book@am.tfx does not exist
+..............................................................................................
+.      5m 22s Loading relevant features                                                      .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+75 features found and 0 ignored
+  0.00s loading features ...
+   |     0.01s B book                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 70 for nodes; 4 for edges; 1 configs; 7 computed
+  3.62s All features loaded/computed - for details use loadLog()
+|      5m 26s 26 book name features created
+..............................................................................................
+.      5m 26s Write book name features as TF                                                 .
+..............................................................................................
+   |     0.00s T book@am              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@ar              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@bn              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@da              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@de              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@el              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@en              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@es              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@fa              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@fr              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@he              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@hi              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@id              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@ja              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@ko              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@la              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@nl              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@pa              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@pt              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@ru              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@sw              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@syc             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@tr              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@ur              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@yo              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T book@zh              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+..............................................................................................
+.      5m 26s Check differences with previous version                                        .
+..............................................................................................
+|      5m 26s 	26 features to add
+|      5m 26s 		book@am
+|      5m 26s 		book@ar
+|      5m 26s 		book@bn
+|      5m 26s 		book@da
+|      5m 26s 		book@de
+|      5m 26s 		book@el
+|      5m 26s 		book@en
+|      5m 26s 		book@es
+|      5m 26s 		book@fa
+|      5m 26s 		book@fr
+|      5m 26s 		book@he
+|      5m 26s 		book@hi
+|      5m 26s 		book@id
+|      5m 26s 		book@ja
+|      5m 26s 		book@ko
+|      5m 26s 		book@la
+|      5m 26s 		book@nl
+|      5m 26s 		book@pa
+|      5m 26s 		book@pt
+|      5m 26s 		book@ru
+|      5m 26s 		book@sw
+|      5m 26s 		book@syc
+|      5m 26s 		book@tr
+|      5m 26s 		book@ur
+|      5m 26s 		book@yo
+|      5m 26s 		book@zh
+|      5m 26s 	no features to delete
+|      5m 26s 	0 features in common
+|      5m 26s Done
+..............................................................................................
+.      5m 26s Deliver features to /Users/cody/github/etcbc/bhsa/tf/_temp                     .
+..............................................................................................
+|      5m 26s 	book@am
+|      5m 26s 	book@ar
+|      5m 26s 	book@bn
+|      5m 26s 	book@da
+|      5m 26s 	book@de
+|      5m 26s 	book@el
+|      5m 26s 	book@en
+|      5m 26s 	book@es
+|      5m 26s 	book@fa
+|      5m 26s 	book@fr
+|      5m 26s 	book@he
+|      5m 26s 	book@hi
+|      5m 26s 	book@id
+|      5m 26s 	book@ja
+|      5m 26s 	book@ko
+|      5m 26s 	book@la
+|      5m 26s 	book@nl
+|      5m 26s 	book@pa
+|      5m 26s 	book@pt
+|      5m 26s 	book@ru
+|      5m 26s 	book@sw
+|      5m 26s 	book@syc
+|      5m 26s 	book@tr
+|      5m 26s 	book@ur
+|      5m 26s 	book@yo
+|      5m 26s 	book@zh
+..............................................................................................
+.      5m 26s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+101 features found and 0 ignored
+  0.00s loading features ...
+   |     0.00s T book@am              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@ar              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@bn              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@da              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@de              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@el              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@en              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@es              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@fa              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@fr              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@he              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@hi              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@id              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@ja              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@ko              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@la              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@nl              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@pa              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@pt              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@ru              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@sw              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@syc             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@tr              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@ur              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@yo              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s T book@zh              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 96 for nodes; 4 for edges; 1 configs; 7 computed
+  4.19s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      5m 30s Genesis in all languages                                                       .
+..............................................................................................
+|      5m 30s    = default              Genesis is Genesis              in default             
+|      5m 30s am = amharic              Genesis is ኦሪት_ዘፍጥረት            in ኣማርኛ                
+|      5m 30s ar = arabic               Genesis is تكوين                in العَرَبِية          
+|      5m 30s bn = bengali              Genesis is আদিপুস্তক            in বাংলা               
+|      5m 30s da = danish               Genesis is 1.Mosebog            in Dansk               
+|      5m 30s de = german               Genesis is Genesis              in Deutsch             
+|      5m 30s el = greek                Genesis is Γένεση               in Ελληνικά            
+|      5m 30s en = english              Genesis is Genesis              in English             
+|      5m 30s es = spanish              Genesis is Génesis              in Español             
+|      5m 30s fa = farsi                Genesis is پيدايش               in فارسی               
+|      5m 30s fr = french               Genesis is Genèse               in Français            
+|      5m 30s he = hebrew               Genesis is בראשית               in עברית               
+|      5m 30s hi = hindi                Genesis is उत्पाति              in हिन्दी              
+|      5m 30s id = indonesian           Genesis is Kejadian             in Bahasa Indonesia    
+|      5m 30s ja = japanese             Genesis is 創世記                  in 日本語                 
+|      5m 30s ko = korean               Genesis is 창세기                  in 한국어                 
+|      5m 30s la = latin                Genesis is Genesis              in Latina              
+|      5m 30s nl = dutch                Genesis is Genesis              in Nederlands          
+|      5m 30s pa = punjabi              Genesis is ਉਤਪਤ                 in ਪੰਜਾਬੀ              
+|      5m 30s pt = portuguese           Genesis is Gênesis              in Português           
+|      5m 30s ru = russian              Genesis is Бытия                in Русский             
+|      5m 30s sw = swahili              Genesis is Mwanzo               in Kiswahili           
+|      5m 30s syc = syriac               Genesis is ܒܪܝܬܐ                in ܠܫܢܐ ܣܘܪܝܝܐ         
+|      5m 30s tr = turkish              Genesis is Yaratılış            in Türkçe              
+|      5m 30s ur = urdu                 Genesis is پیدائش               in اُردُو              
+|      5m 30s yo = yoruba               Genesis is Genesisi             in èdè Yorùbá          
+|      5m 30s zh = chinese              Genesis is 创世记                  in 中文                  
+|      5m 30s Done
+|      5m 30s SUCCESS bookNames
+
+----------------------------------------------------------------------------------------------
+-      5m 30s SUCCES [bhsa/bookNames]                                                        -
+----------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------
+-      5m 30s Run notebook [bhsa/lexicon] with parameters:                                   -
+----------------------------------------------------------------------------------------------
+
+|      5m 30s 	CORE_NAME            = bhsa
+|      5m 30s 	DO_VOCALIZED_LEXEME  = True
+|      5m 30s 	EXTRA_OVERLAP        = 
+|      5m 30s 	LANG_FEATURE         = languageISO
+|      5m 30s 	LEX_FEATURE          = lex
+|      5m 30s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|      5m 30s 	OCC_FEATURE          = g_cons
+|      5m 30s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|      5m 30s 	TEXT_FEATURE         = g_word_utf8
+|      5m 30s 	TRAILER_FEATURE      = trailer_utf8
+|      5m 30s 	VERSION              = _temp
+|      5m 31s 	Destination /Users/cody/github/etcbc/bhsa/tf/_temp/.tf/lex0.tfx does not exist
+|      5m 31s New text formats
+|      5m 31s fmt:lex-trans-plain            = "{lex0} "
+..............................................................................................
+.      5m 31s Load the existing TF dataset                                                   .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+101 features found and 0 ignored
+  0.00s loading features ...
+   |     0.48s B oslots               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.12s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.16s B lex_utf8             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B language             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B sp                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B ls                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.11s B gn                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B ps                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.12s B nu                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B st                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.14s B g_voc_lex            from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.20s B g_voc_lex_utf8       from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 96 for nodes; 4 for edges; 1 configs; 7 computed
+  5.55s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      5m 37s Collect lexemes from the text                                                  .
+..............................................................................................
+|      5m 41s added 9233 lexemes
+|      5m 41s maxNode is now 1446820
+|      5m 41s language arc has   708 lexemes in the text
+|      5m 41s language hbo has  8525 lexemes in the text
+..............................................................................................
+.      5m 41s Collect lexeme info from the lexicon                                           .
+..............................................................................................
+|      5m 41s Reading lexicon ...
+|      5m 41s Lexicon arc has   708 entries
+|      5m 41s Lexicon hbo has  8525 entries
+|      5m 41s Done
+..............................................................................................
+.      5m 41s Test - Match between text and lexicon                                          .
+..............................................................................................
+|      5m 41s 708 arc lexemes
+|      5m 41s 8525 hbo lexemes
+|      5m 41s Equal lex values in hbo and arc in the BHSA   text contains 460 lexemes
+|      5m 41s Equal lex values in hbo and arc in the lexicon     contains 460 lexemes
+|      5m 41s Common values in the lexicon but not in the text: 0x: set()
+|      5m 41s Common values in the text but not in the lexicon: 0x: set()
+|      5m 41s arc: lexemes in text but not in lexicon: 0x
+|      5m 41s arc: lexemes in lexicon but not in text: 0x
+|      5m 41s hbo: lexemes in text but not in lexicon: 0x
+|      5m 41s hbo: lexemes in lexicon but not in text: 0x
+..............................................................................................
+.      5m 41s Test - Consistency of vocalized lexeme                                         .
+..............................................................................................
+|      5m 42s lexemes with missing vc property: 342x
+|      5m 42s 	hbo-<BC[ supplied from occurrence: <BC
+|      5m 42s 	hbo-<BR=[ supplied from occurrence: <BR
+|      5m 42s 	hbo-<BT[ supplied from occurrence: <BT
+|      5m 42s 	hbo-<BV=[ supplied from occurrence: <BV
+|      5m 42s 	hbo-<DN[ supplied from occurrence: <DN
+|      5m 42s 	hbo-<DP[ supplied from occurrence: <DP
+|      5m 42s 	hbo-<DR==[ supplied from occurrence: <DR
+|      5m 42s 	hbo-<DR=[ supplied from occurrence: <DR
+|      5m 42s 	hbo-<DR[ supplied from occurrence: <DR
+|      5m 42s 	hbo-<FQ[ supplied from occurrence: <FQ
+|      5m 42s 	hbo-<FR[ supplied from occurrence: <FR
+|      5m 42s 	hbo-<GB[ supplied from occurrence: <GB
+|      5m 42s 	hbo-<GM[ supplied from occurrence: <GM
+|      5m 42s 	hbo-<GN[ supplied from occurrence: <GN
+|      5m 42s 	hbo-<KS[ supplied from occurrence: <KS
+|      5m 42s 	hbo-<L<[ supplied from occurrence: <L<
+|      5m 42s 	hbo-<LS[ supplied from occurrence: <LS
+|      5m 42s 	hbo-<MR[ supplied from occurrence: <MR
+|      5m 42s 	hbo-<MS[ supplied from occurrence: <MS
+|      5m 42s 	hbo-<ND[ supplied from occurrence: <ND
+|      5m 42s Have all occurrences of a lexeme the same voc_lex value?
+|      5m 42s 	Fully consistent
+|      5m 42s Have all occurrences of a lexeme the same voc_lex_utf8 value?
+|      5m 42s 	Fully consistent
+|      5m 42s Are the voc_lex values of the lexeme consistent with the vc value of the lexeme?
+|      5m 42s 	1418 inconsistent cases
+|      5m 42s 		hbo-BR>[: B.@R@>, BR>
+|      5m 42s 		hbo-HJH[: H@J@H, HJH
+|      5m 42s 		hbo-RXP[: R@XAP, RXP
+|      5m 42s 		hbo->MR[: >@MAR, >MR
+|      5m 42s 		hbo-R>H[: R>H, R@>@H
+|      5m 42s 		hbo-VWB[: VOWB, VWB
+|      5m 42s 		hbo-BDL[: B.@DAL, BDL
+|      5m 42s 		hbo-QR>[: Q@R@>, QR>
+|      5m 42s 		hbo-<FH[: <@F@H, <FH
+|      5m 42s 		hbo-QWH=[: Q@W@H, QWH
+|      5m 42s 		...and 1408 more.
+..............................................................................................
+.      5m 42s Prepare TF lexical features                                                    .
+..............................................................................................
+..............................................................................................
+.      5m 47s Various tweaks in features                                                     .
+..............................................................................................
+..............................................................................................
+.      5m 48s Update the otype, oslots and otext features                                    .
+..............................................................................................
+|      5m 50s Features that have new or modified data
+|      5m 50s 	gloss
+|      5m 50s 	language
+|      5m 50s 	languageISO
+|      5m 50s 	lex
+|      5m 50s 	lex0
+|      5m 50s 	lex_utf8
+|      5m 50s 	ls
+|      5m 50s 	nametype
+|      5m 50s 	otype
+|      5m 50s 	root
+|      5m 50s 	sp
+|      5m 50s 	voc_lex
+|      5m 50s 	voc_lex_utf8
+|      5m 50s 	oslots
+|      5m 50s Check voc_lex_utf8: בְּ רֵאשִׁית ברא אֱלֹהִים אֵת הַ שָׁמַיִם וְ אֶרֶץ
+|      5m 50s 	Features to remove
+|      5m 50s 	g_voc_lex
+|      5m 50s 	g_voc_lex_utf8
+..............................................................................................
+.      5m 50s write new/changed features to TF ...                                           .
+..............................................................................................
+   |     0.02s T gloss                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.48s T language             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.49s T languageISO          to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.52s T lex                  to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.49s T lex0                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.59s T lex_utf8             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.49s T ls                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T nametype             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.52s T otype                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T root                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.58s T sp                   to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.02s T voc_lex              to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.02s T voc_lex_utf8         to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     2.93s T oslots               to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s M otext                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+..............................................................................................
+.      5m 57s Check differences with previous version                                        .
+..............................................................................................
+|      5m 57s 	7 features to add
+|      5m 57s 		gloss
+|      5m 57s 		languageISO
+|      5m 57s 		lex0
+|      5m 57s 		nametype
+|      5m 57s 		root
+|      5m 57s 		voc_lex
+|      5m 57s 		voc_lex_utf8
+|      5m 57s 	no features to delete
+|      5m 57s 	8 features in common
+|      5m 57s language                  ... differences after the metadata
+|      5m 57s 	line 426586 OLD --><empty><--
+|      5m 57s 	line 426586 NEW -->1437588	Hebrew<--
+|      5m 57s 	line 426587 OLD --><empty><--
+|      5m 57s 	line 426587 NEW -->Hebrew<--
+|      5m 57s 	line 426588 OLD --><empty><--
+|      5m 57s 	line 426588 NEW -->Hebrew<--
+|      5m 57s 	line 426589 OLD --><empty><--
+|      5m 57s 	line 426589 NEW -->Hebrew<--
+
+|      5m 57s lex                       ... differences after the metadata
+|      5m 57s 	line 426586 OLD --><empty><--
+|      5m 57s 	line 426586 NEW -->1437588	B<--
+|      5m 57s 	line 426587 OLD --><empty><--
+|      5m 57s 	line 426587 NEW -->R>CJT/<--
+|      5m 57s 	line 426588 OLD --><empty><--
+|      5m 57s 	line 426588 NEW -->BR>[<--
+|      5m 57s 	line 426589 OLD --><empty><--
+|      5m 57s 	line 426589 NEW -->>LHJM/<--
+
+|      5m 57s lex_utf8                  ... differences after the metadata
+|      5m 58s 	line      3 OLD -->ראשׁית֜<--
+|      5m 58s 	line      3 NEW -->ראשׁית<--
+|      5m 58s 	line      5 OLD -->אלהים֜<--
+|      5m 58s 	line      5 NEW -->אלהים<--
+|      5m 58s 	line      8 OLD -->שׁמים֜<--
+|      5m 58s 	line      8 NEW -->שׁמים<--
+|      5m 58s 	line     12 OLD -->ארץ֜<--
+|      5m 58s 	line     12 NEW -->ארץ<--
+
+|      5m 58s ls                        ... differences after the metadata
+|      5m 58s 	line 426586 OLD --><empty><--
+|      5m 58s 	line 426586 NEW -->1437597	vbcp<--
+|      5m 58s 	line 426587 OLD --><empty><--
+|      5m 58s 	line 426587 NEW -->1437607	quot<--
+|      5m 58s 	line 426588 OLD --><empty><--
+|      5m 58s 	line 426588 NEW -->1437613	ppre<--
+|      5m 58s 	line 426589 OLD --><empty><--
+|      5m 58s 	line 426589 NEW -->1437616	padv<--
+
+|      5m 58s oslots                    ... differences after the metadata
+|      5m 59s 	line 1011005 OLD --><empty><--
+|      5m 59s 	line 1011005 NEW -->1,84,197,220,241,270,318,330,334,428,435 ...<--
+|      5m 59s 	line 1011006 OLD --><empty><--
+|      5m 59s 	line 1011006 NEW -->2,4662,27811,41331,48284,53077,66101,796 ...<--
+|      5m 59s 	line 1011007 OLD --><empty><--
+|      5m 59s 	line 1011007 NEW -->3,381,535,545,550,724,736,2126,2137,2148 ...<--
+|      5m 59s 	line 1011008 OLD --><empty><--
+|      5m 59s 	line 1011008 NEW -->4,26,34,42,50,60,81,97,127,142,162,176,1 ...<--
+
+|      5m 59s otext                     ... differences
+|      5m 59s 	line      5 OLD -->@email=shebanq@ancient-data.org<--
+|      5m 59s 	line      5 NEW -->@dateWritten=2018-04-13T12:19:24Z<--
+|      5m 59s 	line      6 OLD -->@encoders=Constantijn Sikkel (QDF), Ulri ...<--
+|      5m 59s 	line      6 NEW -->@email=shebanq@ancient-data.org<--
+|      5m 59s 	line      7 OLD -->@fmt:lex-orig-full={g_lex_utf8} <--
+|      5m 59s 	line      7 NEW -->@encoders=Constantijn Sikkel (QDF), Ulri ...<--
+|      5m 59s 	line      8 OLD -->@fmt:lex-orig-plain={lex_utf8} <--
+|      5m 59s 	line      8 NEW -->@fmt:lex-orig-full={g_lex_utf8} <--
+
+|      5m 59s otype                     ... differences after the metadata
+|      5m 59s 	line     14 OLD --><empty><--
+|      5m 59s 	line     14 NEW -->1437588-1446820	lex<--
+
+|      5m 59s sp                        ... differences after the metadata
+|      5m 59s 	line 426586 OLD --><empty><--
+|      5m 59s 	line 426586 NEW -->1437588	prep<--
+|      5m 59s 	line 426587 OLD --><empty><--
+|      5m 59s 	line 426587 NEW -->subs<--
+|      5m 59s 	line 426588 OLD --><empty><--
+|      5m 59s 	line 426588 NEW -->verb<--
+|      5m 59s 	line 426589 OLD --><empty><--
+|      5m 59s 	line 426589 NEW -->subs<--
+
+|      5m 59s Done
+..............................................................................................
+.      5m 59s Deliver features to /Users/cody/github/etcbc/bhsa/tf/_temp                     .
+..............................................................................................
+|      5m 59s 	sp
+|      5m 59s 	lex
+|      5m 59s 	voc_lex
+|      5m 59s 	lex0
+|      5m 59s 	otype
+|      5m 59s 	oslots
+|      5m 59s 	otext
+|      5m 59s 	languageISO
+|      5m 59s 	gloss
+|      5m 59s 	nametype
+|      5m 59s 	language
+|      5m 59s 	voc_lex_utf8
+|      5m 59s 	root
+|      5m 59s 	lex_utf8
+|      5m 59s 	ls
+..............................................................................................
+.      5m 59s Delete features from /Users/cody/github/etcbc/bhsa/tf/_temp                    .
+..............................................................................................
+|      5m 59s 	g_voc_lex ... deleted
+|      5m 59s 	g_voc_lex_utf8 ... deleted
+..............................................................................................
+.      5m 59s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+106 features found and 0 ignored
+  0.00s loading features ...
+   |     0.65s T otype                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |       15s T oslots               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.92s T lex0                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.05s T lex_utf8             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s M otext                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |      |     0.83s C __levels__           from otype, oslots, otext
+   |      |       12s C __order__            from otype, oslots, __levels__
+   |      |     0.72s C __rank__             from otype, __order__
+   |      |       12s C __levUp__            from otype, oslots, __rank__
+   |      |     9.38s C __levDown__          from otype, __levUp__, __rank__
+   |      |     2.96s C __boundary__         from otype, oslots, __rank__
+   |     0.00s M otext                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |      |     0.09s C __sections__         from otype, oslots, otext, __levUp__, __levels__, book, chapter, verse
+   |     1.09s T sp                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     1.01s T lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.02s T voc_lex              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.93s T languageISO          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.02s T gloss                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s T nametype             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.98s T language             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.03s T voc_lex_utf8         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s T root                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.94s T ls                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 101 for nodes; 4 for edges; 1 configs; 7 computed
+ 1m 01s All features loaded/computed - for details use loadLog()
+|      7m 01s new format lex-trans-plain (using lex0): B R>CJT BR> >LHJM >T H CMJM W >T H >RY 
+|      7m 01s lex_utf8 feature              : ב ראשׁית ברא אלהים את ה שׁמים ו את ה ארץ
+|      7m 01s language feature              : Hebrew Hebrew Hebrew Hebrew Hebrew Hebrew Hebrew Hebrew Hebrew Hebrew Hebrew
+..............................................................................................
+.      7m 01s Lexeme info for the first verse                                                .
+..............................................................................................
+|      7m 01s 	Hebrew - B - 15542x
+|      7m 01s 		gloss           = in
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = prep
+|      7m 01s 		voc_lex         = B.:
+|      7m 01s 		voc_lex_utf8    = בְּ
+|      7m 01s 	Hebrew - R>CJT/ - 51x
+|      7m 01s 		gloss           = beginning
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = R>C
+|      7m 01s 		sp              = subs
+|      7m 01s 		voc_lex         = R;>CIJT
+|      7m 01s 		voc_lex_utf8    = רֵאשִׁית
+|      7m 01s 	Hebrew - BR>[ - 48x
+|      7m 01s 		gloss           = create
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = verb
+|      7m 01s 		voc_lex         = BR>
+|      7m 01s 		voc_lex_utf8    = ברא
+|      7m 01s 	Hebrew - >LHJM/ - 2601x
+|      7m 01s 		gloss           = god(s)
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = subs
+|      7m 01s 		voc_lex         = >:ELOHIJM
+|      7m 01s 		voc_lex_utf8    = אֱלֹהִים
+|      7m 01s 	Hebrew - >T - 10989x
+|      7m 01s 		gloss           = <object marker>
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = prep
+|      7m 01s 		voc_lex         = >;T
+|      7m 01s 		voc_lex_utf8    = אֵת
+|      7m 01s 	Hebrew - H - 30386x
+|      7m 01s 		gloss           = the
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = art
+|      7m 01s 		voc_lex         = HA
+|      7m 01s 		voc_lex_utf8    = הַ
+|      7m 01s 	Hebrew - CMJM/ - 421x
+|      7m 01s 		gloss           = heavens
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = CMH
+|      7m 01s 		sp              = subs
+|      7m 01s 		voc_lex         = C@MAJIM
+|      7m 01s 		voc_lex_utf8    = שָׁמַיִם
+|      7m 01s 	Hebrew - W - 50272x
+|      7m 01s 		gloss           = and
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = conj
+|      7m 01s 		voc_lex         = W:
+|      7m 01s 		voc_lex_utf8    = וְ
+|      7m 01s 	Hebrew - >T - 10989x
+|      7m 01s 		gloss           = <object marker>
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = prep
+|      7m 01s 		voc_lex         = >;T
+|      7m 01s 		voc_lex_utf8    = אֵת
+|      7m 01s 	Hebrew - H - 30386x
+|      7m 01s 		gloss           = the
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = art
+|      7m 01s 		voc_lex         = HA
+|      7m 01s 		voc_lex_utf8    = הַ
+|      7m 01s 	Hebrew - >RY/ - 2504x
+|      7m 01s 		gloss           = earth
+|      7m 01s 		ls              = None
+|      7m 01s 		nametype        = None
+|      7m 01s 		root            = None
+|      7m 01s 		sp              = subs
+|      7m 01s 		voc_lex         = >EREY
+|      7m 01s 		voc_lex_utf8    = אֶרֶץ
+|      7m 01s SUCCESS lexicon
+
+----------------------------------------------------------------------------------------------
+-      7m 01s SUCCES [bhsa/lexicon]                                                          -
+----------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------
+-      7m 01s Run notebook [bhsa/paragraphs] with parameters:                                -
+----------------------------------------------------------------------------------------------
+
+|      7m 01s 	CORE_NAME            = bhsa
+|      7m 01s 	DO_VOCALIZED_LEXEME  = True
+|      7m 01s 	EXTRA_OVERLAP        = 
+|      7m 01s 	LANG_FEATURE         = languageISO
+|      7m 01s 	LEX_FEATURE          = lex
+|      7m 01s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|      7m 01s 	OCC_FEATURE          = g_cons
+|      7m 01s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|      7m 01s 	TEXT_FEATURE         = g_word_utf8
+|      7m 01s 	TRAILER_FEATURE      = trailer_utf8
+|      7m 01s 	VERSION              = _temp
+|      7m 01s 	Destination /Users/cody/github/etcbc/bhsa/tf/_temp/.tf/pargr.tfx does not exist
+..............................................................................................
+.      7m 01s Load the existing TF dataset                                                   .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+106 features found and 0 ignored
+  0.00s loading features ...
+   |     0.01s B label                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.18s B number               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 101 for nodes; 4 for edges; 1 configs; 7 computed
+  4.05s All features loaded/computed - for details use loadLog()
+|      7m 05s 	Labeling clause_atoms
+|      7m 06s 	OK: clause atoms succesfully labeled
+|      7m 06s 	90690 clause atoms
+..............................................................................................
+.      7m 06s Parsing paragraph data in PX                                                   .
+..............................................................................................
+|      7m 06s bunzipping /Users/cody/github/etcbc/bhsa/source/_temp/paragraphs.txt.bz2 ...
+|      7m 08s 	Read 90690 paragraph annotations
+|      7m 08s 	OK: All label/line entries found in index
+|      7m 08s Prepare TF paragraph features
+..............................................................................................
+.      7m 08s write new/changed features to TF ...                                           .
+..............................................................................................
+   |     0.12s T instruction          to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.10s T pargr                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+..............................................................................................
+.      7m 08s Check differences with previous version                                        .
+..............................................................................................
+|      7m 08s 	2 features to add
+|      7m 08s 		instruction
+|      7m 08s 		pargr
+|      7m 08s 	no features to delete
+|      7m 08s 	0 features in common
+|      7m 08s Done
+..............................................................................................
+.      7m 08s Deliver features to /Users/cody/github/etcbc/bhsa/tf/_temp                     .
+..............................................................................................
+|      7m 08s 	instruction
+|      7m 08s 	pargr
+..............................................................................................
+.      7m 08s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+108 features found and 0 ignored
+  0.00s loading features ...
+   |     0.22s T instruction          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.20s T pargr                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 103 for nodes; 4 for edges; 1 configs; 7 computed
+  4.56s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      7m 13s Test: paragraphs of the first verses                                           .
+..............................................................................................
+	Genesis 1:1
+		.N             1 בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ 
+	2
+		..             1 וְהָאָ֗רֶץ הָיְתָ֥ה תֹ֨הוּ֙ וָבֹ֔הוּ 
+		..             1 וְחֹ֖שֶׁךְ עַל־פְּנֵ֣י תְהֹ֑ום 
+		..             1 וְר֣וּחַ אֱלֹהִ֔ים מְרַחֶ֖פֶת עַל־פְּנֵ֥י הַמָּֽיִם׃ 
+	3
+		.#           1.1 וַיֹּ֥אמֶר אֱלֹהִ֖ים 
+		.q         1.1.1 יְהִ֣י אֹ֑ור 
+		.#         1.1.2 וַֽיְהִי־אֹֽור׃ 
+	4
+		.#         1.1.3 וַיַּ֧רְא אֱלֹהִ֛ים אֶת־הָאֹ֖ור 
+		..         1.1.3 כִּי־טֹ֑וב 
+		.#         1.1.4 וַיַּבְדֵּ֣ל אֱלֹהִ֔ים בֵּ֥ין הָאֹ֖ור וּבֵ֥ין הַחֹֽשֶׁךְ׃ 
+	5
+		.#         1.1.5 וַיִּקְרָ֨א אֱלֹהִ֤ים׀ לָאֹור֙ יֹ֔ום 
+		..         1.1.5 וְלַחֹ֖שֶׁךְ קָ֣רָא לָ֑יְלָה 
+		.#       1.1.5.1 וַֽיְהִי־עֶ֥רֶב 
+		.#       1.1.5.2 וַֽיְהִי־בֹ֖קֶר 
+		..       1.1.5.2 יֹ֥ום אֶחָֽד׃ פ 
+	6
+		.#           1.2 וַיֹּ֣אמֶר אֱלֹהִ֔ים 
+		.q         1.2.1 יְהִ֥י רָקִ֖יעַ בְּתֹ֣וךְ הַמָּ֑יִם 
+		..         1.2.1 וִיהִ֣י מַבְדִּ֔יל בֵּ֥ין מַ֖יִם לָמָֽיִם׃ 
+	7
+		.#         1.2.2 וַיַּ֣עַשׂ אֱלֹהִים֮ אֶת־הָרָקִיעַ֒ 
+		..         1.2.2 וַיַּבְדֵּ֗ל בֵּ֤ין הַמַּ֨יִם֙ 
+		.e         1.2.2 אֲשֶׁר֙ מִתַּ֣חַת לָרָקִ֔יעַ 
+		d.         1.2.2 וּבֵ֣ין הַמַּ֔יִם 
+		..         1.2.2 אֲשֶׁ֖ר מֵעַ֣ל לָרָקִ֑יעַ 
+		..         1.2.2 וַֽיְהִי־כֵֽן׃ 
+	8
+		.#       1.2.2.1 וַיִּקְרָ֧א אֱלֹהִ֛ים לָֽרָקִ֖יעַ שָׁמָ֑יִם 
+		.#     1.2.2.1.1 וַֽיְהִי־עֶ֥רֶב 
+		.#     1.2.2.1.2 וַֽיְהִי־בֹ֖קֶר 
+		..     1.2.2.1.2 יֹ֥ום שֵׁנִֽי׃ פ 
+	9
+		.#           1.3 וַיֹּ֣אמֶר אֱלֹהִ֗ים 
+		.q         1.3.1 יִקָּו֨וּ הַמַּ֜יִם מִתַּ֤חַת הַשָּׁמַ֨יִם֙ אֶל־מָקֹ֣ום אֶחָ֔ד 
+		..         1.3.1 וְתֵרָאֶ֖ה הַיַּבָּשָׁ֑ה 
+		..           1.3 וַֽיְהִי־כֵֽן׃ 
+	10
+		.#         1.3.2 וַיִּקְרָ֨א אֱלֹהִ֤ים׀ לַיַּבָּשָׁה֙ אֶ֔רֶץ 
+		..         1.3.2 וּלְמִקְוֵ֥ה הַמַּ֖יִם קָרָ֣א יַמִּ֑ים 
+		.#         1.3.3 וַיַּ֥רְא אֱלֹהִ֖ים 
+		..         1.3.3 כִּי־טֹֽוב׃ 
+|      7m 13s SUCCESS paragraphs
+
+----------------------------------------------------------------------------------------------
+-      7m 13s SUCCES [bhsa/paragraphs]                                                       -
+----------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------
+-      7m 13s Run notebook [bhsa/ketivQere] with parameters:                                 -
+----------------------------------------------------------------------------------------------
+
+|      7m 13s 	CORE_NAME            = bhsa
+|      7m 13s 	DO_VOCALIZED_LEXEME  = True
+|      7m 13s 	EXTRA_OVERLAP        = 
+|      7m 13s 	LANG_FEATURE         = languageISO
+|      7m 13s 	LEX_FEATURE          = lex
+|      7m 13s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|      7m 13s 	OCC_FEATURE          = g_cons
+|      7m 13s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|      7m 13s 	TEXT_FEATURE         = g_word_utf8
+|      7m 13s 	TRAILER_FEATURE      = trailer_utf8
+|      7m 13s 	VERSION              = _temp
+|      7m 13s 	Destination /Users/cody/github/etcbc/bhsa/tf/_temp/.tf/qere_trailer.tfx does not exist
+|      7m 13s New text formats
+|      7m 13s fmt:text-orig-full             = "{qere_utf8/g_word_utf8}{qere_trailer_utf8/trailer_utf8}"
+|      7m 13s fmt:text-orig-full-ketiv       = "{g_word_utf8}{trailer_utf8}"
+|      7m 13s fmt:text-trans-full            = "{qere/g_word}{qere_trailer/trailer}"
+|      7m 13s fmt:text-trans-full-ketiv      = "{g_word}{trailer}"
+..............................................................................................
+.      7m 13s Load the existing TF dataset                                                   .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+108 features found and 0 ignored
+  0.00s loading features ...
+   |     0.11s B g_cons               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.15s B g_word               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.08s B trailer_utf8         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s B label                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 103 for nodes; 4 for edges; 1 configs; 7 computed
+  4.50s All features loaded/computed - for details use loadLog()
+|      7m 17s Mapping between verse labels and verse nodes
+|      7m 17s 23213 verses
+..............................................................................................
+.      7m 17s Parsing Ketiv-Qere data                                                        .
+..............................................................................................
+|      7m 17s 	Read 1892 ketiv-qere annotations
+|      7m 17s 	Parsed 1892 ketiv-qere annotations
+|      7m 17s 	All verses entries found in index
+|      7m 17s 	All ketivs found in the text
+|      7m 17s 	All ketivs found in the data
+|      7m 17s Prepare TF ketiv qere features
+|      7m 17s Update the otext feature
+..............................................................................................
+.      7m 17s write new/changed features to TF ...                                           .
+..............................................................................................
+   |     0.00s T qere                 to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T qere_trailer         to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T qere_trailer_utf8    to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s T qere_utf8            to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.00s M otext                to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+..............................................................................................
+.      7m 17s Check differences with previous version                                        .
+..............................................................................................
+|      7m 17s 	2 features to add
+|      7m 17s 		qere_trailer
+|      7m 17s 		qere_trailer_utf8
+|      7m 17s 	no features to delete
+|      7m 17s 	3 features in common
+|      7m 17s otext                     ... differences
+|      7m 17s 	line      5 OLD -->@dateWritten=2018-04-13T12:19:24Z<--
+|      7m 17s 	line      5 NEW -->@dateWritten=2018-04-13T12:21:48Z<--
+|      7m 17s 	line     12 OLD -->@fmt:text-orig-full={g_word_utf8}{traile ...<--
+|      7m 17s 	line     12 NEW -->@fmt:text-orig-full={qere_utf8/g_word_ut ...<--
+|      7m 17s 	line     13 OLD -->@fmt:text-orig-plain={g_cons_utf8}{trail ...<--
+|      7m 17s 	line     13 NEW -->@fmt:text-orig-full-ketiv={g_word_utf8}{ ...<--
+|      7m 17s 	line     14 OLD -->@fmt:text-trans-full={g_word}{trailer}<--
+|      7m 17s 	line     14 NEW -->@fmt:text-orig-plain={g_cons_utf8}{trail ...<--
+
+|      7m 17s qere                      ... differences after the metadata
+|      7m 17s 	line      2 OLD --><--
+|      7m 17s 	line      2 NEW -->3897	HAJ:Y;74><--
+|      7m 17s 	line      3 OLD --><--
+|      7m 17s 	line      3 NEW -->4420	>@H:@LO75W<--
+|      7m 17s 	line      4 OLD --><--
+|      7m 17s 	line      4 NEW -->5645	>@H:@LO92W<--
+|      7m 17s 	line      5 OLD --><--
+|      7m 17s 	line      5 NEW -->5912	>@95H:@LOW03<--
+
+|      7m 17s qere_utf8                 ... differences after the metadata
+|      7m 17s 	line      2 OLD --><--
+|      7m 17s 	line      2 NEW -->3897	הַיְצֵ֣א<--
+|      7m 17s 	line      3 OLD --><--
+|      7m 17s 	line      3 NEW -->4420	אָהֳלֹֽו<--
+|      7m 17s 	line      4 OLD --><--
+|      7m 17s 	line      4 NEW -->5645	אָהֳלֹ֑ו<--
+|      7m 17s 	line      5 OLD --><--
+|      7m 17s 	line      5 NEW -->5912	אָֽהֳלֹו֙<--
+
+|      7m 17s Done
+..............................................................................................
+.      7m 17s Deliver features to /Users/cody/github/etcbc/bhsa/tf/_temp                     .
+..............................................................................................
+|      7m 17s 	qere_trailer_utf8
+|      7m 17s 	qere_utf8
+|      7m 17s 	otext
+|      7m 17s 	qere_trailer
+|      7m 17s 	qere
+..............................................................................................
+.      7m 17s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+110 features found and 0 ignored
+  0.00s loading features ...
+   |     0.18s B g_word               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.19s B g_word_utf8          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s T qere                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s T qere_trailer         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s T qere_trailer_utf8    from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s T qere_utf8            from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.08s B trailer              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.08s B trailer_utf8         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s M otext                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |      |     0.81s C __levels__           from otype, oslots, otext
+   |      |       12s C __order__            from otype, oslots, __levels__
+   |      |     0.75s C __rank__             from otype, __order__
+   |      |       17s C __levUp__            from otype, oslots, __rank__
+   |      |     8.76s C __levDown__          from otype, __levUp__, __rank__
+   |      |     2.62s C __boundary__         from otype, oslots, __rank__
+   |     0.00s M otext                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |      |     0.08s C __sections__         from otype, oslots, otext, __levUp__, __levels__, book, chapter, verse
+   |     0.00s Feature overview: 105 for nodes; 4 for edges; 1 configs; 7 computed
+    44s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      8m 02s Basic tests                                                                    .
+..............................................................................................
+|      8m 02s absence of qere               : NA NA WA J.I45C:T.AX:AW.75W. NA NA NA NA NA NA
+|      8m 02s presence of qere trailer      : NA NA NA &  
+..............................................................................................
+.      8m 02s Joshua 15:52 in all formats                                                    .
+..............................................................................................
+|      8m 02s text-trans-full-ketiv          >:ARA71B W:-RW.M@73H W:->EC:<@75N00 
+|      8m 02s lex-trans-full                 >:ARAB W:- RW.M@H W:- >EC:<@N 
+|      8m 02s text-orig-full-ketiv           אֲרַ֥ב וְרוּמָ֖ה וְאֶשְׁעָֽן׃ 
+|      8m 02s text-trans-full                >:ARA71B W:-RW.M@73H W:->EC:<@75N00 
+|      8m 02s text-orig-full                 אֲרַ֥ב וְרוּמָ֖ה וְאֶשְׁעָֽן׃ 
+|      8m 02s lex-orig-plain                 ארב ו רומה ו אשׁען 
+|      8m 02s lex-trans-plain                >RB W RWMH W >C<N 
+|      8m 02s text-orig-plain                ארב ורומה ואשׁען׃ 
+|      8m 02s lex-orig-full                  אֲרַב וְ רוּמָה וְ אֶשְׁעָן 
+|      8m 02s text-trans-plain               >RB WRWMH W>C<N00 
+|      8m 02s SUCCESS ketivQere
+
+----------------------------------------------------------------------------------------------
+-      8m 02s SUCCES [bhsa/ketivQere]                                                        -
+----------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------
+-      8m 02s Run notebook [bhsa/stats] with parameters:                                     -
+----------------------------------------------------------------------------------------------
+
+|      8m 02s 	CORE_NAME            = bhsa
+|      8m 02s 	DO_VOCALIZED_LEXEME  = True
+|      8m 02s 	EXTRA_OVERLAP        = 
+|      8m 02s 	LANG_FEATURE         = languageISO
+|      8m 02s 	LEX_FEATURE          = lex
+|      8m 02s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|      8m 02s 	OCC_FEATURE          = g_cons
+|      8m 02s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|      8m 02s 	TEXT_FEATURE         = g_word_utf8
+|      8m 02s 	TRAILER_FEATURE      = trailer_utf8
+|      8m 02s 	VERSION              = _temp
+|      8m 02s 	Destination /Users/cody/github/etcbc/bhsa/tf/_temp/.tf/freq_occ.tfx does not exist
+..............................................................................................
+.      8m 02s Loading relevant features                                                      .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+110 features found and 0 ignored
+  0.00s loading features ...
+   |     0.08s B g_cons               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B languageISO          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.11s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 105 for nodes; 4 for edges; 1 configs; 7 computed
+  3.80s All features loaded/computed - for details use loadLog()
+|      8m 06s Counting occurrences
+|      8m 07s Making statistical features
+..............................................................................................
+.      8m 09s Write statistical features as TF                                               .
+..............................................................................................
+   |     0.48s T freq_lex             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.47s T freq_occ             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.48s T rank_lex             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+   |     0.48s T rank_occ             to /Users/cody/github/etcbc/bhsa/_temp/_temp/tf
+..............................................................................................
+.      8m 11s Check differences with previous version                                        .
+..............................................................................................
+|      8m 11s 	4 features to add
+|      8m 11s 		freq_lex
+|      8m 11s 		freq_occ
+|      8m 11s 		rank_lex
+|      8m 11s 		rank_occ
+|      8m 11s 	no features to delete
+|      8m 11s 	0 features in common
+|      8m 11s Done
+..............................................................................................
+.      8m 11s Deliver features to /Users/cody/github/etcbc/bhsa/tf/_temp                     .
+..............................................................................................
+|      8m 11s 	freq_occ
+|      8m 11s 	freq_lex
+|      8m 11s 	rank_occ
+|      8m 11s 	rank_lex
+..............................................................................................
+.      8m 11s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+114 features found and 0 ignored
+  0.00s loading features ...
+   |     0.10s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.58s T freq_occ             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.59s T freq_lex             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.58s T rank_occ             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.58s T rank_lex             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 109 for nodes; 4 for edges; 1 configs; 7 computed
+  6.28s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      8m 17s Basic test                                                                     .
+..............................................................................................
+|      8m 17s Top 10 freqent lexemes (computed on otype=word)
+|      8m 18s W           50272x
+|      8m 18s H           30386x
+|      8m 18s L           20069x
+|      8m 18s B           15542x
+|      8m 18s >T          10989x
+|      8m 18s MN           7562x
+|      8m 18s JHWH/        6828x
+|      8m 18s <L           5766x
+|      8m 18s >L           5517x
+|      8m 18s >CR          5500x
+..............................................................................................
+.      8m 18s Top 10 freqent lexemes (computed on otype=lex)                                 .
+..............................................................................................
+|      8m 18s W           50272x
+|      8m 18s H           30386x
+|      8m 18s L           20069x
+|      8m 18s B           15542x
+|      8m 18s >T          10989x
+|      8m 18s MN           7562x
+|      8m 18s JHWH/        6828x
+|      8m 18s <L           5766x
+|      8m 18s >L           5517x
+|      8m 18s >CR          5500x
+|      8m 18s 	INFO: Same lexeme frequencies computed by lex vs by word
+|      8m 18s Done
+|      8m 18s SUCCESS stats
+
+----------------------------------------------------------------------------------------------
+-      8m 18s SUCCES [bhsa/stats]                                                            -
+----------------------------------------------------------------------------------------------
+
+
+**********************************************************************************************
+*                                                                                            *
+*      8m 18s SUCCES [bhsa]                                                                  *
+*                                                                                            *
+**********************************************************************************************
+
+
+**********************************************************************************************
+*                                                                                            *
+*      8m 18s Make repo [phono]                                                              *
+*                                                                                            *
+**********************************************************************************************
+
+
+----------------------------------------------------------------------------------------------
+-      8m 18s Run notebook [phono/phono] with parameters:                                    -
+----------------------------------------------------------------------------------------------
+
+|      8m 18s 	CORE_NAME            = bhsa
+|      8m 18s 	DO_VOCALIZED_LEXEME  = True
+|      8m 18s 	EXTRA_OVERLAP        = 
+|      8m 18s 	LANG_FEATURE         = languageISO
+|      8m 18s 	LEX_FEATURE          = lex
+|      8m 18s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|      8m 18s 	OCC_FEATURE          = g_cons
+|      8m 18s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|      8m 18s 	TEXT_FEATURE         = g_word_utf8
+|      8m 18s 	TRAILER_FEATURE      = trailer_utf8
+|      8m 18s 	VERSION              = _temp
+|      8m 20s 	Destination /Users/cody/github/etcbc/phono/tf/_temp/.tf/phono.tfx does not exist
+..............................................................................................
+.      8m 20s Load the existing TF dataset                                                   .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+114 features found and 0 ignored
+  0.00s loading features ...
+   |     0.11s B g_cons               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.15s B g_cons_utf8          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B g_word               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.18s B g_word_utf8          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B lex0                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.15s B lex_utf8             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B qere                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B qere_trailer         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.06s B trailer              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.14s B sp                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B vs                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B vt                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B gn                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.12s B nu                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.12s B ps                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B st                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B uvf                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B prs                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.08s B g_prs                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B pfm                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B vbs                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.12s B vbe                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.12s B languageISO          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 109 for nodes; 4 for edges; 1 configs; 7 computed
+  5.87s All features loaded/computed - for details use loadLog()
+|      8m 25s 	Looking for non-verb qamets
+|      8m 27s 	4059 lexemes and 13458 unique occurrences
+|      8m 27s 	Filtering lexemes with varied occurrences
+|      8m 28s 	161 interesting lexemes with 1705 unique occurrences
+|      8m 28s 	Guessing between gadol and qatan
+	JM/: Override for syllable 1: ā becomes o
+	BJT/: Override for syllable 1: o becomes ā
+	JWMM: Override for syllable 2:  becomes ā
+	JHWNTN/: Override for syllable 2:  becomes ā
+	JRB<M/: No override needed for syllable 1 which is ā
+|      8m 28s 	107 lexemes with modified occurrences (224)
+|      8m 28s 	0 patterns with conflicts
+..............................................................................................
+.      8m 28s Generating data in two ways ...                                                .
+..............................................................................................
+|      8m 29s 	 1000 verses 13315 62 0 21
+|      8m 31s 	 2000 verses 27406 123 2 79
+|      8m 32s 	 3000 verses 40962 174 5 125
+|      8m 33s 	 4000 verses 54142 242 8 143
+|      8m 35s 	 5000 verses 67150 307 13 171
+|      8m 36s 	 6000 verses 82446 393 15 196
+|      8m 38s 	 7000 verses 97548 456 17 254
+|      8m 39s 	 8000 verses 113745 528 18 287
+|      8m 41s 	 9000 verses 129599 572 20 327
+|      8m 42s 	10000 verses 146214 623 20 438
+|      8m 44s 	11000 verses 159806 748 20 487
+|      8m 45s 	12000 verses 174189 890 24 524
+|      8m 47s 	13000 verses 190552 1017 28 576
+|      8m 48s 	14000 verses 205101 1167 32 622
+|      8m 50s 	15000 verses 218607 1289 33 728
+|      8m 50s 	16000 verses 227941 1335 39 777
+|      8m 51s 	17000 verses 235631 1378 48 827
+|      8m 52s 	18000 verses 243254 1395 51 866
+|      8m 53s 	19000 verses 250705 1428 59 906
+|      8m 54s 	20000 verses 260114 1469 60 960
+|      8m 55s 	21000 verses 275079 1532 63 979
+|      8m 56s 	22000 verses 286438 1589 65 1007
+|      8m 58s 	23000 verses 301296 1644 66 1075
+|      8m 58s 	23213 verses done 304794 1649 66 1081
+|      8m 58s 	  270185 accents
+|      8m 58s 	    9015 cleanup
+|      8m 58s 	   45235 dagesh_forte
+|      8m 58s 	   21511 dagesh_forte_lene
+|      8m 58s 	   59612 dagesh_lene
+|      8m 58s 	   16321 default_accent
+|      8m 58s 	     968 fixit
+|      8m 58s 	    2658 furtive_patah
+|      8m 58s 	   28195 last_ml
+|      8m 58s 	    2201 mappiq_heh
+|      8m 58s 	   93898 mobile_schwa1
+|      8m 58s 	    2255 mobile_schwa2
+|      8m 58s 	     179 mobile_schwa3
+|      8m 58s 	    7702 mobile_schwa4
+|      8m 58s 	   25498 punct
+|      8m 58s 	   25498 punctuation
+|      8m 58s 	      66 qamets_prs_suppress_qatan
+|      8m 58s 	    5257 qamets_qatan1
+|      8m 58s 	     243 qamets_qatan2
+|      8m 58s 	    1791 qamets_qatan3
+|      8m 58s 	      28 qamets_qatan4a
+|      8m 58s 	     256 qamets_qatan4b
+|      8m 58s 	     209 qamets_qatan5
+|      8m 58s 	    1081 qamets_qatan_corrections
+|      8m 58s 	    1649 qamets_verb_suppress_qatan
+|      8m 58s 	      12 rafe
+|      8m 58s 	   21098 silent_aleph
+|      8m 58s 	  304794 total
+|      8m 58s 	  304790 trim
+|      8m 58s 304794 items in phono
+    39s Reading word
+|      8m 58s 	23213 lines
+|      8m 59s 	OK: phono text and word info are CONSISTENT
+..............................................................................................
+.      8m 59s Writing TF phono features                                                      .
+..............................................................................................
+   |     0.55s T phono                to /Users/cody/github/etcbc/phono/_temp/_temp/tf
+   |     0.46s T phono_trailer        to /Users/cody/github/etcbc/phono/_temp/_temp/tf
+   |     0.00s M otext@phono          to /Users/cody/github/etcbc/phono/_temp/_temp/tf
+..............................................................................................
+.      9m 00s Check differences with previous version                                        .
+..............................................................................................
+|      9m 00s 	2 features to add
+|      9m 00s 		phono
+|      9m 00s 		phono_trailer
+|      9m 00s 	no features to delete
+|      9m 00s 	0 features in common
+|      9m 00s Done
+..............................................................................................
+.      9m 00s Deliver data set to /Users/cody/github/etcbc/phono/tf/_temp                    .
+..............................................................................................
+..............................................................................................
+.      9m 00s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+117 features found and 0 ignored
+  0.00s loading features ...
+   |     1.23s T phono                from /Users/cody/github/etcbc/phono/tf/_temp
+   |     0.75s T phono_trailer        from /Users/cody/github/etcbc/phono/tf/_temp
+   |     0.00s Feature overview: 111 for nodes; 4 for edges; 2 configs; 7 computed
+  6.97s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      9m 07s Basic tests                                                                    .
+..............................................................................................
+..............................................................................................
+.      9m 07s First verses in phonetc transcription                                          .
+..............................................................................................
+Genesis 1:1
+bᵊrēšˌîṯ bārˈā ʔᵉlōhˈîm ʔˌēṯ haššāmˌayim wᵊʔˌēṯ hāʔˈāreṣ . 
+Genesis 1:2
+wᵊhāʔˈāreṣ hāyᵊṯˌā ṯˈōhû wāvˈōhû wᵊḥˌōšeḵ ʕal-pᵊnˈê ṯᵊhˈôm wᵊrˈûₐḥ ʔᵉlōhˈîm mᵊraḥˌefeṯ ʕal-pᵊnˌê hammˈāyim . 
+Genesis 1:3
+wayyˌōmer ʔᵉlōhˌîm yᵊhˈî ʔˈôr wˈayᵊhî-ʔˈôr . 
+Genesis 1:4
+wayyˈar ʔᵉlōhˈîm ʔeṯ-hāʔˌôr kî-ṭˈôv wayyavdˈēl ʔᵉlōhˈîm bˌên hāʔˌôr ûvˌên haḥˈōšeḵ . 
+Genesis 1:5
+wayyiqrˌā ʔᵉlōhˈîm lāʔôr yˈôm wᵊlaḥˌōšeḵ qˈārā lˈāyᵊlā wˈayᵊhî-ʕˌerev wˈayᵊhî-vˌōqer yˌôm ʔeḥˈāḏ . f 
+Genesis 1:6
+wayyˈōmer ʔᵉlōhˈîm yᵊhˌî rāqˌîₐʕ bᵊṯˈôḵ hammˈāyim wiyhˈî mavdˈîl bˌên mˌayim lāmˈāyim . 
+Genesis 1:7
+wayyˈaʕaś ʔᵉlōhîm ʔeṯ-hārāqîˌₐʕ wayyavdˈēl bˈên hammˈayim ʔᵃšˌer mittˈaḥaṯ lārāqˈîₐʕ ûvˈên hammˈayim ʔᵃšˌer mēʕˈal lārāqˈîₐʕ wˈayᵊhî-ḵˈēn . 
+Genesis 1:8
+wayyiqrˈā ʔᵉlōhˈîm lˈārāqˌîₐʕ šāmˈāyim wˈayᵊhî-ʕˌerev wˈayᵊhî-vˌōqer yˌôm šēnˈî . f 
+Genesis 1:9
+wayyˈōmer ʔᵉlōhˈîm yiqqāwˌû hammˈayim mittˈaḥaṯ haššāmˈayim ʔel-māqˈôm ʔeḥˈāḏ wᵊṯērāʔˌeh hayyabbāšˈā wˈayᵊhî-ḵˈēn . 
+Genesis 1:10
+wayyiqrˌā ʔᵉlōhˈîm layyabbāšˌā ʔˈereṣ ûlᵊmiqwˌē hammˌayim qārˈā yammˈîm wayyˌar ʔᵉlōhˌîm kî-ṭˈôv . 
+..............................................................................................
+.      9m 07s First verse in all formats                                                     .
+..............................................................................................
+text-trans-full-ketiv
+	B.:-R;>CI73JT B.@R@74> >:ELOHI92JM >;71T HA-C.@MA73JIM W:->;71T H@->@75REY00 
+lex-trans-full
+	B.:- R;>CIJT B.@R@> >:ELOH >;T HA- C.@MAJ W:- >;T H@- >@REY 
+text-orig-full-ketiv
+	בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ 
+text-trans-full
+	B.:-R;>CI73JT B.@R@74> >:ELOHI92JM >;71T HA-C.@MA73JIM W:->;71T H@->@75REY00 
+text-orig-full
+	בְּרֵאשִׁ֖ית בָּרָ֣א אֱלֹהִ֑ים אֵ֥ת הַשָּׁמַ֖יִם וְאֵ֥ת הָאָֽרֶץ׃ 
+lex-orig-plain
+	ב ראשׁית ברא אלהים את ה שׁמים ו את ה ארץ 
+lex-trans-plain
+	B R>CJT BR> >LHJM >T H CMJM W >T H >RY 
+text-orig-plain
+	בראשׁית ברא אלהים את השׁמים ואת הארץ׃ 
+lex-orig-full
+	בְּ רֵאשִׁית בָּרָא אֱלֹה אֵת הַ שָּׁמַי וְ אֵת הָ אָרֶץ 
+text-phono-full
+	bᵊrēšˌîṯ bārˈā ʔᵉlōhˈîm ʔˌēṯ haššāmˌayim wᵊʔˌēṯ hāʔˈāreṣ . 
+text-trans-plain
+	BR>CJT BR> >LHJM >T HCMJM W>T H>RY00 
+|      9m 07s SUCCESS phono
+
+----------------------------------------------------------------------------------------------
+-      9m 07s SUCCES [phono/phono]                                                           -
+----------------------------------------------------------------------------------------------
+
+
+**********************************************************************************************
+*                                                                                            *
+*      9m 07s SUCCES [phono]                                                                 *
+*                                                                                            *
+**********************************************************************************************
+
+
+**********************************************************************************************
+*                                                                                            *
+*      9m 07s Make repo [valence]                                                            *
+*                                                                                            *
+**********************************************************************************************
+
+
+----------------------------------------------------------------------------------------------
+-      9m 07s Run notebook [valence/enrich] with parameters:                                 -
+----------------------------------------------------------------------------------------------
+
+|      9m 07s 	CORE_NAME            = bhsa
+|      9m 07s 	DO_VOCALIZED_LEXEME  = True
+|      9m 07s 	EXTRA_OVERLAP        = 
+|      9m 07s 	LANG_FEATURE         = languageISO
+|      9m 07s 	LEX_FEATURE          = lex
+|      9m 07s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|      9m 07s 	OCC_FEATURE          = g_cons
+|      9m 07s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|      9m 07s 	TEXT_FEATURE         = g_word_utf8
+|      9m 07s 	TRAILER_FEATURE      = trailer_utf8
+|      9m 07s 	VERSION              = _temp
+|      9m 10s 	Destination /Users/cody/github/etcbc/valence/tf/_temp/.tf/valence.tfx does not exist
+True True
+..............................................................................................
+.      9m 10s Load the existing TF dataset                                                   .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+114 features found and 0 ignored
+  0.00s loading features ...
+   |     0.18s B lex_utf8             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.17s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s B gloss                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.14s B sp                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B vs                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.14s B uvf                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B prs                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B nametype             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.13s B ls                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.07s B function             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.25s B rela                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.24s B typ                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |       10s B mother               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 109 for nodes; 4 for edges; 1 configs; 7 computed
+    17s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.      9m 27s Finding occurrences ...                                                        .
+..............................................................................................
+|      9m 28s 	Done
+|      9m 28s 	All:      1380 verbs with  73710 verb occurrences in 70151 clauses
+|      9m 28s 	Selected:   18 verbs with  16209 verb occurrences in 16052 clauses
+|      9m 28s 	<BR   556 occurrences of which   33 outside a predicate phrase
+|      9m 28s 	<FH  2629 occurrences of which   59 outside a predicate phrase
+|      9m 28s 	<LH   890 occurrences of which   10 outside a predicate phrase
+|      9m 28s 	BR>    54 occurrences of which    3 outside a predicate phrase
+|      9m 28s 	BW>  2570 occurrences of which   27 outside a predicate phrase
+|      9m 28s 	CJT    85 occurrences of which    1 outside a predicate phrase
+|      9m 28s 	CWB  1056 occurrences of which   22 outside a predicate phrase
+|      9m 28s 	FJM   609 occurrences of which    3 outside a predicate phrase
+|      9m 28s 	HLK  1554 occurrences of which   32 outside a predicate phrase
+|      9m 28s 	JRD   377 occurrences of which   16 outside a predicate phrase
+|      9m 28s 	JY>  1069 occurrences of which   32 outside a predicate phrase
+|      9m 28s 	NF>   656 occurrences of which   53 outside a predicate phrase
+|      9m 28s 	NPL   445 occurrences of which   11 outside a predicate phrase
+|      9m 28s 	NTN  2017 occurrences of which   10 outside a predicate phrase
+|      9m 28s 	NWS   159 occurrences of which    4 outside a predicate phrase
+|      9m 28s 	PQD   303 occurrences of which   72 outside a predicate phrase
+|      9m 28s 	QR>   883 occurrences of which   12 outside a predicate phrase
+|      9m 28s 	SWR   297 occurrences of which    1 outside a predicate phrase
+..............................................................................................
+.      9m 28s Generating blank correction sheets ...                                         .
+..............................................................................................
+|      9m 28s 	as /Users/cody/github/etcbc/valence/source/_temp/corr_blank/{verb}.csv
+|      9m 29s 		for verb BWa
+|      9m 29s 		for verb NFa
+|      9m 29s 		for verb CJT
+|      9m 29s 		for verb NWS
+|      9m 29s 		for verb JYa
+|      9m 29s 		for verb NTN
+|      9m 29s 		for verb oLH
+|      9m 29s 		for verb BRa
+|      9m 29s 		for verb FJM
+|      9m 29s 		for verb PQD
+|      9m 30s 		for verb HLK
+|      9m 30s 		for verb NPL
+|      9m 30s 		for verb SWR
+|      9m 30s 		for verb oFH
+|      9m 30s 		for verb QRa
+|      9m 30s 		for verb CWB
+|      9m 30s 		for verb JRD
+|      9m 30s 		for verb oBR
+|      9m 30s 	52062  phrases seen 1  time(s)
+|      9m 30s 	185    phrases seen 2  time(s)
+|      9m 30s 	9      phrases seen 3  time(s)
+|      9m 30s 	Total phrases seen: 52256
+..............................................................................................
+.      9m 30s Processing filled correction sheets ...                                        .
+..............................................................................................
+|      9m 30s 	as /Users/cody/github/etcbc/valence/source/_temp/corr_filled/{verb}.csv
+|      9m 30s 		NO file for oBR
+|      9m 30s 		NO file for oFH
+|      9m 30s 		NO file for oLH
+|      9m 30s 		NO file for BRa
+|      9m 30s 		NO file for BWa
+|      9m 30s 		NO file for CJT
+|      9m 30s 		NO file for CWB
+|      9m 30s 		NO file for FJM
+|      9m 30s 		NO file for HLK
+|      9m 30s 		NO file for JRD
+|      9m 30s 		NO file for JYa
+|      9m 30s 		NO file for NFa
+|      9m 30s 		NO file for NPL
+|      9m 30s 		NO file for NTN
+|      9m 30s 		NO file for NWS
+|      9m 30s 		NO file for PQD
+|      9m 30s 		NO file for QRa
+|      9m 30s 		NO file for SWR
+|      9m 30s 	Found 0 corrections in the phrase function
+|      9m 30s 	Total phrases seen: 0
+..............................................................................................
+.      9m 30s 6 Enrich field specifications OK                                               .
+..............................................................................................
+|      9m 30s 	grammatical has possible values
+|      9m 30s 		subject
+|      9m 30s 		indirect_object
+|      9m 30s 		L_object
+|      9m 30s 		NP_direct_object
+|      9m 30s 		K_object
+|      9m 30s 		infinitive_object
+|      9m 30s 		*
+|      9m 30s 		NA
+|      9m 30s 		principal_direct_object
+|      9m 30s 		direct_object
+|      9m 30s 	lexical has possible values
+|      9m 30s 		time
+|      9m 30s 		location
+|      9m 30s 	original has possible values
+|      9m 30s 		subject
+|      9m 30s 		indirect_object
+|      9m 30s 		L_object
+|      9m 30s 		NP_direct_object
+|      9m 30s 		K_object
+|      9m 30s 		infinitive_object
+|      9m 30s 		*
+|      9m 30s 		NA
+|      9m 30s 		principal_direct_object
+|      9m 30s 		direct_object
+|      9m 30s 	predication has possible values
+|      9m 30s 		regular
+|      9m 30s 		copula
+|      9m 30s 		NA
+|      9m 30s 	semantic has possible values
+|      9m 30s 		location
+|      9m 30s 		benefactive
+|      9m 30s 		time
+|      9m 30s 		manner
+|      9m 30s 		instrument
+|      9m 30s 	valence has possible values
+|      9m 30s 		core
+|      9m 30s 		adjunct
+|      9m 30s 		complement
+..............................................................................................
+.      9m 30s 	Checking enrich baseline rules                                                .
+..............................................................................................
+|      9m 30s 	Enrich baseline rules are OK (204 good)
+..............................................................................................
+.      9m 30s Finding direct objects and determining the principal one                       .
+..............................................................................................
+|      9m 34s 	Done
+|      9m 34s 	 3650 clauses with  1  principal object
+|      9m 34s 	66501 clauses with  0  principal objects
+|      9m 34s 	 3650 clauses with  a  principal object
+|      9m 34s 	23703 clauses with  1     direct object
+|      9m 34s 	46448 clauses with  0     direct objects
+|      9m 34s 	23703 clauses with  a     direct object
+|      9m 34s 	 1003 clauses with  1         NP object
+|      9m 34s 	69148 clauses with  0         NP objects
+|      9m 34s 	 1003 clauses with  a         NP object
+|      9m 34s 	   33 clauses with  2          L objects
+|      9m 34s 	 3830 clauses with  1          L object
+|      9m 34s 	66288 clauses with  0          L objects
+|      9m 34s 	 3863 clauses with  a          L object
+|      9m 34s 	  115 clauses with  1          K object
+|      9m 34s 	70036 clauses with  0          K objects
+|      9m 34s 	  115 clauses with  a          K object
+|      9m 34s 	 1305 clauses with  1     clause object
+|      9m 34s 	68846 clauses with  0     clause objects
+|      9m 34s 	 1305 clauses with  a     clause object
+|      9m 34s 	    1 clauses with  3 infinitive objects
+|      9m 34s 	   18 clauses with  2 infinitive objects
+|      9m 34s 	 1196 clauses with  1 infinitive object
+|      9m 34s 	68936 clauses with  0 infinitive objects
+|      9m 34s 	 1215 clauses with  a infinitive object
+..............................................................................................
+.      9m 34s Determinig kind of complements                                                 .
+..............................................................................................
+|      9m 35s 	Done
+|      9m 35s 	Phrases of kind C :  19307
+|      9m 35s 	Phrases of kind L :  11681
+|      9m 35s 	Phrases of kind I :   6017
+|      9m 35s 	Total complements :  37005
+|      9m 35s 	Total phrases     : 214544
+..............................................................................................
+.      9m 35s Checking enrichment logic                                                      .
+..............................................................................................
+|      9m 35s 	All 6 rules OK
+..............................................................................................
+.      9m 35s Generating enrichments                                                         .
+..............................................................................................
+|      9m 40s 	Generated enrichment values for 1380 verbs:
+|      9m 40s 	Enriched values for 221367 nodes
+|      9m 40s 	Overview of rule applications:
+|      9m 40s generic-phrase rules:
+|      9m 40s  26547 generic-phrase rule applications
+|      9m 40s generic-clause rules:
+|      9m 40s   2630 generic-clause rule applications
+|      9m 40s  29177 generic rule applications
+|      9m 40s specific-phrase rules:
+|      9m 40s    117 specific-phrase rule applications
+|      9m 40s    117 specific rule applications
+|      9m 40s 	214544 phrase seen in total
+|      9m 40s 	  6823 clause seen in total
+..............................................................................................
+.      9m 40s Generate blank enrichment sheets                                               .
+..............................................................................................
+|      9m 40s 	as /Users/cody/github/etcbc/valence/source/_temp/enrich_blank/{verb}.csv
+|      9m 40s 		for verb BW> (11087 rows)
+|      9m 40s 		for verb NF> ( 2885 rows)
+|      9m 40s 		for verb CJT (  381 rows)
+|      9m 40s 		for verb NWS (  618 rows)
+|      9m 41s 		for verb JY> ( 4623 rows)
+|      9m 41s 		for verb NTN ( 9825 rows)
+|      9m 41s 		for verb <LH ( 3893 rows)
+|      9m 41s 		for verb BR> (  219 rows)
+|      9m 41s 		for verb FJM ( 2918 rows)
+|      9m 41s 		for verb PQD ( 1283 rows)
+|      9m 41s 		for verb HLK ( 5814 rows)
+|      9m 41s 		for verb NPL ( 1933 rows)
+|      9m 41s 		for verb SWR ( 1272 rows)
+|      9m 42s 		for verb <FH (11317 rows)
+|      9m 42s 		for verb QR> ( 3726 rows)
+|      9m 42s 		for verb CWB ( 4323 rows)
+|      9m 42s 		for verb JRD ( 1593 rows)
+|      9m 42s 		for verb <BR ( 2349 rows)
+|      9m 42s 	Done
+..............................................................................................
+.      9m 42s Processing enrichment sheets ...                                               .
+..............................................................................................
+|      9m 42s 	as /Users/cody/github/etcbc/valence/source/_temp/enrich_filled/{verb}.csv
+|      9m 42s 	blank enrichment sheet for oBR
+|      9m 42s 	blank enrichment sheet for oFH
+|      9m 42s 	blank enrichment sheet for oLH
+|      9m 42s 	blank enrichment sheet for BRa
+|      9m 42s 	blank enrichment sheet for BWa
+|      9m 43s 	blank enrichment sheet for CJT
+|      9m 43s 	blank enrichment sheet for CWB
+|      9m 43s 	blank enrichment sheet for FJM
+|      9m 43s 	blank enrichment sheet for HLK
+|      9m 43s 	blank enrichment sheet for JRD
+|      9m 43s 	blank enrichment sheet for JYa
+|      9m 43s 	blank enrichment sheet for NFa
+|      9m 43s 	blank enrichment sheet for NPL
+|      9m 43s 	blank enrichment sheet for NTN
+|      9m 43s 	blank enrichment sheet for NWS
+|      9m 43s 	blank enrichment sheet for PQD
+|      9m 43s 	blank enrichment sheet for QRa
+|      9m 43s 	blank enrichment sheet for SWR
+|      9m 43s 	OK: The used blank enrichment sheets have legal values
+|      9m 43s 	OK: The used blank enrichment sheets are consistent
+|      9m 43s 	OK: The used filled enrichment sheets have legal values
+|      9m 43s 	OK: The used filled enrichment sheets are consistent
+|      9m 43s 	OK: all enriched nodes where phrase nodes
+|      9m 43s 	OK: all enriched nodes occurred in the blank sheet
+|      9m 43s 	there are no manual correction/enrichment annotations
+..............................................................................................
+.      9m 43s Combine the manual results with the generic results                            .
+..............................................................................................
+|      9m 43s 	Annotations from sheets for 53745 nodes
+|      9m 43s 	Merging 221367 annotations from generic enrichment
+|      9m 43s 	Resulting in annotations for 221367 nodes
+..............................................................................................
+.      9m 44s Writing TF enrichment features                                                 .
+..............................................................................................
+   |     0.29s T cfunction            to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+   |     0.28s T f_correction         to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+   |     0.30s T grammatical          to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+   |     0.29s T lexical              to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+   |     0.28s T original             to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+   |     0.30s T predication          to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+   |     0.31s T s_manual             to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+   |     0.31s T semantic             to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+   |     0.36s T valence              to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+..............................................................................................
+.      9m 47s Check differences with previous version                                        .
+..............................................................................................
+|      9m 47s 	9 features to add
+|      9m 47s 		cfunction
+|      9m 47s 		f_correction
+|      9m 47s 		grammatical
+|      9m 47s 		lexical
+|      9m 47s 		original
+|      9m 47s 		predication
+|      9m 47s 		s_manual
+|      9m 47s 		semantic
+|      9m 47s 		valence
+|      9m 47s 	no features to delete
+|      9m 47s 	0 features in common
+|      9m 47s Done
+..............................................................................................
+.      9m 47s Deliver features to /Users/cody/github/etcbc/valence/tf/_temp                  .
+..............................................................................................
+|      9m 47s 	valence
+|      9m 47s 	predication
+|      9m 47s 	grammatical
+|      9m 47s 	original
+|      9m 47s 	lexical
+|      9m 47s 	semantic
+|      9m 47s 	f_correction
+|      9m 47s 	s_manual
+|      9m 47s 	cfunction
+..............................................................................................
+.      9m 47s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+123 features found and 0 ignored
+  0.00s loading features ...
+   |     0.19s B lex_utf8             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.11s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B gloss                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B sp                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.09s B vs                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.17s B rela                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.17s B typ                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.06s B function             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.53s T valence              from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.53s T predication          from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.53s T grammatical          from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.25s T original             from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.34s T lexical              from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.34s T semantic             from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.25s T f_correction         from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.25s T s_manual             from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.32s T cfunction            from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.00s Feature overview: 118 for nodes; 4 for edges; 1 configs; 7 computed
+  8.29s All features loaded/computed - for details use loadLog()
+Time - Time - True
+Pred - Pred - True
+Subj - Subj - True
+Objc - Objc - True
+Conj -  - True
+Subj -  - True
+Pred -  - True
+PreC -  - True
+Conj - None - False
+Subj - None - False
+|      9m 55s SUCCESS enrich
+
+----------------------------------------------------------------------------------------------
+-      9m 55s SUCCES [valence/enrich]                                                        -
+----------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------
+-      9m 55s Run notebook [valence/flowchart] with parameters:                              -
+----------------------------------------------------------------------------------------------
+
+|      9m 55s 	CORE_NAME            = bhsa
+|      9m 55s 	DO_VOCALIZED_LEXEME  = True
+|      9m 55s 	EXTRA_OVERLAP        = 
+|      9m 55s 	LANG_FEATURE         = languageISO
+|      9m 55s 	LEX_FEATURE          = lex
+|      9m 55s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|      9m 55s 	OCC_FEATURE          = g_cons
+|      9m 55s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|      9m 55s 	TEXT_FEATURE         = g_word_utf8
+|      9m 55s 	TRAILER_FEATURE      = trailer_utf8
+|      9m 55s 	VERSION              = _temp
+|      9m 56s 	Destination /Users/cody/github/etcbc/valence/tf/_temp/.tf/sense.tfx does not exist
+..............................................................................................
+.      9m 56s Load the existing TF dataset                                                   .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+123 features found and 0 ignored
+  0.00s loading features ...
+   |     0.01s B book                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B chapter              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s B verse                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.18s B g_word_utf8          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.07s B trailer_utf8         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.07s B function             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.19s B rela                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.18s B typ                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B prs                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B uvf                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B sp                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B pdp                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B ls                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B vs                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.11s B vt                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B nametype             from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B gloss                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s B label                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.18s B number               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.02s B s_manual             from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.02s B f_correction         from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.05s B valence              from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.05s B predication          from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.05s B grammatical          from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.03s B original             from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.04s B lexical              from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.04s B semantic             from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.11s B mother               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 118 for nodes; 4 for edges; 1 configs; 7 computed
+  8.14s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.     10m 05s Making the verb-clause index                                                   .
+..............................................................................................
+|     10m 06s 	Done (69438 clauses)
+..............................................................................................
+.     10m 06s Finding key constituents                                                       .
+..............................................................................................
+|     10m 09s 	Done, 47573 clauses with relevant constituents
+..............................................................................................
+.     10m 09s Counting constituents                                                          .
+..............................................................................................
+|     10m 10s 	22377 clauses with  1 dos        constituents
+|     10m 10s 	25196 clauses with  0 dos        constituents
+|     10m 10s 	22377 clauses with  a dos        constituent
+|     10m 10s 	 3557 clauses with  1 pdos       constituents
+|     10m 10s 	44016 clauses with  0 pdos       constituents
+|     10m 10s 	 3557 clauses with  a pdos       constituent
+|     10m 10s 	  991 clauses with  1 ndos       constituents
+|     10m 10s 	46582 clauses with  0 ndos       constituents
+|     10m 10s 	  991 clauses with  a ndos       constituent
+|     10m 10s 	  111 clauses with  1 kdos       constituents
+|     10m 10s 	47462 clauses with  0 kdos       constituents
+|     10m 10s 	  111 clauses with  a kdos       constituent
+|     10m 10s 	   33 clauses with  2 ldos       constituents
+|     10m 10s 	 3789 clauses with  1 ldos       constituents
+|     10m 10s 	43751 clauses with  0 ldos       constituents
+|     10m 10s 	 3822 clauses with  a ldos       constituent
+|     10m 10s 	    1 clauses with  3 idos       constituents
+|     10m 10s 	   18 clauses with  2 idos       constituents
+|     10m 10s 	 1193 clauses with  1 idos       constituents
+|     10m 10s 	46361 clauses with  0 idos       constituents
+|     10m 10s 	 1212 clauses with  a idos       constituent
+|     10m 10s 	 1305 clauses with  1 cdos       constituents
+|     10m 10s 	46268 clauses with  0 cdos       constituents
+|     10m 10s 	 1305 clauses with  a cdos       constituent
+|     10m 10s 	   56 clauses with  2 inds       constituents
+|     10m 10s 	 5223 clauses with  1 inds       constituents
+|     10m 10s 	42294 clauses with  0 inds       constituents
+|     10m 10s 	 5279 clauses with  a inds       constituent
+|     10m 10s 	    1 clauses with  6 locs       constituents
+|     10m 10s 	    1 clauses with  4 locs       constituents
+|     10m 10s 	   16 clauses with  3 locs       constituents
+|     10m 10s 	  330 clauses with  2 locs       constituents
+|     10m 10s 	12164 clauses with  1 locs       constituents
+|     10m 10s 	35061 clauses with  0 locs       constituents
+|     10m 10s 	12512 clauses with  a locs       constituent
+|     10m 10s 	    3 clauses with  3 cpls       constituents
+|     10m 10s 	   87 clauses with  2 cpls       constituents
+|     10m 10s 	 8704 clauses with  1 cpls       constituents
+|     10m 10s 	38779 clauses with  0 cpls       constituents
+|     10m 10s 	 8794 clauses with  a cpls       constituent
+|     10m 10s 	    2 clauses with  2 bens       constituents
+|     10m 10s 	  171 clauses with  1 bens       constituents
+|     10m 10s 	47400 clauses with  0 bens       constituents
+|     10m 10s 	  173 clauses with  a bens       constituent
+|     10m 10s 	69438 clauses
+..............................................................................................
+.     10m 10s Checking the flowcharts                                                        .
+..............................................................................................
+|     10m 10s 	No flowchart for 1543 verbs, e.g. <BC, <BD, <BH, <BR, <BR=, <BT, <BV, <BV=, <CC, <CN
+|     10m 10s 	All flowcharts belong to a verb in the corpus
+..............................................................................................
+.     10m 10s Applying the flowcharts                                                        .
+..............................................................................................
+|     10m 12s 	10000 clauses
+|     10m 14s 	20000 clauses
+|     10m 17s 	30000 clauses
+|     10m 19s 	40000 clauses
+|     10m 21s 	47381 clauses
+..............................................................................................
+.     10m 21s Writing sense feature to TF                                                    .
+..............................................................................................
+   |     0.08s T sense                to /Users/cody/github/etcbc/valence/_temp/_temp/tf
+..............................................................................................
+.     10m 21s Check differences with previous version                                        .
+..............................................................................................
+|     10m 21s 	1 features to add
+|     10m 21s 		sense
+|     10m 21s 	no features to delete
+|     10m 21s 	0 features in common
+|     10m 21s Done
+..............................................................................................
+.     10m 21s Deliver features to /Users/cody/github/etcbc/valence/tf/_temp                  .
+..............................................................................................
+|     10m 21s 	sense
+..............................................................................................
+.     10m 21s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+124 features found and 0 ignored
+  0.00s loading features ...
+   |     0.10s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.10s B sp                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.09s B vs                   from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.05s B predication          from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.00s B gloss                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.15s T sense                from /Users/cody/github/etcbc/valence/tf/_temp
+   |     0.00s Feature overview: 119 for nodes; 4 for edges; 1 configs; 7 computed
+  4.61s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.     10m 26s Show sense counts                                                              .
+..............................................................................................
+|     10m 26s 	Sense labels = -- -b -c -i -p c. d- db dc di dp i. k. l. n.
+|     10m 26s 	Counted 47381 senses
+|     10m 26s 	All relevant verbs have been assigned a sense
+|     10m 26s 		-- occurs  17997x
+|     10m 26s 		d- occurs   9981x
+|     10m 26s 		-p occurs   6193x
+|     10m 26s 		-c occurs   4250x
+|     10m 26s 		-i occurs   2869x
+|     10m 26s 		dp occurs   1853x
+|     10m 26s 		dc occurs   1073x
+|     10m 26s 		di occurs    889x
+|     10m 26s 		l. occurs    876x
+|     10m 26s 		i. occurs    629x
+|     10m 26s 		n. occurs    533x
+|     10m 26s 		-b occurs     66x
+|     10m 26s 		db occurs     61x
+|     10m 26s 		c. occurs     57x
+|     10m 26s 		k. occurs     54x
+|     10m 26s SUCCESS flowchart
+
+----------------------------------------------------------------------------------------------
+-     10m 26s SUCCES [valence/flowchart]                                                     -
+----------------------------------------------------------------------------------------------
+
+
+**********************************************************************************************
+*                                                                                            *
+*     10m 26s SUCCES [valence]                                                               *
+*                                                                                            *
+**********************************************************************************************
+
+
+**********************************************************************************************
+*                                                                                            *
+*     10m 26s Make repo [parallels]                                                          *
+*                                                                                            *
+**********************************************************************************************
+
+
+----------------------------------------------------------------------------------------------
+-     10m 26s Run notebook [parallels/parallels] with parameters:                            -
+----------------------------------------------------------------------------------------------
+
+|     10m 26s 	CORE_NAME            = bhsa
+|     10m 26s 	DO_VOCALIZED_LEXEME  = True
+|     10m 26s 	EXTRA_OVERLAP        = 
+|     10m 26s 	FORCE_MATRIX         = False
+|     10m 26s 	LANG_FEATURE         = languageISO
+|     10m 26s 	LEX_FEATURE          = lex
+|     10m 26s 	LEX_FORMATS          = @fmt:lex-trans-plain={lex0} 
+|     10m 26s 	OCC_FEATURE          = g_cons
+|     10m 26s 	RENAME               = (('g_suffix', 'trailer'), ('g_suffix_utf8', 'trailer_utf8'))
+|     10m 26s 	TEXT_FEATURE         = g_word_utf8
+|     10m 26s 	TRAILER_FEATURE      = trailer_utf8
+|     10m 26s 	VERSION              = _temp
+|     10m 30s 	Destination /Users/cody/github/etcbc/parallels/tf/_temp/.tf/crossref.tfx does not exist
+..............................................................................................
+.     10m 30s Load the existing TF dataset                                                   .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+114 features found and 0 ignored
+  0.00s loading features ...
+   |     0.02s B otype                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.01s B book                 from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B chapter              from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s B verse                from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.18s B g_word_utf8          from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.07s B trailer_utf8         from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.12s B lex                  from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.18s B number               from /Users/cody/github/etcbc/bhsa/tf/_temp
+   |     0.00s Feature overview: 109 for nodes; 4 for edges; 1 configs; 7 computed
+  4.16s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.     10m 34s CROSSREFS: Fetching crossrefs                                                  .
+..............................................................................................
+|     10m 34s 	Computing missing /Users/cody/github/etcbc/parallels/_temp/parallelTable.tsv
+  4.16s CHUNKING (O verse)
+  4.84s CHUNKING (O verse): Made 23213 chunks
+  4.84s PREPARING (O verse SET)
+  5.50s PREPARING (O verse SET): Done 23213 chunks.
+  5.51s SIMILARITY (O verse SET M>50): Computing   269 M (269410078) comparisons and saving entries in matrix
+  9.39s SIMILARITY (O verse SET M>50): Computed     2 M comparisons and saved 78 entries in matrix
+    13s SIMILARITY (O verse SET M>50): Computed     5 M comparisons and saved 235 entries in matrix
+    17s SIMILARITY (O verse SET M>50): Computed     8 M comparisons and saved 322 entries in matrix
+    21s SIMILARITY (O verse SET M>50): Computed    10 M comparisons and saved 335 entries in matrix
+    25s SIMILARITY (O verse SET M>50): Computed    13 M comparisons and saved 351 entries in matrix
+    29s SIMILARITY (O verse SET M>50): Computed    16 M comparisons and saved 376 entries in matrix
+    32s SIMILARITY (O verse SET M>50): Computed    18 M comparisons and saved 389 entries in matrix
+    37s SIMILARITY (O verse SET M>50): Computed    21 M comparisons and saved 544 entries in matrix
+    40s SIMILARITY (O verse SET M>50): Computed    24 M comparisons and saved 575 entries in matrix
+    44s SIMILARITY (O verse SET M>50): Computed    26 M comparisons and saved 613 entries in matrix
+    48s SIMILARITY (O verse SET M>50): Computed    29 M comparisons and saved 636 entries in matrix
+    52s SIMILARITY (O verse SET M>50): Computed    32 M comparisons and saved 666 entries in matrix
+    56s SIMILARITY (O verse SET M>50): Computed    35 M comparisons and saved 684 entries in matrix
+ 1m 00s SIMILARITY (O verse SET M>50): Computed    37 M comparisons and saved 1101 entries in matrix
+ 1m 04s SIMILARITY (O verse SET M>50): Computed    40 M comparisons and saved 1318 entries in matrix
+ 1m 08s SIMILARITY (O verse SET M>50): Computed    43 M comparisons and saved 1848 entries in matrix
+ 1m 12s SIMILARITY (O verse SET M>50): Computed    45 M comparisons and saved 2090 entries in matrix
+ 1m 15s SIMILARITY (O verse SET M>50): Computed    48 M comparisons and saved 2125 entries in matrix
+ 1m 19s SIMILARITY (O verse SET M>50): Computed    51 M comparisons and saved 2521 entries in matrix
+ 1m 23s SIMILARITY (O verse SET M>50): Computed    53 M comparisons and saved 3522 entries in matrix
+ 1m 27s SIMILARITY (O verse SET M>50): Computed    56 M comparisons and saved 3597 entries in matrix
+ 1m 31s SIMILARITY (O verse SET M>50): Computed    59 M comparisons and saved 3847 entries in matrix
+ 1m 34s SIMILARITY (O verse SET M>50): Computed    61 M comparisons and saved 4268 entries in matrix
+ 1m 38s SIMILARITY (O verse SET M>50): Computed    64 M comparisons and saved 5626 entries in matrix
+ 1m 42s SIMILARITY (O verse SET M>50): Computed    67 M comparisons and saved 6320 entries in matrix
+ 1m 46s SIMILARITY (O verse SET M>50): Computed    70 M comparisons and saved 7034 entries in matrix
+ 1m 50s SIMILARITY (O verse SET M>50): Computed    72 M comparisons and saved 7890 entries in matrix
+ 1m 54s SIMILARITY (O verse SET M>50): Computed    75 M comparisons and saved 9304 entries in matrix
+ 1m 57s SIMILARITY (O verse SET M>50): Computed    78 M comparisons and saved 9839 entries in matrix
+ 2m 01s SIMILARITY (O verse SET M>50): Computed    80 M comparisons and saved 10997 entries in matrix
+ 2m 05s SIMILARITY (O verse SET M>50): Computed    83 M comparisons and saved 12113 entries in matrix
+ 2m 09s SIMILARITY (O verse SET M>50): Computed    86 M comparisons and saved 12712 entries in matrix
+ 2m 12s SIMILARITY (O verse SET M>50): Computed    88 M comparisons and saved 13345 entries in matrix
+ 2m 16s SIMILARITY (O verse SET M>50): Computed    91 M comparisons and saved 14140 entries in matrix
+ 2m 20s SIMILARITY (O verse SET M>50): Computed    94 M comparisons and saved 14375 entries in matrix
+ 2m 24s SIMILARITY (O verse SET M>50): Computed    96 M comparisons and saved 14945 entries in matrix
+ 2m 28s SIMILARITY (O verse SET M>50): Computed    99 M comparisons and saved 15321 entries in matrix
+ 2m 32s SIMILARITY (O verse SET M>50): Computed   102 M comparisons and saved 15714 entries in matrix
+ 2m 36s SIMILARITY (O verse SET M>50): Computed   105 M comparisons and saved 15978 entries in matrix
+ 2m 40s SIMILARITY (O verse SET M>50): Computed   107 M comparisons and saved 16103 entries in matrix
+ 2m 44s SIMILARITY (O verse SET M>50): Computed   110 M comparisons and saved 16239 entries in matrix
+ 2m 48s SIMILARITY (O verse SET M>50): Computed   113 M comparisons and saved 16359 entries in matrix
+ 2m 51s SIMILARITY (O verse SET M>50): Computed   115 M comparisons and saved 16433 entries in matrix
+ 2m 55s SIMILARITY (O verse SET M>50): Computed   118 M comparisons and saved 16469 entries in matrix
+ 3m 00s SIMILARITY (O verse SET M>50): Computed   121 M comparisons and saved 16583 entries in matrix
+ 3m 03s SIMILARITY (O verse SET M>50): Computed   123 M comparisons and saved 16619 entries in matrix
+ 3m 07s SIMILARITY (O verse SET M>50): Computed   126 M comparisons and saved 16669 entries in matrix
+ 3m 11s SIMILARITY (O verse SET M>50): Computed   129 M comparisons and saved 16834 entries in matrix
+ 3m 15s SIMILARITY (O verse SET M>50): Computed   132 M comparisons and saved 16878 entries in matrix
+ 3m 19s SIMILARITY (O verse SET M>50): Computed   134 M comparisons and saved 16899 entries in matrix
+ 3m 23s SIMILARITY (O verse SET M>50): Computed   137 M comparisons and saved 16916 entries in matrix
+ 3m 27s SIMILARITY (O verse SET M>50): Computed   140 M comparisons and saved 16926 entries in matrix
+ 3m 30s SIMILARITY (O verse SET M>50): Computed   142 M comparisons and saved 16953 entries in matrix
+ 3m 34s SIMILARITY (O verse SET M>50): Computed   145 M comparisons and saved 16980 entries in matrix
+ 3m 38s SIMILARITY (O verse SET M>50): Computed   148 M comparisons and saved 17084 entries in matrix
+ 3m 42s SIMILARITY (O verse SET M>50): Computed   150 M comparisons and saved 17098 entries in matrix
+ 3m 46s SIMILARITY (O verse SET M>50): Computed   153 M comparisons and saved 17119 entries in matrix
+ 3m 50s SIMILARITY (O verse SET M>50): Computed   156 M comparisons and saved 17305 entries in matrix
+ 3m 54s SIMILARITY (O verse SET M>50): Computed   158 M comparisons and saved 17341 entries in matrix
+ 3m 58s SIMILARITY (O verse SET M>50): Computed   161 M comparisons and saved 17365 entries in matrix
+ 4m 02s SIMILARITY (O verse SET M>50): Computed   164 M comparisons and saved 17543 entries in matrix
+ 4m 06s SIMILARITY (O verse SET M>50): Computed   167 M comparisons and saved 17680 entries in matrix
+ 4m 10s SIMILARITY (O verse SET M>50): Computed   169 M comparisons and saved 17948 entries in matrix
+ 4m 14s SIMILARITY (O verse SET M>50): Computed   172 M comparisons and saved 18586 entries in matrix
+ 4m 18s SIMILARITY (O verse SET M>50): Computed   175 M comparisons and saved 18899 entries in matrix
+ 4m 22s SIMILARITY (O verse SET M>50): Computed   177 M comparisons and saved 18991 entries in matrix
+ 4m 26s SIMILARITY (O verse SET M>50): Computed   180 M comparisons and saved 19389 entries in matrix
+ 4m 30s SIMILARITY (O verse SET M>50): Computed   183 M comparisons and saved 19718 entries in matrix
+ 4m 33s SIMILARITY (O verse SET M>50): Computed   185 M comparisons and saved 19823 entries in matrix
+ 4m 37s SIMILARITY (O verse SET M>50): Computed   188 M comparisons and saved 19961 entries in matrix
+ 4m 40s SIMILARITY (O verse SET M>50): Computed   191 M comparisons and saved 19967 entries in matrix
+ 4m 44s SIMILARITY (O verse SET M>50): Computed   193 M comparisons and saved 20103 entries in matrix
+ 4m 48s SIMILARITY (O verse SET M>50): Computed   196 M comparisons and saved 20158 entries in matrix
+ 4m 52s SIMILARITY (O verse SET M>50): Computed   199 M comparisons and saved 20162 entries in matrix
+ 4m 55s SIMILARITY (O verse SET M>50): Computed   202 M comparisons and saved 20312 entries in matrix
+ 4m 59s SIMILARITY (O verse SET M>50): Computed   204 M comparisons and saved 20523 entries in matrix
+ 5m 03s SIMILARITY (O verse SET M>50): Computed   207 M comparisons and saved 20771 entries in matrix
+ 5m 07s SIMILARITY (O verse SET M>50): Computed   210 M comparisons and saved 21114 entries in matrix
+ 5m 11s SIMILARITY (O verse SET M>50): Computed   212 M comparisons and saved 21360 entries in matrix
+ 5m 14s SIMILARITY (O verse SET M>50): Computed   215 M comparisons and saved 21383 entries in matrix
+ 5m 18s SIMILARITY (O verse SET M>50): Computed   218 M comparisons and saved 21935 entries in matrix
+ 5m 22s SIMILARITY (O verse SET M>50): Computed   220 M comparisons and saved 22457 entries in matrix
+ 5m 26s SIMILARITY (O verse SET M>50): Computed   223 M comparisons and saved 22720 entries in matrix
+ 5m 29s SIMILARITY (O verse SET M>50): Computed   226 M comparisons and saved 22863 entries in matrix
+ 5m 33s SIMILARITY (O verse SET M>50): Computed   228 M comparisons and saved 22938 entries in matrix
+ 5m 36s SIMILARITY (O verse SET M>50): Computed   231 M comparisons and saved 22961 entries in matrix
+ 5m 40s SIMILARITY (O verse SET M>50): Computed   234 M comparisons and saved 22979 entries in matrix
+ 5m 43s SIMILARITY (O verse SET M>50): Computed   237 M comparisons and saved 23043 entries in matrix
+ 5m 47s SIMILARITY (O verse SET M>50): Computed   239 M comparisons and saved 23373 entries in matrix
+ 5m 50s SIMILARITY (O verse SET M>50): Computed   242 M comparisons and saved 23590 entries in matrix
+ 5m 53s SIMILARITY (O verse SET M>50): Computed   245 M comparisons and saved 23770 entries in matrix
+ 5m 56s SIMILARITY (O verse SET M>50): Computed   247 M comparisons and saved 23807 entries in matrix
+ 5m 59s SIMILARITY (O verse SET M>50): Computed   250 M comparisons and saved 23901 entries in matrix
+ 6m 02s SIMILARITY (O verse SET M>50): Computed   253 M comparisons and saved 24012 entries in matrix
+ 6m 06s SIMILARITY (O verse SET M>50): Computed   255 M comparisons and saved 24091 entries in matrix
+ 6m 09s SIMILARITY (O verse SET M>50): Computed   258 M comparisons and saved 24138 entries in matrix
+ 6m 12s SIMILARITY (O verse SET M>50): Computed   261 M comparisons and saved 24182 entries in matrix
+ 6m 16s SIMILARITY (O verse SET M>50): Computed   264 M comparisons and saved 24220 entries in matrix
+ 6m 20s SIMILARITY (O verse SET M>50): Computed   266 M comparisons and saved 24413 entries in matrix
+ 6m 24s SIMILARITY (O verse SET M>50): Computed   269 M comparisons and saved 24792 entries in matrix
+ 6m 24s SIMILARITY (O verse SET M>50): Computed   269 M (269410078) comparisons and saved 24792 entries in matrix
+ 6m 24s SIMILARITY (O verse SET M>50): similarities between 50.0 and 100.0. 4506 are 100%
+|     16m 54s 	Method SET: found 11182 similar pairs of verses
+ 6m 24s CHUNKING (O verse): already chunked into 23213 chunks
+ 6m 24s PREPARING (O verse LCS)
+ 6m 25s PREPARING (O verse LCS): Done 23213 chunks.
+ 6m 25s SIMILARITY (O verse LCS M>60): Computing   269 M (269410078) comparisons and saving entries in matrix
+ 6m 35s SIMILARITY (O verse LCS M>60): Computed     2 M comparisons and saved 1500 entries in matrix
+ 6m 45s SIMILARITY (O verse LCS M>60): Computed     5 M comparisons and saved 2936 entries in matrix
+ 6m 54s SIMILARITY (O verse LCS M>60): Computed     8 M comparisons and saved 3564 entries in matrix
+ 7m 04s SIMILARITY (O verse LCS M>60): Computed    10 M comparisons and saved 4564 entries in matrix
+ 7m 15s SIMILARITY (O verse LCS M>60): Computed    13 M comparisons and saved 5384 entries in matrix
+ 7m 25s SIMILARITY (O verse LCS M>60): Computed    16 M comparisons and saved 6041 entries in matrix
+ 7m 35s SIMILARITY (O verse LCS M>60): Computed    18 M comparisons and saved 6740 entries in matrix
+ 7m 45s SIMILARITY (O verse LCS M>60): Computed    21 M comparisons and saved 7384 entries in matrix
+ 7m 54s SIMILARITY (O verse LCS M>60): Computed    24 M comparisons and saved 8033 entries in matrix
+ 8m 04s SIMILARITY (O verse LCS M>60): Computed    26 M comparisons and saved 8734 entries in matrix
+ 8m 14s SIMILARITY (O verse LCS M>60): Computed    29 M comparisons and saved 9414 entries in matrix
+ 8m 24s SIMILARITY (O verse LCS M>60): Computed    32 M comparisons and saved 10139 entries in matrix
+ 8m 34s SIMILARITY (O verse LCS M>60): Computed    35 M comparisons and saved 10811 entries in matrix
+ 8m 45s SIMILARITY (O verse LCS M>60): Computed    37 M comparisons and saved 12562 entries in matrix
+ 8m 57s SIMILARITY (O verse LCS M>60): Computed    40 M comparisons and saved 13746 entries in matrix
+ 9m 08s SIMILARITY (O verse LCS M>60): Computed    43 M comparisons and saved 15136 entries in matrix
+ 9m 19s SIMILARITY (O verse LCS M>60): Computed    45 M comparisons and saved 17291 entries in matrix
+ 9m 28s SIMILARITY (O verse LCS M>60): Computed    48 M comparisons and saved 17999 entries in matrix
+ 9m 39s SIMILARITY (O verse LCS M>60): Computed    51 M comparisons and saved 18873 entries in matrix
+ 9m 50s SIMILARITY (O verse LCS M>60): Computed    53 M comparisons and saved 20762 entries in matrix
+10m 01s SIMILARITY (O verse LCS M>60): Computed    56 M comparisons and saved 21917 entries in matrix
+10m 12s SIMILARITY (O verse LCS M>60): Computed    59 M comparisons and saved 22560 entries in matrix
+10m 23s SIMILARITY (O verse LCS M>60): Computed    61 M comparisons and saved 23832 entries in matrix
+10m 34s SIMILARITY (O verse LCS M>60): Computed    64 M comparisons and saved 26433 entries in matrix
+10m 45s SIMILARITY (O verse LCS M>60): Computed    67 M comparisons and saved 28180 entries in matrix
+10m 57s SIMILARITY (O verse LCS M>60): Computed    70 M comparisons and saved 29676 entries in matrix
+11m 06s SIMILARITY (O verse LCS M>60): Computed    72 M comparisons and saved 31888 entries in matrix
+11m 17s SIMILARITY (O verse LCS M>60): Computed    75 M comparisons and saved 34634 entries in matrix
+11m 26s SIMILARITY (O verse LCS M>60): Computed    78 M comparisons and saved 36062 entries in matrix
+11m 36s SIMILARITY (O verse LCS M>60): Computed    80 M comparisons and saved 38372 entries in matrix
+11m 47s SIMILARITY (O verse LCS M>60): Computed    83 M comparisons and saved 40403 entries in matrix
+11m 58s SIMILARITY (O verse LCS M>60): Computed    86 M comparisons and saved 42026 entries in matrix
+12m 08s SIMILARITY (O verse LCS M>60): Computed    88 M comparisons and saved 43899 entries in matrix
+12m 19s SIMILARITY (O verse LCS M>60): Computed    91 M comparisons and saved 45758 entries in matrix
+12m 30s SIMILARITY (O verse LCS M>60): Computed    94 M comparisons and saved 46880 entries in matrix
+12m 40s SIMILARITY (O verse LCS M>60): Computed    96 M comparisons and saved 48261 entries in matrix
+12m 49s SIMILARITY (O verse LCS M>60): Computed    99 M comparisons and saved 49594 entries in matrix
+12m 59s SIMILARITY (O verse LCS M>60): Computed   102 M comparisons and saved 51145 entries in matrix
+13m 11s SIMILARITY (O verse LCS M>60): Computed   105 M comparisons and saved 52460 entries in matrix
+13m 23s SIMILARITY (O verse LCS M>60): Computed   107 M comparisons and saved 53553 entries in matrix
+13m 34s SIMILARITY (O verse LCS M>60): Computed   110 M comparisons and saved 54509 entries in matrix
+13m 45s SIMILARITY (O verse LCS M>60): Computed   113 M comparisons and saved 55279 entries in matrix
+13m 57s SIMILARITY (O verse LCS M>60): Computed   115 M comparisons and saved 56254 entries in matrix
+14m 07s SIMILARITY (O verse LCS M>60): Computed   118 M comparisons and saved 57170 entries in matrix
+14m 21s SIMILARITY (O verse LCS M>60): Computed   121 M comparisons and saved 57973 entries in matrix
+14m 33s SIMILARITY (O verse LCS M>60): Computed   123 M comparisons and saved 58554 entries in matrix
+14m 44s SIMILARITY (O verse LCS M>60): Computed   126 M comparisons and saved 58844 entries in matrix
+14m 55s SIMILARITY (O verse LCS M>60): Computed   129 M comparisons and saved 59711 entries in matrix
+15m 07s SIMILARITY (O verse LCS M>60): Computed   132 M comparisons and saved 60346 entries in matrix
+15m 19s SIMILARITY (O verse LCS M>60): Computed   134 M comparisons and saved 60947 entries in matrix
+15m 30s SIMILARITY (O verse LCS M>60): Computed   137 M comparisons and saved 61493 entries in matrix
+15m 43s SIMILARITY (O verse LCS M>60): Computed   140 M comparisons and saved 62074 entries in matrix
+15m 54s SIMILARITY (O verse LCS M>60): Computed   142 M comparisons and saved 62669 entries in matrix
+16m 06s SIMILARITY (O verse LCS M>60): Computed   145 M comparisons and saved 63521 entries in matrix
+16m 17s SIMILARITY (O verse LCS M>60): Computed   148 M comparisons and saved 64347 entries in matrix
+16m 29s SIMILARITY (O verse LCS M>60): Computed   150 M comparisons and saved 64782 entries in matrix
+16m 41s SIMILARITY (O verse LCS M>60): Computed   153 M comparisons and saved 65321 entries in matrix
+16m 52s SIMILARITY (O verse LCS M>60): Computed   156 M comparisons and saved 66052 entries in matrix
+17m 04s SIMILARITY (O verse LCS M>60): Computed   158 M comparisons and saved 66955 entries in matrix
+17m 17s SIMILARITY (O verse LCS M>60): Computed   161 M comparisons and saved 67494 entries in matrix
+17m 27s SIMILARITY (O verse LCS M>60): Computed   164 M comparisons and saved 68483 entries in matrix
+17m 38s SIMILARITY (O verse LCS M>60): Computed   167 M comparisons and saved 69161 entries in matrix
+17m 51s SIMILARITY (O verse LCS M>60): Computed   169 M comparisons and saved 70082 entries in matrix
+18m 02s SIMILARITY (O verse LCS M>60): Computed   172 M comparisons and saved 71976 entries in matrix
+18m 14s SIMILARITY (O verse LCS M>60): Computed   175 M comparisons and saved 73162 entries in matrix
+18m 26s SIMILARITY (O verse LCS M>60): Computed   177 M comparisons and saved 73911 entries in matrix
+18m 37s SIMILARITY (O verse LCS M>60): Computed   180 M comparisons and saved 75103 entries in matrix
+18m 49s SIMILARITY (O verse LCS M>60): Computed   183 M comparisons and saved 76293 entries in matrix
+19m 00s SIMILARITY (O verse LCS M>60): Computed   185 M comparisons and saved 76923 entries in matrix
+19m 09s SIMILARITY (O verse LCS M>60): Computed   188 M comparisons and saved 77786 entries in matrix
+19m 18s SIMILARITY (O verse LCS M>60): Computed   191 M comparisons and saved 78268 entries in matrix
+19m 28s SIMILARITY (O verse LCS M>60): Computed   193 M comparisons and saved 78796 entries in matrix
+19m 37s SIMILARITY (O verse LCS M>60): Computed   196 M comparisons and saved 79385 entries in matrix
+19m 46s SIMILARITY (O verse LCS M>60): Computed   199 M comparisons and saved 79833 entries in matrix
+19m 56s SIMILARITY (O verse LCS M>60): Computed   202 M comparisons and saved 80750 entries in matrix
+20m 06s SIMILARITY (O verse LCS M>60): Computed   204 M comparisons and saved 82032 entries in matrix
+20m 17s SIMILARITY (O verse LCS M>60): Computed   207 M comparisons and saved 83364 entries in matrix
+20m 29s SIMILARITY (O verse LCS M>60): Computed   210 M comparisons and saved 85222 entries in matrix
+20m 42s SIMILARITY (O verse LCS M>60): Computed   212 M comparisons and saved 86257 entries in matrix
+20m 52s SIMILARITY (O verse LCS M>60): Computed   215 M comparisons and saved 86680 entries in matrix
+21m 01s SIMILARITY (O verse LCS M>60): Computed   218 M comparisons and saved 88274 entries in matrix
+21m 11s SIMILARITY (O verse LCS M>60): Computed   220 M comparisons and saved 89747 entries in matrix
+21m 20s SIMILARITY (O verse LCS M>60): Computed   223 M comparisons and saved 90907 entries in matrix
+21m 30s SIMILARITY (O verse LCS M>60): Computed   226 M comparisons and saved 91834 entries in matrix
+21m 40s SIMILARITY (O verse LCS M>60): Computed   228 M comparisons and saved 92357 entries in matrix
+21m 48s SIMILARITY (O verse LCS M>60): Computed   231 M comparisons and saved 93042 entries in matrix
+21m 57s SIMILARITY (O verse LCS M>60): Computed   234 M comparisons and saved 93632 entries in matrix
+22m 06s SIMILARITY (O verse LCS M>60): Computed   237 M comparisons and saved 94738 entries in matrix
+22m 12s SIMILARITY (O verse LCS M>60): Computed   239 M comparisons and saved 96495 entries in matrix
+22m 17s SIMILARITY (O verse LCS M>60): Computed   242 M comparisons and saved 98339 entries in matrix
+22m 23s SIMILARITY (O verse LCS M>60): Computed   245 M comparisons and saved 99958 entries in matrix
+22m 29s SIMILARITY (O verse LCS M>60): Computed   247 M comparisons and saved 101350 entries in matrix
+22m 34s SIMILARITY (O verse LCS M>60): Computed   250 M comparisons and saved 102954 entries in matrix
+22m 39s SIMILARITY (O verse LCS M>60): Computed   253 M comparisons and saved 105184 entries in matrix
+22m 45s SIMILARITY (O verse LCS M>60): Computed   255 M comparisons and saved 106490 entries in matrix
+22m 51s SIMILARITY (O verse LCS M>60): Computed   258 M comparisons and saved 107707 entries in matrix
+22m 57s SIMILARITY (O verse LCS M>60): Computed   261 M comparisons and saved 108631 entries in matrix
+23m 05s SIMILARITY (O verse LCS M>60): Computed   264 M comparisons and saved 109200 entries in matrix
+23m 18s SIMILARITY (O verse LCS M>60): Computed   266 M comparisons and saved 110702 entries in matrix
+23m 30s SIMILARITY (O verse LCS M>60): Computed   269 M comparisons and saved 113638 entries in matrix
+23m 30s SIMILARITY (O verse LCS M>60): Computed   269 M (269410078) comparisons and saved 113638 entries in matrix
+23m 30s SIMILARITY (O verse LCS M>60): similarities between 60.0 and 100.0. 4204 are 100%
+|     34m 01s 	Method LCS: found 15540 similar pairs of verses
+..............................................................................................
+.     34m 02s Writing TF parallel features                                                   .
+..............................................................................................
+   |     0.05s T crossref             to /Users/cody/github/etcbc/parallels/_temp/_temp/tf
+   |     0.06s T crossrefLCS          to /Users/cody/github/etcbc/parallels/_temp/_temp/tf
+   |     0.03s T crossrefSET          to /Users/cody/github/etcbc/parallels/_temp/_temp/tf
+|     34m 03s Compiled 31742 cross references into 6215 notes
+|     34m 03s Generated 6215 notes
+..............................................................................................
+.     34m 03s Check differences with previous version                                        .
+..............................................................................................
+|     34m 03s 	3 features to add
+|     34m 03s 		crossref
+|     34m 03s 		crossrefLCS
+|     34m 03s 		crossrefSET
+|     34m 03s 	no features to delete
+|     34m 03s 	0 features in common
+|     34m 03s Done
+..............................................................................................
+.     34m 03s Deliver data set to /Users/cody/github/etcbc/parallels/tf/_temp                .
+..............................................................................................
+..............................................................................................
+.     34m 03s Load and compile the new TF features                                           .
+..............................................................................................
+This is Text-Fabric 3.2.5
+Api reference : https://github.com/Dans-labs/text-fabric/wiki/Api
+Tutorial      : https://github.com/Dans-labs/text-fabric/blob/master/docs/tutorial.ipynb
+Example data  : https://github.com/Dans-labs/text-fabric-data
+
+117 features found and 0 ignored
+  0.00s loading features ...
+   |     0.06s T crossref             from /Users/cody/github/etcbc/parallels/tf/_temp
+   |     0.03s T crossrefSET          from /Users/cody/github/etcbc/parallels/tf/_temp
+   |     0.05s T crossrefLCS          from /Users/cody/github/etcbc/parallels/tf/_temp
+   |     0.00s Feature overview: 109 for nodes; 7 for edges; 1 configs; 7 computed
+  4.71s All features loaded/computed - for details use loadLog()
+..............................................................................................
+.     34m 08s Test: crossrefs of Genesis 10                                                  .
+..............................................................................................
+|     34m 08s 	Method 
+|     34m 08s 		20 start verses
+		Genesis 10:2
+|     34m 08s 		         ----------> 1_Chronicles 1:5     confidende 100%
+		Genesis 10:3
+|     34m 08s 		         ----------> 1_Chronicles 1:6     confidende  95%
+		Genesis 10:4
+|     34m 08s 		         ----------> 1_Chronicles 1:7     confidende  95%
+		Genesis 10:6
+|     34m 08s 		         ----------> 1_Chronicles 1:8     confidende 100%
+		Genesis 10:7
+|     34m 08s 		         ----------> 1_Chronicles 1:9     confidende 100%
+		Genesis 10:8
+|     34m 08s 		         ----------> 1_Chronicles 1:10    confidende 100%
+		Genesis 10:13
+|     34m 08s 		         ----------> 1_Chronicles 1:11    confidende 100%
+		Genesis 10:14
+|     34m 08s 		         ----------> 1_Chronicles 1:12    confidende 100%
+		Genesis 10:15
+|     34m 08s 		         ----------> 1_Chronicles 1:13    confidende 100%
+		Genesis 10:16
+|     34m 08s 		         ----------> Genesis 15:21        confidende  83%
+|     34m 08s 		         ----------> 1_Chronicles 1:14    confidende 100%
+		Genesis 10:17
+|     34m 08s 		         ----------> Genesis 15:20        confidende  76%
+|     34m 08s 		         ----------> 1_Chronicles 1:15    confidende 100%
+		Genesis 10:20
+|     34m 08s 		         ----------> Genesis 10:31        confidende  87%
+		Genesis 10:22
+|     34m 08s 		         ----------> 1_Chronicles 1:17    confidende  77%
+		Genesis 10:24
+|     34m 08s 		         ----------> 1_Chronicles 1:18    confidende 100%
+		Genesis 10:25
+|     34m 08s 		         ----------> 1_Chronicles 1:19    confidende 100%
+		Genesis 10:26
+|     34m 08s 		         ----------> 1_Chronicles 1:20    confidende 100%
+		Genesis 10:27
+|     34m 08s 		         ----------> 1_Chronicles 1:21    confidende 100%
+|     34m 08s 		         ----------> 2_Chronicles 11:9    confidende  78%
+		Genesis 10:28
+|     34m 08s 		         ----------> 1_Chronicles 1:22    confidende 100%
+		Genesis 10:29
+|     34m 08s 		         ----------> 1_Chronicles 1:23    confidende 100%
+		Genesis 10:31
+|     34m 08s 		         ----------> Genesis 10:20        confidende  87%
+|     34m 08s 	Method SET
+|     34m 08s 		20 start verses
+		Genesis 10:2
+|     34m 08s 		         ----------> 1_Chronicles 1:5     confidende 100%
+		Genesis 10:3
+|     34m 08s 		         ----------> 1_Chronicles 1:6     confidende  95%
+		Genesis 10:4
+|     34m 08s 		         ----------> 1_Chronicles 1:7     confidende  95%
+		Genesis 10:6
+|     34m 08s 		         ----------> 1_Chronicles 1:8     confidende 100%
+		Genesis 10:7
+|     34m 08s 		         ----------> 1_Chronicles 1:9     confidende 100%
+		Genesis 10:8
+|     34m 08s 		         ----------> 1_Chronicles 1:10    confidende 100%
+		Genesis 10:13
+|     34m 08s 		         ----------> 1_Chronicles 1:11    confidende 100%
+		Genesis 10:14
+|     34m 08s 		         ----------> 1_Chronicles 1:12    confidende 100%
+		Genesis 10:15
+|     34m 08s 		         ----------> 1_Chronicles 1:13    confidende 100%
+		Genesis 10:16
+|     34m 08s 		         ----------> Genesis 15:21        confidende  83%
+|     34m 08s 		         ----------> 1_Chronicles 1:14    confidende 100%
+		Genesis 10:17
+|     34m 08s 		         ----------> 1_Chronicles 1:15    confidende 100%
+		Genesis 10:20
+|     34m 08s 		         ----------> Genesis 10:31        confidende  80%
+		Genesis 10:22
+|     34m 08s 		         ----------> 1_Chronicles 1:17    confidende  77%
+		Genesis 10:24
+|     34m 08s 		         ----------> 1_Chronicles 1:18    confidende 100%
+		Genesis 10:25
+|     34m 08s 		         ----------> 1_Chronicles 1:19    confidende 100%
+		Genesis 10:26
+|     34m 08s 		         ----------> 1_Chronicles 1:20    confidende 100%
+		Genesis 10:27
+|     34m 08s 		         ----------> 1_Chronicles 1:21    confidende 100%
+		Genesis 10:28
+|     34m 08s 		         ----------> 1_Chronicles 1:22    confidende 100%
+		Genesis 10:29
+|     34m 08s 		         ----------> 1_Chronicles 1:23    confidende 100%
+		Genesis 10:31
+|     34m 08s 		         ----------> Genesis 10:20        confidende  80%
+|     34m 08s 	Method LCS
+|     34m 08s 		20 start verses
+		Genesis 10:2
+|     34m 08s 		         ----------> 1_Chronicles 1:5     confidende 100%
+		Genesis 10:3
+|     34m 08s 		         ----------> 1_Chronicles 1:6     confidende  95%
+		Genesis 10:4
+|     34m 08s 		         ----------> 1_Chronicles 1:7     confidende  95%
+		Genesis 10:6
+|     34m 08s 		         ----------> 1_Chronicles 1:8     confidende 100%
+		Genesis 10:7
+|     34m 08s 		         ----------> 1_Chronicles 1:9     confidende 100%
+		Genesis 10:8
+|     34m 08s 		         ----------> 1_Chronicles 1:10    confidende 100%
+		Genesis 10:13
+|     34m 08s 		         ----------> 1_Chronicles 1:11    confidende 100%
+		Genesis 10:14
+|     34m 08s 		         ----------> 1_Chronicles 1:12    confidende 100%
+		Genesis 10:15
+|     34m 08s 		         ----------> 1_Chronicles 1:13    confidende 100%
+		Genesis 10:16
+|     34m 08s 		         ----------> 1_Chronicles 1:14    confidende 100%
+		Genesis 10:17
+|     34m 08s 		         ----------> Genesis 15:20        confidende  76%
+|     34m 08s 		         ----------> 1_Chronicles 1:15    confidende 100%
+		Genesis 10:20
+|     34m 08s 		         ----------> Genesis 10:31        confidende  94%
+		Genesis 10:22
+|     34m 08s 		         ----------> 1_Chronicles 1:17    confidende  77%
+		Genesis 10:24
+|     34m 08s 		         ----------> 1_Chronicles 1:18    confidende 100%
+		Genesis 10:25
+|     34m 08s 		         ----------> 1_Chronicles 1:19    confidende 100%
+		Genesis 10:26
+|     34m 08s 		         ----------> 1_Chronicles 1:20    confidende 100%
+		Genesis 10:27
+|     34m 08s 		         ----------> 1_Chronicles 1:21    confidende 100%
+|     34m 08s 		         ----------> 2_Chronicles 11:9    confidende  78%
+		Genesis 10:28
+|     34m 08s 		         ----------> 1_Chronicles 1:22    confidende 100%
+		Genesis 10:29
+|     34m 08s 		         ----------> 1_Chronicles 1:23    confidende 100%
+		Genesis 10:31
+|     34m 08s 		         ----------> Genesis 10:20        confidende  94%
+|     34m 08s SUCCESS parallels
+
+----------------------------------------------------------------------------------------------
+-     34m 08s SUCCES [parallels/parallels]                                                   -
+----------------------------------------------------------------------------------------------
+
+
+**********************************************************************************************
+*                                                                                            *
+*     34m 08s SUCCES [parallels]                                                             *
+*                                                                                            *
+**********************************************************************************************
+
+
+##############################################################################################
+#                                                                                            #
+#     34m 08s SUCCES [_temp]                                                                 #
+#                                                                                            #
+##############################################################################################
+
+
+##############################################################################################
+#                                                                                            #
+#     46m 13s Copy version _temp ==> c                                                       #
+#                                                                                            #
+##############################################################################################
+
+
+**********************************************************************************************
+*                                                                                            *
+*     46m 13s Repo bhsa                                                                      *
+*                                                                                            *
+**********************************************************************************************
+
+|     46m 13s 	Copy source/_temp ==> source/c
+|     46m 13s 		removing existing source/c
+|     46m 13s 		putting data in place from source/_temp
+|     46m 13s 	Copy _temp/_temp ==> _temp/c
+|     46m 13s 		no existing _temp/c
+|     46m 13s 		putting data in place from _temp/_temp
+|     46m 14s 	Copy tf/_temp ==> tf/c
+|     46m 14s 		removing existing tf/c
+|     46m 14s 		putting data in place from tf/_temp
+|     46m 15s 	Copy shebanq/_temp ==> shebanq/c
+|     46m 15s 		removing existing shebanq/c
+|     46m 15s 		No data found in shebanq/_temp
+
+**********************************************************************************************
+*                                                                                            *
+*     46m 15s Repo phono                                                                     *
+*                                                                                            *
+**********************************************************************************************
+
+|     46m 15s 	Copy _temp/_temp ==> _temp/c
+|     46m 15s 		no existing _temp/c
+|     46m 15s 		putting data in place from _temp/_temp
+|     46m 15s 	Copy tf/_temp ==> tf/c
+|     46m 15s 		removing existing tf/c
+|     46m 15s 		putting data in place from tf/_temp
+
+**********************************************************************************************
+*                                                                                            *
+*     46m 15s Repo valence                                                                   *
+*                                                                                            *
+**********************************************************************************************
+
+|     46m 15s 	Copy source/_temp ==> source/c
+|     46m 15s 		removing existing source/c
+|     46m 15s 		putting data in place from source/_temp
+|     46m 15s 	Copy _temp/_temp ==> _temp/c
+|     46m 15s 		no existing _temp/c
+|     46m 15s 		putting data in place from _temp/_temp
+|     46m 15s 	Copy tf/_temp ==> tf/c
+|     46m 15s 		removing existing tf/c
+|     46m 15s 		putting data in place from tf/_temp
+|     46m 15s 	Copy shebanq/_temp ==> shebanq/c
+|     46m 15s 		removing existing shebanq/c
+|     46m 15s 		putting data in place from shebanq/_temp
+
+**********************************************************************************************
+*                                                                                            *
+*     46m 15s Repo parallels                                                                 *
+*                                                                                            *
+**********************************************************************************************
+
+|     46m 15s 	Copy source/_temp ==> source/c
+|     46m 15s 		no existing source/c
+|     46m 15s 		No data found in source/_temp
+|     46m 15s 	Copy _temp/_temp ==> _temp/c
+|     46m 15s 		no existing _temp/c
+|     46m 15s 		putting data in place from _temp/_temp
+|     46m 15s 	Copy tf/_temp ==> tf/c
+|     46m 15s 		removing existing tf/c
+|     46m 15s 		putting data in place from tf/_temp
