@@ -170,6 +170,33 @@ def runPipeline(pipeline, versions=None, force=False):
         if not thisGood: good = False
     return good
 
+
+def updateFeatures(toDir, toVersion):
+  # the metadata in the feature files in toDir will change:
+  # @version=fromVersion ====> @version=toVersion
+  with os.scandir(toDir) as tfIt:
+    for tfEntry in tfIt:
+      if not tfEntry.is_file():
+        continue
+      featureFile = f'{toDir}/{tfEntry.name}'
+      with open(featureFile) as fh:
+        inLines = fh.readlines()
+      with open(featureFile, 'w') as fh:
+        inMeta = True
+        for line in inLines:
+          if inMeta:
+            if len(line) == 0 or line[0] != '@':
+              inMeta = False
+              fh.write(line)
+              continue
+            if line.startswith('@version='):
+              fh.write(f'@version={toVersion}\n')
+              continue
+            fh.write(line)
+            continue
+          fh.write(line)
+
+
 def copyVersion(pipeline, fromVersion, toVersion):
     caption(1, 'Copy version {} ==> {}'.format(fromVersion, toVersion))
     
@@ -198,8 +225,15 @@ def copyVersion(pipeline, fromVersion, toVersion):
             if os.path.exists(fromDir):
                 caption(0, '\t\tputting data in place from {}/{}'.format(dataDir, fromVersion))
                 copytree(fromDir, toDir)
+                if dataDir =='tf':
+                  caption(
+                      0, '\t\tadapting version in metadata of tf features to {}'.format(toVersion)
+                  )
+                  updateFeatures(toDir, toVersion)
             else:
                 caption(0, '\t\tNo data found in {}/{}'.format(dataDir, fromVersion))
+        caption(2, 'Repo {} done'.format(repo))
+    caption(1, 'Version {} ==> {} copied'.format(fromVersion, toVersion))
 
 def run(cmd):
     p = Popen([cmd], stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True, universal_newlines=True)
