@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # <img align="right" src="images/dans-small.png"/>
@@ -36,7 +36,7 @@ from tf.fabric import Fabric
 if 'SCRIPT' not in locals():
     SCRIPT = False
     FORCE = True
-    VERSION= '2017'
+    VERSION= '4'
 
 def stop(good=False):
     if SCRIPT: sys.exit(0 if good else 1)
@@ -105,18 +105,21 @@ if VERSION in {'4', '4b'}:
     ENTRY = 'g_entry'
     ENTRY_HEB = 'g_entry_heb' 
     PHONO_TRAILER = 'phono_sep'
+    LANGUAGE = 'language'
 else:
     QERE = 'qere_utf8'
     QERE_TRAILER= 'qere_trailer_utf8'
     ENTRY = 'voc_lex'
     ENTRY_HEB = 'voc_lex_utf8'
     PHONO_TRAILER = 'phono_trailer'
+    LANGUAGE = 'languageISO'
+
     
 TF = Fabric(locations=[thisRepo, phonoRepo], modules=[tfDir])
 api = TF.load(f'''
         g_cons g_cons_utf8 g_word g_word_utf8 trailer_utf8
         {QERE} {QERE_TRAILER}
-        languageISO lex g_lex lex_utf8 sp pdp ls
+        {LANGUAGE} lex g_lex lex_utf8 sp pdp ls
         {ENTRY} {ENTRY_HEB}
         vt vs gn nu ps st
         nme pfm prs uvf vbe vbs
@@ -273,7 +276,7 @@ hasLex = 'lex' in set(F.otype.all)
 lexEntries = {}
 
 for w in F.otype.s('word'):
-    lan = F.languageISO.v(w)
+    lan = Fs(LANGUAGE).v(w)
     lex = F.lex.v(w)
     lex_utf8 = F.lex_utf8.v(w)
     if lan in lexEntries and lex in lexEntries[lan]: continue
@@ -401,7 +404,7 @@ def ktv(n):
 def para(n): return paras.get(n, '')
 
 def lang(n):
-    return F.languageISO.v(n)
+    return Fs(LANGUAGE).v(n)
 
 def df(f):
     def g(n): 
@@ -612,7 +615,7 @@ if not SCRIPT:
 # 
 # We also generate a file that can act as the basis of an extra annotation file with lexical information.
 
-# In[12]:
+# In[13]:
 
 
 utils.caption(4, 'Fill the tables ... ')
@@ -640,7 +643,7 @@ Fotypev = F.otype.v
 Ftextv = F.g_word_utf8.v
 Foccv = F.g_cons.v
 Flexv = F.lex.v
-Flanguagev = F.languageISO.v
+Flanguagev = Fs(LANGUAGE).v
 Ftrailerv = F.trailer_utf8.v
 Fnumberv = F.number.v
 
@@ -771,7 +774,7 @@ else:
 
 # # Fill the word info table with data
 
-# In[13]:
+# In[14]:
 
 
 targetTypes = {
@@ -810,7 +813,7 @@ def getObjects(vn):
     return objects
 
 
-# In[14]:
+# In[15]:
 
 
 utils.caption(4, 'Generating word info data ...')
@@ -934,7 +937,7 @@ for n in N():
 utils.caption(0, 'Done')
 
 
-# In[15]:
+# In[16]:
 
 
 # check whether the field sizes are not exceeded
@@ -954,7 +957,7 @@ for f in wordFields:
 
 # # SQL generation
 
-# In[16]:
+# In[17]:
 
 
 limitRow = 2000
@@ -993,8 +996,14 @@ utils.caption(0, 'Done')
 
 # # Deliver
 
-# In[17]:
+# In[18]:
 
 
 utils.gzip(mysqlFile, mysqlZFile)
+
+
+# In[ ]:
+
+
+
 
