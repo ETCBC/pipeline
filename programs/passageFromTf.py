@@ -36,7 +36,7 @@ from tf.fabric import Fabric
 if 'SCRIPT' not in locals():
     SCRIPT = False
     FORCE = True
-    VERSION= '4'
+    VERSION= '4b'
 
 def stop(good=False):
     if SCRIPT: sys.exit(0 if good else 1)
@@ -101,6 +101,7 @@ utils.caption(4, 'Loading relevant features')
 
 if VERSION in {'4', '4b'}:
     QERE = 'g_qere_utf8'
+    NO_QERE = ""
     QERE_TRAILER = 'qtrailer_utf8'
     ENTRY = 'g_entry'
     ENTRY_HEB = 'g_entry_heb' 
@@ -108,6 +109,7 @@ if VERSION in {'4', '4b'}:
     LANGUAGE = 'language'
 else:
     QERE = 'qere_utf8'
+    NO_QERE = None
     QERE_TRAILER= 'qere_trailer_utf8'
     ENTRY = 'voc_lex'
     ENTRY_HEB = 'voc_lex_utf8'
@@ -279,6 +281,7 @@ for w in F.otype.s('word'):
     lan = Fs(LANGUAGE).v(w)
     lex = F.lex.v(w)
     lex_utf8 = F.lex_utf8.v(w)
+    lex_utf8 = lex_utf8.rstrip('[/=]')
     if lan in lexEntries and lex in lexEntries[lan]: continue
 
     lexId = '{}{}'.format(
@@ -352,7 +355,7 @@ masora = '֯'
 utils.caption(0, 'Building qere index')
 for w in F.otype.s('word'):
     q = Fs(QERE).v(w)
-    if q != None:
+    if q != NO_QERE:
         qeres[w] = (masora+q, Fs(QERE_TRAILER).v(w))
 utils.caption(0, 'Found {} qeres'.format(len(qeres)))
 
@@ -615,7 +618,7 @@ if not SCRIPT:
 # 
 # We also generate a file that can act as the basis of an extra annotation file with lexical information.
 
-# In[13]:
+# In[12]:
 
 
 utils.caption(4, 'Fill the tables ... ')
@@ -692,7 +695,7 @@ def doVerse(node):
         curVerseInfo = []
     curVerseNode = node    
 
-for node in N():
+for node in N.walk():
     otype = Fotypev(node)
     if otype == 'word':
         if node in qeres:
@@ -774,7 +777,7 @@ else:
 
 # # Fill the word info table with data
 
-# In[14]:
+# In[13]:
 
 
 targetTypes = {
@@ -813,7 +816,7 @@ def getObjects(vn):
     return objects
 
 
-# In[15]:
+# In[14]:
 
 
 utils.caption(4, 'Generating word info data ...')
@@ -928,7 +931,7 @@ def doVerseInfo(verse):
             row.append(value)
         tables['word'].append('({})'.format(','.join(row)))
 
-for n in N():
+for n in N.walk():
     if F.otype.v(n) == 'book':
         utils.caption(0, '\t{}'.format(F.book.v(n)))
     elif F.otype.v(n) == 'verse':
@@ -937,7 +940,7 @@ for n in N():
 utils.caption(0, 'Done')
 
 
-# In[16]:
+# In[15]:
 
 
 # check whether the field sizes are not exceeded
@@ -957,7 +960,7 @@ for f in wordFields:
 
 # # SQL generation
 
-# In[17]:
+# In[16]:
 
 
 limitRow = 2000
@@ -996,7 +999,7 @@ utils.caption(0, 'Done')
 
 # # Deliver
 
-# In[18]:
+# In[17]:
 
 
 utils.gzip(mysqlFile, mysqlZFile)

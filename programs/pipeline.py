@@ -1,5 +1,5 @@
 import os
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, run
 from shutil import copy, copytree, rmtree
 import nbformat
 from nbconvert import PythonExporter
@@ -276,7 +276,13 @@ def copyVersion(pipeline, fromVersion, toVersion):
 
 def run(cmd):
     p = Popen(
-        [cmd], stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True, universal_newlines=True
+        [cmd],
+        stdin=PIPE,
+        stdout=PIPE,
+        stderr=PIPE,
+        shell=True,
+        bufsize=1,
+        universal_newlines=True,
     )
     for line in p.stdout:
         caption(0, line)
@@ -412,16 +418,23 @@ def importLocalSingle(pipeline, version, kinds={"mql", "mysql"}):
         caption(1, "Import MQL db for version {} locally".format(version))
         dbDir = "{}/{}/_temp/{}/shebanq".format(githubBase, resultRepo, version)
         dbName = "shebanq_etcbc{}".format(version)
+        caption(1, "Drop database {}".format(dbName))
         if not run('mysql -u root -e "drop database if exists {};"'.format(dbName)):
+            caption(1, "Drop database failed for {}".format(dbName), good=False)
             return False
+        caption(1, "Importing MQL {} ...".format(dbName))
         if not run("mql -n -b m -u root -e UTF8 < {}/{}.mql".format(dbDir, dbName)):
+            caption(1, "Import mql failed for {}".format(dbName), good=False)
             return False
+        caption(1, "Imported MQL {}".format(dbName))
 
     if "mysql" in kinds:
-        caption(1, "Import passage db for version {}".format(version))
+        caption(1, "Importing passage db for version {} ...".format(version))
         pdbName = "shebanq_passage{}".format(version)
         if not run("mysql -u root < {}/{}.sql".format(dbDir, pdbName)):
+            caption(1, "Import mysql failed for {}".format(pdbName), good=False)
             return False
+        caption(1, "Imported passage db for version {}".format(version))
 
     return good
 
