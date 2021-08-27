@@ -2,8 +2,10 @@
 
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/ETCBC/pipeline/)](https://archive.softwareheritage.org/browse/origin/https://github.com/ETCBC/pipeline/)
 [![DOI](https://zenodo.org/badge/104837219.svg)](https://doi.org/10.5281/zenodo.1153961)
+
 [![etcbc](programs/images/etcbc.png)](http://www.etcbc.nl)
 [![dans](programs/images/dans.png)](https://dans.knaw.nl/en)
+[![tf](programs/images/tf-small.png)](https://annotation.github.io/text-fabric/tf)
 
 ![pipeline](programs/pictures/pictures.001.png)
 
