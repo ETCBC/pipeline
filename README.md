@@ -1,12 +1,29 @@
 # Pipeline
 
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/ETCBC/pipeline/)](https://archive.softwareheritage.org/browse/origin/https://github.com/ETCBC/pipeline/)
-
 [![DOI](https://zenodo.org/badge/104837219.svg)](https://doi.org/10.5281/zenodo.1153961)
+[![etcbc](programs/images/etcbc.png)](http://www.etcbc.nl)
+[![dans](programs/images/dans.png)](https://dans.knaw.nl/en)
 
 ![pipeline](programs/pictures/pictures.001.png)
 
-# About
+### BHSA Family
+
+* [bhsa](https://github.com/etcbc/bhsa) Core data and feature documentation
+* [phono](https://github.com/etcbc/phono) Phonological representation of Hebrew words
+* [parallels](https://github.com/etcbc/parallels) Links between similar verses
+* [valence](https://github.com/etcbc/valence) Verbal valence for all occurrences
+  of some verbs
+* [trees](https://github.com/etcbc/trees) Tree structures for all sentences
+* [bridging](https://github.com/etcbc/bridging) Open Scriptures morphology
+  ported to the BHSA
+* [pipeline](https://github.com/etcbc/pipeline) Generate the BHSA and SHEBANQ
+  from internal ETCBC data files
+* [shebanq](https://github.com/etcbc/shebanq) Engine of the
+  [shebanq](https://shebanq.ancient-data.org) website
+
+## About
+
 This is the connection between the Amsterdam Hebrew data of the 
 [ETCBC](http://etcbc.nl)
 and the website
@@ -14,20 +31,16 @@ and the website
 of
 [DANS](https://dans.knaw.nl/en/front-page?set_language=en).
 
-# Portable ETCBC data
-This pipeline delivers, among other good things, a file `bhsa_xx.mql.bz2`
+## Portable ETCBC data
+This pipeline delivers, among other good things, a file `shebanq_etcbc2021.mql.bz2`
 which contains all ETCBC data and research additions to it.
 The form is MQL, compressed, and the size is less than 30 MB.
 Where ever you have [Emdros](https://emdros.org) installed,
 you can query this data.
 
-If you take this file from the continuous version,
-[right here](https://GitHub.com/ETCBC/bhsa/tree/master/SHEBANQ/c),
-the data is also state-of-the-art, less than a week old,
-provided the pipeline is executed frequently.
-
-# Two pipes
-This repo contains a pipeline in software by which the ETCBC can update its public data sources.
+## Two pipes
+This repo contains a pipeline in software by which the ETCBC can update
+its public data sources.
 The pipeline has two main pipes:
 * [ETCBC to TF](https://GitHub.com/ETCBC/pipeline/blob/master/programs/tfFromEtcbc.ipynb)
 * [TF to SHEBANQ](https://GitHub.com/ETCBC/pipeline/blob/master/programs/shebanqFromTf.ipynb).
@@ -37,60 +50,57 @@ in a compact, text-based format,
 [text-fabric](https://github.com/annotation/text-fabric),
 which is uniquely suited to frictionless data processing.
 
-Only the first pipe has been fully developed so far,
-the second one only partly.
-
-# Purpose
+## Purpose
 The public data of the ETCBC is live data, in the sense that it is actively
 developed at the ETCBC.
 Mistakes are corrected, new insights are carried through,
 and the fruits of research are added as enrichments.
+This leads to new versions of the data, once in every few years.
+Whenever a new version has to be produced, this pipeline manages all the details,
+and helps to prevent omissions.
 
-**The ETCBC wants to expose its current data to researchers and to the public.**
+## Buffer function
+Between versions, many things can happen to the contents and organization
+of the data features.
+This pipeline is a useful tool to deal with those challenges.
 
-All public incarnations of the ETCBC data at a given point in time should be in sync.
-
-The refresh rate should be at least weekly, preferably more frequent.
-
-# Buffer function
-The ETCBC does not yet produce a data export that satisfies all the requirements posed by users
-further down the line.
-Especially SHEBANQ is fussy about the details of the text-carrying features,
-of which the contents and organization have changed from version `4` to `4b` to `2016`.
-Sometimes features are missing in the export, and have to be reconstructed from other data,
-sometimes values seem to have been mangled somewhere in the creation workflow.
-
-This pipeline is a useful tool to work around those issues
-temporarily and to provide feedback to the ETCBC,
-which will hopefully lead to a more consistent data interface over time.
-
-# Versioning
+## Versioning
 The pipeline produces *versions* of the whole spectrum of interconnected ETCBC data.
-There will be fixed versions (`2017`, `2019`, ...) and a continuous version (`c`).
-Version `c` is the one to receive the weekly updates.
-
-The name of the version is the most important parameter of the pipeline.
+These versions (`2017`, `2021`, ...), once published, will not change anymore
+in essential ways.
+It might be the case that certain aspects of the feature organization will be changed,
+but these changes do not reflect data updates by the ETCBC.
+Think of conversion errors by an earlier run of the pipeline.
+Sometimes we add data redundantly in order to make certain queries easier.
 
 ## Summary of the pipeline
 
 ### [ETCBC to TF](https://GitHub.com/ETCBC/pipeline/blob/master/programs/tfFromEtcbc.ipynb)
-The ETCBC dumps the BHSA data source on a weekly basis, and pushes it
-to the [BHSA](https://GitHub.com/ETCBC/bhsa) repo.
+The ETCBC dumps the data files of a new data version
+in the [BHSA](https://GitHub.com/ETCBC/bhsa) repo,
+in the subfolder `source/`*version*.
+
 The data consists of:
 * a big MQL dump with most of the features,
-* several related data files in other formats, containing the lexicon, ketiv-qere data and paragraph numbers.
+* several related data files in other formats, containing
+  * the lexicon,
+  * ketiv-qere data and
+  * paragraph numbers.
 
 From there this pipeline takes over.
-The BHSA repo contains the notebooks to convert this all to a text-fabric data set, called **core**.
+The BHSA repo contains the notebooks to convert this all to a text-fabric data set,
+called **core**.
 
 But this is not all.
 
 The ETCBC maintains additional GitHub repositories.
 * [valence](https://GitHub.com/ETCBC/valence) (verbal valence),
 * [parallels](https://GitHub.com/ETCBC/parallels) (parallel passages),
-* [phono](https://GitHub.com/ETCBC/parallels) (phonetic transcription).
-These repos contain methods to produce new data from core data and to deliver
-that data as new text-fabric data modules.
+* [phono](https://GitHub.com/ETCBC/parallels) (phonological transcription).
+* [trees](https://GitHub.com/ETCBC/trees) (tree structures).
+* [bridging](https://GitHub.com/ETCBC/trees) (Open Scriptures morphology).
+These repos contain methods to produce new data from core data (and third party data)
+and to deliver that as new text-fabric data modules.
 
 When the pipeline runs, it finds those methods and executes them.
 
@@ -98,13 +108,15 @@ When the pipeline runs, it finds those methods and executes them.
 This part of the pipeline:
 * aggregates all text-fabric data (core plus modules) to one big MQL file,
 * compiles all the text-fabric data into website friendly MYSQL databases,
-* compiles annotation sets from the relevant text-fabric data modules, such as `parallels` and `valence`.
+* compiles annotation sets from the relevant text-fabric data modules,
+  such as `parallels` and `valence`.
   
 ## Post pipeline steps
 
 ### After ETCBC to TF
-All repos involved should commit and push to GitHub, in order for the outside world to see the changes.
-For each `repo` (currently: `bhsa`, `phono`, `parallels`, `valence`)
+All repos involved should commit and push to GitHub,
+in order for the outside world to see the changes.
+For each `repo` (currently: `bhsa`, `phono`, `parallels`, `valence`, `trees`, `bridging`)
 
 ```sh
 cd ~/GitHub/etcbc/repo
@@ -124,27 +136,31 @@ The following steps should be done at the production server:
   the database against which the SHEBANQ queries are executed;
 * the MYSQL databases are imported into the live MYSQL database system,
   which powers the display of SHEBANQ text and data views;
-* the generated annotation sets are imported in the notes database (also a MYSQL database),
-  from where SHEBANQ fetches all manual annotations for display next to the text in notes view.
+* the generated annotation sets are imported in the notes database
+  (also a MYSQL database),
+  from where SHEBANQ fetches all manual annotations for display
+  next to the text in notes view.
   Existing incarnations of these note sets should be deleted first.
 
-# Operation
+## Operation
 The pipeline is coded as a Jupyter notebook, but it can also be run as a script,
 by converting it first to plain Python.
 
 The individual repositories also code their data processing in Jupyter notebooks.
-When the pipeline runs, it find these notebooks, converts them, and runs them in a special mode.
+When the pipeline runs, it find these notebooks, converts them,
+and runs them in a special mode.
 
 The benefit of this approach is, that the data processing per repo can be developed
 interactively in a notebook, without any pipeline concern.
 
-Later, the bits that are needed for the pipeline, can be brought under the scope of the special mode.
+Later, the bits that are needed for the pipeline,
+can be brought under the scope of the special mode.
 
 If the pipeline runs these notebooks, and they produce errors,
 you can go to the faulty notebook, run it interactively,
 diagnose the misbehaviour and fix it.
 
-## Script mode
+### Script mode
 Here is how the pipeline runs a notebook
 * convert the notebook to python with
   [nbconvert](https://nbconvert.readthedocs.io/en/latest/);
@@ -156,8 +172,8 @@ Here is how the pipeline runs a notebook
 We adopt the convention that the pipeline passes a boolean parameter `SCRIPT` with
 value `True` to each notebook that it runs in this way.
 
-Every notebook in the pipeline has to check (first thing) whether the variable `SCRIPT` is among
-the `locals()`.
+Every notebook in the pipeline has to check (first thing)
+whether the variable `SCRIPT` is among the `locals()`.
 
 If not, the script knows that a user in interacting with it.
 In that case, it is handy to set the remaining parameters that are relevant to the
@@ -177,7 +193,8 @@ When run by the pipeline, `'SCRIPT' in locals()` is true,
 and the variable assignments in this cell do not take place.
 Instead, the pipeline injects particular values for these variables.
 
-Effectively, the notebook has turned into a generic function, to which you can pass parameters.
+Effectively, the notebook has turned into a generic function,
+to which you can pass parameters.
 
 So the pipeline can run a notebook several times in a row for different versions,
 without the need to change the notebook in any way.

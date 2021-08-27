@@ -44,6 +44,7 @@ Thumbs.db
 #####################
 _site/
 _themes/
+_local/
 _temp/
 _build/
 __pycache__/

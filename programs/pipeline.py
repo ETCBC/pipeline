@@ -1,5 +1,5 @@
 import os
-from subprocess import Popen, PIPE, run
+from subprocess import Popen, PIPE
 from shutil import copy, copytree, rmtree
 import nbformat
 from nbconvert import PythonExporter
@@ -98,25 +98,31 @@ def runRepo(repo, repoConfig, force=False, **parameters):
     return good
 
 
-def runRepos(repoOrder, repoConfig, force=False, **parameters):
+def runRepos(repoOrder, repoConfig, repos=None, force=False, **parameters):
     good = True
+    doRepos = []
     for repo in repoOrder.strip().split():
+        if repos is not None and repo not in repos:
+            caption(1, f"Skipping {repo} because it is not in the repos parameter")
+            continue
         if repo not in repoConfig:
             caption(0, "ERROR: missing configuration for repo {}".format(repo))
             good = False
         if not checkRepo(repo, repoConfig[repo], **parameters):
             good = False
+        if good:
+            doRepos.append(repo)
     if not good:
         return False
 
-    for repo in repoOrder.strip().split():
+    for repo in doRepos:
         good = runRepo(repo, repoConfig[repo], force=force, **parameters)
         if not good:
             break
     return good
 
 
-def runVersion(pipeline, version=None, force=False):
+def runVersion(pipeline, repos=None, version=None, force=False):
     caption(1, "Make version [{}]".format(version))
 
     good = True
@@ -181,18 +187,18 @@ def runVersion(pipeline, version=None, force=False):
     if not good:
         return False
 
-    good = runRepos(repoOrder, repoConfig, force=force, **paramValues)
+    good = runRepos(repoOrder, repoConfig, repos=repos, force=force, **paramValues)
     caption(1, "[{}]".format(version), good=good)
     return good
 
 
-def runPipeline(pipeline, versions=None, force=False):
+def runPipeline(pipeline, repos=None, versions=None, force=False):
     good = True
     chosenVersions = (
         [] if versions is None else [versions] if type(versions) is str else versions
     )
     for version in chosenVersions:
-        thisGood = runVersion(pipeline, version=version, force=force)
+        thisGood = runVersion(pipeline, repos=repos, version=version, force=force)
         if not thisGood:
             good = False
     return good
