@@ -2,6 +2,7 @@
 
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/ETCBC/pipeline/)](https://archive.softwareheritage.org/browse/origin/https://github.com/ETCBC/pipeline/)
 [![DOI](https://zenodo.org/badge/104837219.svg)](https://doi.org/10.5281/zenodo.1153961)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 [![etcbc](programs/images/etcbc.png)](http://www.etcbc.nl)
 [![dans](programs/images/dans.png)](https://dans.knaw.nl/en)
@@ -23,6 +24,16 @@
   from internal ETCBC data files
 * [shebanq](https://github.com/etcbc/shebanq) Engine of the
   [shebanq](https://shebanq.ancient-data.org) website
+
+### Extended family
+
+* [dss](https://github.com/etcbc/dss) Dead Sea Scrolls
+* [extrabiblical](https://github.com/etcbc/extrabiblical)
+  Extra-biblical writings from ETCBC-encoded texts
+* [peshitta](https://github.com/etcbc/peshitta)
+  Syriac translation of the Hebrew Bible
+* [syrnt](https://github.com/etcbc/syrnt)
+  Syriac translation of the New Testament
 
 ## About
 
@@ -74,6 +85,12 @@ It might be the case that certain aspects of the feature organization will be ch
 but these changes do not reflect data updates by the ETCBC.
 Think of conversion errors by an earlier run of the pipeline.
 Sometimes we add data redundantly in order to make certain queries easier.
+
+## Author
+
+[Dirk Roorda](https://github.com/dirkroorda)
+
+With useful feedback of Cody Kingham and Christiaan Erwich.
 
 ## Summary of the pipeline
 
