@@ -382,7 +382,7 @@ def webPipelineSingle(pipeline, version, force=False, kinds={"mql", "mysql"}):
                 locations.append("{}/{}/tf/{}".format(githubBase, repo, version))
 
             TF = Fabric(locations=locations, modules=[""])
-            TF.exportMQL(dbName, tempShebanqDir)
+            TF.exportMQL(dbName, exportDir=tempShebanqDir)
         else:
             caption(0, "\tAlready up to date")
 
